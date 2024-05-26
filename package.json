@@ -39,5 +39,5 @@
     "eslint-config-next": "14.2.3",
     "webpack-node-externals": "^3.0.0"
   },
-  "proxy": "http://localhost:5000/"
+  "proxy": "http://localhost:5000"
 }

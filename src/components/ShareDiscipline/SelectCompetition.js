@@ -34,4 +34,4 @@ const SelectCompetition = ({ options }) => {
   );
 };
 
-export default SelectCompet
+export default SelectCompetition;
