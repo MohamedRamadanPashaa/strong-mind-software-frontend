@@ -1,0 +1,42 @@
+.results {
+  height: calc(100vh - var(--nav-height-computer));
+  overflow: hidden;
+  width: 100%;
+}
+
+.show-results {
+  height: 100%;
+  background-color: #fff;
+  margin: 0 auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.another-attempt {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.another-attempt button {
+  font-size: 1.5rem;
+}
+
+@media (max-width: 991px) {
+  .results {
+    height: calc(100vh - var(--nav-height-phone));
+  }
+
+  .show-results {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .another-attempt {
+    margin: 10px auto;
+  }
+
+  .another-attempt button {
+    font-size: 1rem;
+  }
+}

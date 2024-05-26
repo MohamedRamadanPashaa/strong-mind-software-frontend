@@ -1,0 +1,74 @@
+.result-sheet {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: 1fr 1fr 1fr;
+  direction: rtl;
+  gap: 10px;
+  width: 95%;
+  margin: 10px auto;
+  height: 580px;
+}
+
+.not-arabic {
+  direction: ltr;
+}
+
+.word {
+  display: grid;
+  grid-template-columns: 15px 1fr 1fr;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  font-weight: bold;
+  font-size: 9px;
+}
+
+.word span:not(:first-child) {
+  background-color: #fff;
+  padding: 4px 5px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  border-bottom: 0.5px solid #ccc;
+}
+
+.word-number {
+  font-size: 8px;
+  color: var(--orange);
+}
+
+.word span.correct {
+  background-color: #00ff00;
+}
+
+.word span.wrong {
+  background-color: #f00;
+}
+
+.word span.focus {
+  background-color: var(--orange);
+}
+
+@media (min-width: 768px) {
+  .result-sheet {
+    grid-template-columns: repeat(3, 25%);
+    justify-content: space-evenly;
+    height: fit-content;
+  }
+
+  .word {
+    gap: 8px;
+    font-size: 14px;
+    grid-template-columns: 35px 1fr 1fr;
+  }
+
+  .word span:not(:first-child) {
+    padding: 4px 10px;
+    height: 26px;
+  }
+
+  .word-number {
+    font-size: 16px;
+  }
+}

@@ -1,0 +1,36 @@
+.arrows {
+  width: 100%;
+
+  gap: 20px;
+  display: none;
+}
+
+.arrows span {
+  font-size: 4rem;
+}
+
+.arrows span svg {
+  color: var(--orange);
+  cursor: pointer;
+}
+
+@media (max-width: 992px) {
+  .arrows {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .arrows span {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .arrows {
+    gap: 8px;
+  }
+  .arrows span {
+    font-size: 3rem;
+  }
+}

@@ -1,0 +1,46 @@
+.count-down {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  align-items: center;
+  font-size: 1.5rem;
+  margin: 10px auto;
+}
+
+.unit {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  border: 1px solid #ccc;
+  width: 120px;
+}
+
+.unit span {
+  padding: 0.5rem 0;
+}
+
+.unit span:first-child {
+  border-bottom: 1px solid #ccc;
+  font-weight: bold;
+  color: var(--orange);
+  font-size: 1.9rem;
+}
+
+@media (max-width: 767px) {
+  .count-down {
+    font-size: 0.9rem;
+    gap: 10px;
+  }
+  .unit {
+    width: 70px;
+    position: relative;
+  }
+
+  .unit span {
+    padding: 0.3rem 0;
+  }
+
+  .unit span:first-child {
+    font-size: 1.3rem;
+  }
+}

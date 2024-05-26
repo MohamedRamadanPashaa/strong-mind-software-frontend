@@ -1,0 +1,54 @@
+.current-set {
+  min-width: 250px;
+  max-width: fit-content;
+  padding: 0.5rem 1.2rem;
+  margin: 10px auto;
+  font-size: 4rem;
+  background-color: #fff;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.numbers-set-lab {
+  background-color: #777;
+  padding: 10px;
+  width: 95%;
+  margin: 10px auto;
+}
+
+.current-set span {
+  display: inline-block;
+  width: 40px;
+  text-align: center;
+}
+
+@media (max-width: 992px) {
+  .current-set {
+    font-size: 1.7rem;
+    margin: 0 auto;
+    padding: 0;
+    gap: 10px;
+  }
+
+  .numbers-set-lab {
+    padding: 5px;
+    margin: 7px auto;
+  }
+
+  .current-set span {
+    width: 15px;
+  }
+}
+
+@media (max-width: 767px) {
+  .current-set {
+    font-size: 2.3rem;
+    padding: 5px 10px;
+    gap: 8px;
+  }
+  .current-set span {
+    width: 22px;
+  }
+}

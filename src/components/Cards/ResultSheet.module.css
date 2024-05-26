@@ -1,0 +1,138 @@
+.result-sheet {
+  margin: 20px auto;
+  width: 90%;
+}
+
+.recalled-cards {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(26, calc(100% / 26));
+  transform: translateX(calc((113.31px - 100% / 26) / -2));
+}
+
+.recalled-cards .card {
+  margin-bottom: 20px;
+  height: 170px;
+}
+
+.right-card {
+  display: flex;
+  height: 5%;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  font-size: 0.9rem;
+  letter-spacing: 0.3px;
+}
+
+.red {
+  color: #ff0000;
+}
+
+.recalled-cards .img {
+  height: 100%;
+}
+
+.recalled-cards .img {
+  height: 95%;
+  margin-top: 10px;
+  background: #eee;
+  border: 1px solid #ccc;
+  border-right: none;
+}
+
+.recalled-cards .card:nth-child(26) .img,
+.recalled-cards .card:nth-child(52) .img {
+  width: 113.31px;
+  border: 1px solid #ccc;
+  border-radius: 0 5px 5px 0;
+}
+
+.recalled-cards .card:nth-child(1) .img,
+.recalled-cards .card:nth-child(27) .img {
+  border-radius: 5px 0 0 5px;
+}
+
+.recalled-cards .img img {
+  height: 100%;
+  border-radius: 5px;
+  padding: 0;
+  border: 2px solid transparent;
+}
+
+.right .img img {
+  border-color: #00ff00;
+}
+
+.wrong .img img {
+  border-color: #f33;
+}
+
+.empty .img img {
+  border: none;
+}
+
+.arranged-deck {
+  display: grid;
+  width: 97.1%;
+  grid-template-columns: repeat(52, calc(100% / 52));
+  transform: translateX(calc((126.48px - 100% / 52) / -2));
+  margin: 15px auto 0;
+}
+
+.arranged-deck .card {
+  height: 180px;
+}
+
+.arranged-deck img {
+  border: none;
+  height: 100%;
+  padding: 0;
+}
+
+@media (max-width: 767px) {
+  .result-sheet {
+    margin: 5px auto;
+  }
+  .recalled-cards {
+    transform: translateX(calc((53.23px - 100% / 26) / -2));
+    width: 95%;
+    margin: 0px auto;
+  }
+
+  .arranged-deck {
+    transform: translateX(calc((49.19px - 100% / 52) / -2));
+    width: 93%;
+    margin: 10px auto 0;
+  }
+
+  .recalled-cards .card {
+    height: 80px;
+    margin-bottom: 20px;
+  }
+
+  .recalled-cards .img {
+    margin-top: 5px;
+  }
+
+  .arranged-deck .card {
+    height: 70px;
+  }
+
+  .recalled-cards .card:nth-child(26) .img,
+  .recalled-cards .card:nth-child(52) .img {
+    width: 53.23px;
+    border: 1px solid #ccc;
+    border-radius: 0 5px 5px 0;
+  }
+
+  .right-card {
+    font-size: 0.45rem;
+  }
+}
+
+.focus .img {
+  border-radius: 5px 0 0 5px;
+  box-shadow: 0px 0px 0px 1px var(--orange);
+  background-color: var(--orange);
+}

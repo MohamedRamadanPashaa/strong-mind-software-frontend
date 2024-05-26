@@ -1,0 +1,67 @@
+.current-set {
+  background-color: #777;
+  width: 95%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  padding: 15px;
+  font-weight: bold;
+  direction: rtl;
+}
+
+.not-arabic {
+  direction: ltr;
+}
+
+.current-set div {
+  font-size: 28px;
+  background-color: #fff;
+  padding: 15px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.not-arabic div {
+  white-space: nowrap;
+}
+
+.current-set div:last-child {
+  width: 700px;
+}
+
+@media (max-width: 991px) {
+  .current-set {
+    padding: 15px;
+  }
+
+  .current-set div {
+    font-size: 22px;
+    padding: 10px;
+  }
+
+  .current-set div:last-child {
+    width: 500px;
+    padding-right: 20px;
+  }
+}
+
+@media (max-width: 767px) {
+  .current-set {
+    padding: 10px 5px;
+    gap: 2px;
+  }
+
+  .current-set div {
+    font-size: 18px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+  }
+
+  .current-set div:last-child {
+    width: 310px;
+  }
+}

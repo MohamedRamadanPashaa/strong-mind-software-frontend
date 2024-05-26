@@ -1,0 +1,51 @@
+.current-set {
+  direction: rtl;
+}
+
+.not-arabic {
+  direction: ltr;
+}
+
+.word {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  font-weight: bold;
+  border: 1px solid #ccc;
+  width: 70%;
+  margin: auto;
+  padding: 10px;
+}
+
+.word:last-child:not(:first-child) {
+  border-top: none;
+}
+
+.word-number {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  font-size: 16px;
+  font-weight: bold;
+  color: var(--orange);
+}
+
+.the-word {
+  background-color: #fff;
+  width: 150px;
+}
+
+@media (min-width: 991px) {
+  .word {
+    font-size: 38px;
+    width: 40%;
+    padding: 10px;
+  }
+
+  .word-number {
+    width: 120px;
+    font-size: 22px;
+  }
+}

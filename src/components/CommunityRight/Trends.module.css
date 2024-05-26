@@ -1,0 +1,35 @@
+.trends {
+  background-color: #fff;
+  padding: 10px 0;
+  border-radius: var(--border-radius);
+}
+
+.subject p {
+  padding: 0 10px 10px;
+  color: black;
+  border-bottom: 1px solid #eee;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  color: #ef3278;
+}
+
+.trends div:first-child div {
+  font-size: 0.85rem;
+  padding-left: 10px;
+}
+
+@media (max-width: 767px) {
+  .trends {
+    padding: 10px 0;
+    border-radius: 0;
+  }
+
+  .subject p {
+    margin: 0;
+  }
+
+  .trends div:first-child div {
+    padding-left: 7px;
+  }
+}

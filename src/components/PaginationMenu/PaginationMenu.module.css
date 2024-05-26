@@ -1,0 +1,40 @@
+.pagination-menu-ul {
+  display: flex;
+  list-style: none;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.pagination-menu-ul li a {
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  transition: 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  border-bottom: 3px solid #ccc;
+}
+
+.pagination-menu-ul li > a.active {
+  border-color: var(--orange);
+  color: var(--orange);
+  background-color: rgba(255, 166, 0, 0.15);
+}
+
+.pagination-menu-ul li > a:hover {
+  color: var(--orange);
+}
+
+@media (max-width: 767px) {
+  .pagination-menu-ul {
+    width: 95%;
+  }
+
+  .pagination-menu-ul li a {
+    font-size: 0.65rem;
+    padding: 0.3rem 0.4rem;
+    border-width: 2px;
+  }
+}

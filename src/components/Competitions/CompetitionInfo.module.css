@@ -1,0 +1,82 @@
+.competition-info h2 {
+  color: var(--orange);
+  text-transform: uppercase;
+  padding: 10px 20px;
+  width: fit-content;
+  margin: 0 auto 15px;
+  font-size: 2rem;
+  border-left: 4px solid var(--orange);
+  border-right: 4px solid var(--orange);
+  border-radius: 30px;
+  background-color: rgba(255, 166, 0, 0.1);
+  text-align: center;
+  position: relative;
+}
+
+.competition-info p {
+  font-size: 1rem;
+  text-transform: capitalize;
+  background-color: #7777771e;
+  border-left: 2px solid var(--orange);
+  border-right: 2px solid var(--orange);
+  padding: 0.3rem 1rem;
+  width: fit-content;
+  max-width: 90%;
+  margin: 0 auto 10px;
+  position: relative;
+}
+
+.competition-info p::before,
+.competition-info p::after {
+  content: "";
+  width: 0;
+  height: 0;
+  border-width: 8px;
+  border-style: solid;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.competition-info p::before {
+  border-color: transparent var(--orange) transparent transparent;
+  left: -18px;
+}
+
+.competition-info p::after {
+  border-color: transparent transparent transparent var(--orange);
+  right: -18px;
+}
+
+.register-btn {
+  margin: 20px auto;
+  width: 100%;
+  text-align: center;
+  position: relative;
+}
+
+.wait-timer {
+  text-align: center;
+  border: 1px solid #ccc;
+  width: fit-content;
+  padding: 0.5rem 1rem;
+  margin: 20px auto;
+  position: relative;
+}
+
+.wait-timer p {
+  font-weight: bold;
+  margin: 0 auto;
+}
+
+@media (max-width: 767px) {
+  .competition-info h2 {
+    font-size: 1rem;
+    padding: 5px 15px;
+  }
+
+  .competition-info p {
+    font-size: 0.7rem;
+    padding: 0.3rem 0.8rem;
+  }
+}

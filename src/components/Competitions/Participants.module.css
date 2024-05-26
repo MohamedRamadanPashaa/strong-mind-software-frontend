@@ -1,0 +1,73 @@
+.participants h3 {
+  color: var(--orange);
+  width: fit-content;
+  margin: 10px auto;
+  text-transform: uppercase;
+  position: relative;
+  font-size: 1rem;
+  padding: 5px 10px;
+  border-left: 3px solid var(--orange);
+  background-color: rgba(255, 166, 0, 0.1);
+}
+
+.participants-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  gap: 10px 5px;
+}
+
+.participants-list div {
+  text-align: center;
+}
+
+.participants-list img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border-color: var(--orange);
+  padding: 3px;
+}
+
+.participants-list h4 {
+  text-align: center;
+  font-weight: bold;
+  color: #222;
+  font-size: 0.5rem;
+  overflow: hidden;
+  width: 80px;
+  margin: 0 auto;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding: 0.2rem 0.3rem;
+  background-color: rgba(255, 166, 0, 0.1);
+  border-top: 2px solid var(--orange);
+  border-bottom: 2px solid var(--orange);
+  border-radius: 15%;
+}
+
+@media (min-width: 768px) {
+  .participants h3 {
+    font-size: 1.5rem;
+    margin: 15px auto;
+    padding: 5px 15px;
+  }
+
+  .participants-list {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    justify-content: center;
+    align-items: center;
+  }
+
+  .participants-list img {
+    width: 120px;
+    height: 120px;
+    border-width: 2px;
+  }
+
+  .participants-list h4 {
+    font-size: 0.75rem;
+    padding: 0.2rem 0.5rem;
+    width: 150px;
+    border-width: 3px;
+  }
+}

@@ -1,0 +1,4 @@
+.view-result {
+  height: calc(100vh - var(--nav-height-computer));
+  overflow: hidden;
+}

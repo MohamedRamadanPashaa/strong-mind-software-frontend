@@ -1,0 +1,34 @@
+.memo-sheet {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translate(calc((104.04px - calc(100% / 52)) / -2));
+  width: 90%;
+  margin: 100px auto 0;
+}
+
+.card {
+  height: 150px;
+  width: calc(100% / 52);
+}
+
+.card img {
+  height: 100%;
+  border: none;
+}
+
+.focus img {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .memo-sheet {
+    transform: translate(calc((82.64px - calc(100% / 52)) / -2));
+    margin-top: 50px;
+    width: 77%;
+  }
+
+  .card {
+    height: 120px;
+  }
+}

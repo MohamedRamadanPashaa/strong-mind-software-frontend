@@ -1,0 +1,101 @@
+.recall-sheet {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.recalled-cards {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(26, calc(100% / 26));
+  transform: translateX(calc((140.54px - calc(100% / 26)) / -2));
+}
+
+.recalled-cards .card {
+  height: 200px;
+  margin-top: 20px;
+  background: #eee;
+  border-left: 1px solid #ccc;
+}
+
+.recalled-cards .card:nth-child(26),
+.recalled-cards .card:nth-child(52) {
+  width: 140.54px;
+  border: 1px solid #ccc;
+  border-radius: 0 5px 5px 0;
+}
+
+.recalled-cards .card:nth-child(1),
+.recalled-cards .card:nth-child(27) {
+  border-radius: 5px 0 0 5px;
+}
+
+.recalled-cards .card:hover {
+  cursor: pointer;
+  box-shadow: 0px 0px 0px 1px var(--orange);
+  border-radius: 5px;
+}
+
+.card img {
+  height: 100%;
+  border: none;
+  padding: 0;
+}
+
+.card.focus {
+  border-radius: 4px 0 0 4px;
+  box-shadow: 0px 0px 0px 1px var(--orange);
+  background-color: var(--orange);
+}
+
+.arranged-deck {
+  display: grid;
+  grid-template-columns: repeat(52, calc(100% / 52));
+  width: 98%;
+  transform: translateX(calc((140.54px - calc(100% / 52)) / -2));
+  margin: 70px auto 0;
+}
+
+.arranged-deck .card {
+  height: 200px;
+  transition: 0.1s ease-in-out;
+  cursor: pointer;
+  z-index: -1;
+}
+
+.arranged-deck .card:hover {
+  transform: translateY(-20px);
+}
+
+@media (max-width: 767px) {
+  .recalled-cards {
+    transform: translateX(calc((45.68px - calc(100% / 26)) / -2));
+  }
+
+  .recalled-cards .card,
+  .arranged-deck .card {
+    height: 65px;
+    margin-top: 10px;
+  }
+
+  .recalled-cards .card:nth-child(26),
+  .recalled-cards .card:nth-child(52) {
+    width: 45.68px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  .card:nth-child(26) .blank-card,
+  .card:nth-child(52) .blank-card {
+    width: 45.68px;
+  }
+
+  .arranged-deck {
+    grid-template-columns: repeat(26, calc(100% / 26));
+    transform: translateX(calc((45.68px - calc(100% / 26)) / -2));
+    margin-top: 30px;
+  }
+
+  .arranged-deck .card:hover {
+    transform: translateY(-7px);
+  }
+}

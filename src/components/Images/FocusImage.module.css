@@ -1,0 +1,38 @@
+.focus-image {
+  width: 95%;
+  margin: 20px auto;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+
+.answer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  font-weight: bold;
+  font-size: 20px;
+  border-right: none;
+  background-color: #f6ca1c71;
+  box-shadow: 0 0 8px 2px #f6ca1cc2 inset;
+}
+
+.img {
+  width: 60%;
+  height: 60%;
+}
+
+.img img {
+  width: 100%;
+  height: 100%;
+  border-color: #eee;
+}
+
+@media (max-width: 767px) {
+  .focus-image {
+    margin: 10px auto;
+    display: flex;
+  }
+}

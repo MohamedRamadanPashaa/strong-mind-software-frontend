@@ -1,0 +1,45 @@
+.form-control {
+  text-align: center;
+}
+
+.preview {
+  width: 8rem;
+  height: 8rem;
+  border: 1px solid #ccc;
+  margin: 10px auto 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+}
+
+.preview div {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.6);
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  font-size: 1.2rem;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.preview div.update {
+  opacity: 1;
+}
+
+.preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}

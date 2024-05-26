@@ -1,0 +1,18 @@
+.left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  height: calc(100vh - var(--nav-height-computer));
+  overflow: auto;
+  padding: 10px 0;
+}
+
+@media (max-width: 991px) {
+  .left {
+    top: 45px;
+    position: relative;
+    height: fit-content;
+    gap: 5px;
+  }
+}

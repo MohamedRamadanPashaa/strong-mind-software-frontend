@@ -1,0 +1,58 @@
+.result {
+  width: 80%;
+  margin: 30px auto;
+  text-align: center;
+}
+
+.result h2 {
+  box-shadow: var(--box-shadow-light-inset);
+  width: fit-content;
+  margin: auto;
+  padding: 5px 20px;
+  border-top: 2px solid var(--black);
+  border-bottom: 2px solid var(--black);
+  border-radius: 15%;
+  text-transform: uppercase;
+  color: var(--black);
+}
+
+.result table {
+  width: 100%;
+  margin: 20px auto;
+  padding: 0;
+}
+
+.result table th {
+  font-size: 2rem;
+  padding: 0.5rem 1rem;
+}
+
+.result table td {
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  font-size: 2rem;
+}
+
+.btn {
+  font-size: 2rem;
+}
+
+@media (max-width: 767px) {
+  .result {
+    width: 90%;
+  }
+
+  .result table th {
+    font-size: 1.2rem;
+    padding: 0.5rem;
+  }
+
+  .result table td {
+    font-size: 1.2rem;
+    padding: 0.5rem;
+  }
+
+  .btn {
+    font-size: 1.5rem;
+  }
+}

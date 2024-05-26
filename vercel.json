@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/v1/:path*",
+      "destination": "https://strong-mind-software-backend-hc57or6cm.vercel.app//api/v1/:path*"
+    }

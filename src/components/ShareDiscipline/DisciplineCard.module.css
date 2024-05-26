@@ -1,0 +1,19 @@
+.discipline-card {
+  background-color: #ddd;
+}
+
+.content {
+  width: 90%;
+  margin: 0 auto;
+  height: calc(100vh - var(--nav-height-computer));
+}
+
+@media (max-width: 991px) {
+  .discipline-card {
+    background-color: #fff;
+  }
+  .content {
+    height: calc(100vh - var(--nav-height-phone));
+    width: 100%;
+  }
+}

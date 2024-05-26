@@ -1,0 +1,21 @@
+.dropdown-menu-enter {
+  transform: translateY(10px);
+  opacity: 0;
+}
+
+.dropdown-menu-enter-active {
+  transform: translateY(0);
+  opacity: 1;
+  transition: all 200ms;
+}
+
+.dropdown-menu-exit {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.dropdown-menu-exit-active {
+  transform: translateY(10px);
+  opacity: 0;
+  transition: all 200ms;
+}

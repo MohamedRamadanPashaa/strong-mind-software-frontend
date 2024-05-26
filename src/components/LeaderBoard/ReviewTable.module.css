@@ -1,0 +1,19 @@
+.review-table {
+  width: 90%;
+  margin: 15px auto;
+}
+
+.review-table table {
+  width: 100%;
+}
+
+@media (max-width: 767px) {
+  .review-table {
+    width: 95%;
+    margin: 10px auto;
+  }
+
+  .review-table table {
+    margin-top: 10px;
+  }
+}

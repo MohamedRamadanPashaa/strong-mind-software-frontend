@@ -1,0 +1,84 @@
+.form_input {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.form_input label {
+  display: inline-block;
+  margin-bottom: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--yellow);
+  transition: 0.2s;
+  padding: 5px 10px;
+  background-color: #fff;
+  position: relative;
+  top: 2px;
+  left: 10px;
+  border-radius: 5px;
+}
+
+.form_input input,
+.form_input textarea {
+  width: 80%;
+  padding: 0.5rem 0.7rem;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  transition: 0.3s;
+  border-radius: 0.3rem;
+  width: 100%;
+}
+
+.form_input input:focus,
+.form_input input:active,
+.form_input textarea:focus,
+.form_input textarea:active {
+  outline: none;
+  box-shadow: 0 0 5px 1px #f6ca1c5b;
+  background-color: #fff;
+}
+
+.form_input input::placeholder,
+.form_input textarea::placeholder {
+  color: rgb(155, 154, 154);
+}
+
+.read-only-input input,
+.read-only-input input:focus,
+.read-only-input input:active,
+.read-only-input textarea,
+.read-only-input textarea:focus,
+.read-only-input textarea:active {
+  background-color: #eee;
+  opacity: 0.4;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.error p {
+  color: #ef5757;
+}
+
+.error p {
+  font-weight: 500;
+  font-size: 0.9rem;
+  text-transform: capitalize;
+  height: 0;
+  text-align: right;
+}
+
+@media (max-width: 767px) {
+  .form_input label {
+    font-size: 0.9rem;
+  }
+
+  .form_input input,
+  .form_input textarea {
+    font-size: 1rem;
+    padding: 0.5rem;
+  }
+
+  .error p {
+    font-size: 0.8rem;
+  }
+}

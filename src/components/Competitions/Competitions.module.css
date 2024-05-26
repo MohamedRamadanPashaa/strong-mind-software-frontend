@@ -1,0 +1,16 @@
+.competition-table {
+  width: 95%;
+  margin: 20px auto;
+  padding: 0;
+  position: relative;
+}
+
+@media (max-width: 767px) {
+  .competition-table {
+    margin: 10px auto;
+  }
+
+  .competition-table td {
+    font-size: 9px;
+  }
+}

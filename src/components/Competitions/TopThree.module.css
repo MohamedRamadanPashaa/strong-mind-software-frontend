@@ -1,0 +1,13 @@
+.top-three {
+  display: flex;
+  overflow: auto;
+  gap: 20px;
+  margin: 20px auto;
+}
+
+@media (max-width: 991px) {
+  .top-three {
+    gap: 10px;
+    margin: 10px auto;
+  }
+}

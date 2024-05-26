@@ -1,0 +1,58 @@
+.userInfo {
+  width: 25%;
+  min-height: calc(100vh - var(--nav-height-computer));
+  background-color: #f6ca1c58;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+@media (min-width: 768px) {
+  .userInfo {
+    position: fixed;
+    left: 0;
+  }
+}
+
+.userInfo ul {
+  list-style: none;
+}
+
+.userInfo ul li {
+  border-bottom: 1px solid #fff;
+}
+
+.userInfo li:first-child {
+  border-top: 1px solid #fff;
+}
+
+@media (max-width: 767px) {
+  .userInfo {
+    width: fit-content;
+    min-height: fit-content;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .userInfo ul {
+    display: flex;
+  }
+
+  .userInfo ul li {
+    width: fit-content;
+  }
+
+  .userInfo li:first-child {
+    border-top: none;
+  }
+
+  .userInfo ul li a {
+    padding: 0.7rem 1rem;
+    font-size: 0.75rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .userInfo ul li:not(:last-child) a {
+    border-right: 2px solid #fff;
+  }
+}

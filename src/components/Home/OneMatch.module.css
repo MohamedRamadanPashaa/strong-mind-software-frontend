@@ -1,0 +1,19 @@
+.one-match {
+  width: 100%;
+}
+
+.one-match p {
+  background-color: var(--orange);
+  width: fit-content;
+  margin: 0 auto;
+  padding: 0.3rem 1rem;
+  color: #000;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.one-match span {
+  display: block;
+  width: 100%;
+  padding: 5px;
+}

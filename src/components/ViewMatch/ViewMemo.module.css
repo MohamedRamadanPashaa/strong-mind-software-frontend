@@ -1,0 +1,33 @@
+.memo-numbers {
+  width: 100%;
+  height: calc(100vh - var(--nav-height-computer) - 116.29px);
+}
+
+.memo-sheet {
+  background-color: #fff;
+  height: 100%;
+  margin: 0 auto;
+  padding-bottom: 20px;
+}
+
+.memo-spoken {
+  font-size: 20rem;
+  margin: 10px auto;
+  width: fit-content;
+  color: #222;
+}
+
+@media (max-width: 992px) {
+  .memo-numbers {
+    height: calc(100vh - var(--nav-height-phone) - 105px);
+  }
+
+  .memo-sheet {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .memo-spoken {
+    font-size: 13rem;
+  }
+}

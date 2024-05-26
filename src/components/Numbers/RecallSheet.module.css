@@ -1,0 +1,79 @@
+.recall-sheet {
+  width: 95%;
+  margin: 20px auto;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.row-num {
+  width: 5%;
+  color: var(--orange);
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.row-inputs {
+  width: 95%;
+  display: flex;
+}
+
+.row-inputs input {
+  border: 0.5px solid #ccc;
+  outline: none;
+  text-align: center;
+  height: 30px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 5px 0;
+}
+
+/* for focus and active element */
+.row-inputs input.focus {
+  background-color: #eee;
+}
+
+.row-inputs input.active {
+  background-color: #b9b9b9;
+}
+
+.row-inputs input:focus {
+  caret-color: transparent;
+  background-color: var(--orange);
+}
+
+@media (max-width: 992px) {
+  .recall-sheet {
+    width: 95%;
+    height: 190px;
+  }
+
+  .row-num {
+    font-size: 1.2rem;
+  }
+
+  .row-inputs input {
+    height: 25px;
+  }
+}
+
+@media (max-width: 767px) {
+  .row-num {
+    height: 15px;
+    font-size: 0.7rem;
+  }
+
+  .row-inputs {
+    width: 100%;
+  }
+
+  .row-inputs input {
+    height: 15px;
+    font-size: 0.6rem;
+    font-weight: 500;
+  }
+}

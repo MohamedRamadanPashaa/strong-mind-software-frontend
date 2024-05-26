@@ -1,0 +1,76 @@
+.form {
+  width: 600px;
+  margin: 15px auto;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: var(--box-shadow-light);
+}
+
+.form h3 {
+  font-size: 1.8rem;
+  background-color: #ef57571c;
+  width: fit-content;
+  margin: 0.5rem auto;
+  padding: 5px 15px;
+  border-bottom: #ef5757 5px solid;
+  text-transform: capitalize;
+  color: #ef5757;
+}
+
+.buttons {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.loginAfterResetBtn {
+  display: block;
+  width: fit-content;
+  margin: 2rem auto;
+}
+
+.forgot {
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+.forgot a {
+  color: royalblue;
+  font-weight: 500;
+}
+
+.success {
+  font-size: 1rem;
+  color: var(--photo);
+  font-weight: 500;
+  text-transform: capitalize;
+  text-align: center;
+  box-shadow: var(--box-shadow-light-inset);
+  padding: 10px;
+  margin-top: 1rem;
+}
+
+@media (max-width: 767px) {
+  .form {
+    width: 90%;
+    box-shadow: var(--box-shadow-light-inset);
+  }
+
+  .form h3 {
+    font-size: 1.2rem;
+    margin-top: 0;
+    padding: 3px 10px;
+    border-width: 3px;
+  }
+
+  .btn {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+  }
+
+  .forgot {
+    font-size: 0.8rem;
+  }
+}

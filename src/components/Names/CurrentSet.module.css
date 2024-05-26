@@ -1,0 +1,34 @@
+.current-set {
+  margin: 10px auto;
+  width: 250px;
+}
+
+.arabic {
+  direction: rtl;
+}
+
+.img {
+  width: 250px;
+  height: 250px;
+}
+
+.img img {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.name {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  text-align: center;
+  gap: 5px;
+  margin-top: 5px;
+}
+
+.name span {
+  background-color: #eee;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 5px;
+}

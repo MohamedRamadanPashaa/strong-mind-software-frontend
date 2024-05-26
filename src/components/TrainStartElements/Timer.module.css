@@ -1,0 +1,11 @@
+.timer span {
+  display: inline-block;
+  width: 40px;
+  text-align: center;
+}
+
+@media (max-width: 991px) {
+  .timer span {
+    width: 30px;
+  }
+}

@@ -1,0 +1,17 @@
+.page-enter {
+  transform: translateY(100vh);
+}
+
+.page-enter-active {
+  transform: translateY(0%);
+  transition: all 500ms ease-in-out;
+}
+
+.page-exit {
+  transform: translateY(0%);
+}
+
+.page-exit-active {
+  transform: translateY(-100vh);
+  transition: all 500ms ease-in-out;
+}

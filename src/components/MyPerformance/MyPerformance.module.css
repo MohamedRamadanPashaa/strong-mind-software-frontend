@@ -1,0 +1,136 @@
+.stats {
+  width: 75%;
+  margin: 0 auto;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+@media (min-width: 768px) {
+  .stats {
+    width: 70%;
+    position: relative;
+    left: 13.5%;
+  }
+}
+
+.top-five {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.chart {
+  width: 100%;
+  height: 450px;
+}
+
+.chart h4 {
+  font-size: 1.5rem;
+  text-align: center;
+  width: fit-content;
+  margin: 0 auto 10px;
+  padding-bottom: 5px;
+  color: #777;
+  border-bottom: 1px solid var(--orange);
+}
+
+.MyPerformance {
+  padding: 0;
+  width: 100%;
+}
+
+.MyPerformance:not(:last-child) {
+  margin-bottom: 3rem;
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.cards div {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem 0;
+  border: #eee 1px solid;
+  width: 170px;
+}
+
+.cards div span:first-child {
+  border-bottom: 1px solid #eee;
+  padding-bottom: 5px;
+}
+
+.cards div span:last-child {
+  color: var(--orange);
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.no-results {
+  text-align: center;
+  border: 1px solid #eee;
+  padding: 1rem;
+  font-size: 1.5rem;
+}
+
+.stats table {
+  margin-top: 10px;
+}
+
+.stats td a {
+  display: inline-block;
+  background-color: #fff;
+  color: var(--orange);
+  font-weight: bold;
+  padding: 0.2rem 0.5rem;
+}
+
+@media (max-width: 767px) {
+  .MyPerformance:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+
+  .stats {
+    width: 95%;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .chart {
+    width: 100%;
+    height: 270px;
+  }
+
+  .chart h4 {
+    font-size: 0.8rem;
+  }
+
+  .cards {
+    gap: 5px;
+    margin-bottom: 10px;
+  }
+
+  .cards div {
+    padding: 0.3rem 0;
+    width: 125px;
+  }
+
+  .cards div span:first-child {
+    font-size: 0.8rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+  }
+
+  .cards div span:last-child {
+    font-size: 1rem;
+  }
+
+  .no-results {
+    font-size: 1.3rem;
+    padding: 0.8rem;
+  }
+}

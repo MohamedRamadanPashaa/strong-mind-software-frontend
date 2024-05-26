@@ -1,0 +1,16 @@
+.section-header {
+  padding: 0;
+  font-size: 1rem;
+  text-align: center;
+  border-top: 2px solid rgba(119, 119, 119, 0.733);
+  border-bottom: 2px solid rgba(119, 119, 119, 0.733);
+  color: var(--black);
+  padding: 5px 10px;
+  border-radius: 10px;
+  box-shadow: var(--box-shadow-light-inset);
+  width: fit-content;
+  max-width: 90%;
+  margin: 0 auto 10px;
+  text-transform: uppercase;
+  background-color: #fff;
+}

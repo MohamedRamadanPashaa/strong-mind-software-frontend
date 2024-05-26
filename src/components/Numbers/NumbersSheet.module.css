@@ -1,0 +1,74 @@
+.numbers-sheet {
+  width: 95%;
+  height: 350px;
+  margin: 20px auto;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.row-num {
+  color: var(--orange);
+  font-weight: 500;
+  font-size: 2rem;
+  width: 5%;
+}
+.row-random-numbers {
+  width: 93%;
+}
+
+.row-random-numbers span {
+  display: inline-block;
+  font-size: 2rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+@media (max-width: 992px) {
+  .numbers-sheet {
+    height: 140px;
+    margin: 10px auto;
+  }
+  .row {
+    gap: 10px;
+    margin-bottom: 0;
+  }
+
+  .row-num {
+    font-size: 0.9rem;
+    font-weight: bold;
+  }
+
+  .row-random-numbers span {
+    font-size: 1.2rem;
+    padding-right: 0.7px;
+  }
+}
+
+@media (max-width: 767px) {
+  .numbers-sheet {
+    width: 95%;
+    height: 180px;
+    margin: 25px auto;
+  }
+
+  .row {
+    margin-bottom: 10px;
+    gap: 5px;
+  }
+
+  .row-num {
+    font-size: 1rem;
+  }
+
+  .row-random-numbers span {
+    font-size: 0.9rem;
+    padding-right: 0.7px;
+  }
+}

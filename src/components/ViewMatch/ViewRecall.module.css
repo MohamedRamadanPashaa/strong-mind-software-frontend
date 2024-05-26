@@ -1,0 +1,10 @@
+.results {
+  width: 100%;
+  height: calc(100vh - var(--nav-height-computer) - 116.29px);
+}
+
+.show-results {
+  background-color: #fff;
+  height: 100%;
+  margin: 0 auto;
+}

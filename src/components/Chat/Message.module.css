@@ -1,0 +1,179 @@
+.message {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  width: 100%;
+  padding: 0 15px;
+}
+
+.photo {
+  width: 100%;
+  max-width: 300px;
+  padding: 5px 0;
+}
+
+.photo img {
+  width: 100%;
+}
+
+.message.friend-message {
+  justify-content: flex-end;
+}
+
+.message-details {
+  padding: 5px 15px;
+  width: fit-content;
+  max-width: 70%;
+  word-wrap: break-word;
+  font-size: 1.1rem;
+  font-weight: 500;
+
+  background: #9796f0; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #fbc7d4,
+    #9796f0
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #fbc7d4,
+    #9796f0
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5px;
+}
+
+.message.friend-message .message-details {
+  background: #70e1f5; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #ffd194,
+    #70e1f5
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #ffd194,
+    #70e1f5
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.message-time-check {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 0;
+  font-size: 0.7rem;
+  color: #242424bf;
+  margin-top: 3px;
+}
+
+.message.friend-message .message-time-check {
+  justify-content: flex-end;
+}
+
+.deleted {
+  font-style: italic;
+  color: #fff;
+  font-weight: 500;
+}
+
+.delete {
+  position: relative;
+}
+
+.delete span {
+  font-size: 0.9rem;
+  color: #777;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.delete span:hover {
+  color: #873822;
+}
+
+.delete-action {
+  position: absolute;
+  background-color: #ccc;
+  display: flex;
+  align-items: center;
+  padding: 7px 12px;
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%);
+  justify-content: space-around;
+  gap: 5px;
+}
+
+.delete-action button {
+  font-size: 0.7rem;
+  padding: 5px 8px;
+}
+
+.delete-btn {
+  color: #f95f45;
+  background: white;
+  border-color: #f95f45;
+}
+
+.delete-btn:hover {
+  background-color: #f95f45;
+  color: #fff;
+}
+
+.new-message span {
+  display: block;
+  text-align: center;
+  margin: 5px auto 10px;
+  width: fit-content;
+}
+
+.display-message {
+  padding: 0 0 10px 18px;
+  color: #777;
+  text-transform: capitalize;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.displayed {
+  color: rgb(92, 92, 240);
+}
+
+.display-message svg {
+  color: rgb(92, 92, 240);
+}
+
+@media (max-width: 767px) {
+  .message {
+    gap: 3px;
+    padding: 0 10px;
+  }
+
+  .message-details {
+    padding: 3px 10px;
+    border-radius: 3px;
+    margin-bottom: 4px;
+  }
+
+  .message-details span:last-child {
+    font-size: 0.6rem;
+    margin-top: 0;
+  }
+
+  .delete-action {
+    left: 20px;
+  }
+
+  .delete {
+    font-size: 0.6rem;
+  }
+
+  .display-message {
+    padding: 0 0 5px 10px;
+  }
+}

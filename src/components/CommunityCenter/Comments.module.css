@@ -1,0 +1,11 @@
+.comments {
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+
+@media (max-width: 767px) {
+  .comments {
+    margin-top: 3px;
+    margin-bottom: 7px;
+  }
+}

@@ -1,0 +1,23 @@
+.myAccount {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin: 0px auto;
+  width: 90%;
+}
+
+@media (max-width: 992px) {
+  .myAccount {
+    width: 90%;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 767px) {
+  .myAccount {
+    width: 95%;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin-top: 10px;
+  }
+}

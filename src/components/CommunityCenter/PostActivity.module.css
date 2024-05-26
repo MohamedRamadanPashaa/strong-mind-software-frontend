@@ -1,0 +1,36 @@
+.activity {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  border-top: 1px solid #eee;
+}
+
+.activity div {
+  width: calc(100% / 3);
+  padding: 15px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  gap: 5px;
+  text-transform: capitalize;
+  cursor: pointer;
+  transition: 0.3s;
+  color: rgb(104, 104, 104);
+}
+
+.activity div:hover {
+  background-color: #eee;
+}
+
+.activity .loved {
+  color: var(--location);
+}
+
+@media (max-width: 767px) {
+  .activity div {
+    padding: 10px 10px;
+    font-size: 0.9rem;
+  }
+}

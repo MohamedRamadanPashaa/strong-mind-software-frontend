@@ -1,0 +1,26 @@
+.nav {
+  display: flex;
+  list-style: none;
+  align-items: center;
+  height: var(--nav-height-computer);
+}
+
+@media (max-width: 991px) {
+  .nav {
+    height: var(--nav-height-phone);
+  }
+}
+
+@media (max-width: 991px) {
+  .nav {
+    flex-direction: column;
+    justify-content: center;
+    background-color: #fff;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 75%;
+    height: 100vh;
+    padding: 0;
+  }
+}

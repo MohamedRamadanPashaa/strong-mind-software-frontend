@@ -1,0 +1,50 @@
+.see-more {
+  color: rgb(74, 74, 74);
+  padding: 5px 10px;
+  transition: all 0.3s;
+  font-size: 1.1rem;
+}
+
+.see-more button {
+  background-color: transparent;
+  border: none;
+  display: inline-block;
+  color: var(--video);
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 1rem;
+}
+
+.expanded button {
+  display: block;
+  margin-top: 5px;
+  font-size: 1rem;
+}
+
+.see-more button:hover {
+  color: #252ab7;
+}
+
+@media (min-width: 992px) {
+  .phone-subject {
+    display: none;
+  }
+}
+
+@media (max-width: 991px) {
+  .computer-subject {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .see-more {
+    padding: 5px 0;
+    font-size: 1.5rem;
+  }
+
+  .see-more button {
+    font-size: 1.4rem;
+  }
+}

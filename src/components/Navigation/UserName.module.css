@@ -1,0 +1,84 @@
+.navNameDiv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  position: relative;
+  height: 100%;
+  background-color: var(--orange);
+  padding: 0 0.8rem;
+  cursor: pointer;
+  margin-left: 20px;
+}
+
+.navNameDiv::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 50px;
+  background-color: #fff;
+  transition: 0.3s;
+}
+
+.photo {
+  position: relative;
+  z-index: 5;
+  height: 40px;
+  width: 40px;
+}
+
+.photo img {
+  border-color: var(--orange);
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.myName {
+  background-color: transparent;
+  padding: 0;
+  color: var(--orange);
+  z-index: 5;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+}
+
+.myName svg {
+  font-size: 1.8rem;
+  margin-left: 0.5rem;
+  color: #222;
+}
+
+.navNameDiv:hover .myName {
+  color: #222;
+}
+
+@media (max-width: 991px) {
+  .navNameDiv {
+    margin-left: 0;
+    height: 60px;
+    width: 200px;
+    border: 1px solid var(--orange);
+    padding: 0;
+  }
+
+  .myName {
+    font-size: 1.2rem;
+  }
+
+  .myName span {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+    width: 105px;
+  }
+
+  .myName svg {
+    font-size: 1.3rem;
+  }
+}

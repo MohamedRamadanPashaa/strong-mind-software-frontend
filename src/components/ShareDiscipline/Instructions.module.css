@@ -1,0 +1,68 @@
+.instructions {
+  width: 90%;
+  padding: 0;
+  background: #eee;
+  position: relative;
+  margin: 0 auto 10px;
+}
+
+@media (max-width: 991px) {
+  .instructions {
+    width: 100%;
+  }
+}
+
+.instructions caption {
+  background: #eee;
+  width: 60%;
+  font-size: 1.5rem;
+  padding: 10px;
+  margin: 0 auto;
+  color: #777;
+  border-width: 1px 1px 0 1px;
+  border-color: #ccc #ccc transparent #ccc;
+  border-style: solid;
+}
+
+.instructions td {
+  padding: 0;
+  font-size: 1rem;
+  padding: 10px;
+  background: #fff;
+  color: #777;
+}
+
+@media (max-width: 992px) {
+  .instructions {
+    margin-bottom: 5px;
+  }
+
+  .instructions caption {
+    font-size: 1.2rem;
+    padding: 5px;
+  }
+  .instructions td {
+    font-size: 0.6rem;
+    padding: 0.3rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .instructions {
+    max-width: 100%;
+  }
+
+  .instructions caption {
+    font-size: 1rem;
+    padding: 5px;
+  }
+
+  .instructions td {
+    font-size: 0.5rem;
+    padding: 5px 2px;
+  }
+
+  .instructions::after {
+    height: 2px;
+  }
+}

@@ -1,0 +1,50 @@
+.competition-reg-opened {
+  position: relative;
+  margin-top: 1.5rem;
+  background-color: #1f202173;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border: 1px solid rgba(238, 238, 238, 0.265);
+  margin: 1.5rem auto 0;
+}
+
+.competition-reg-opened h3 {
+  color: var(--orange);
+  border-bottom: 1px solid var(--orange);
+  width: fit-content;
+  margin: 0 auto 10px;
+  padding: 5px;
+  font-size: 1.5rem;
+}
+
+.competition-reg-opened div {
+  padding-bottom: 5px;
+  font-size: 1.2rem;
+}
+
+.competition-reg-opened div:not(:last-child) {
+  border-bottom: 1px solid #777;
+}
+
+.competition-reg-opened a {
+  color: var(--orange);
+  margin-left: 8px;
+  font-weight: bold;
+}
+
+@media (max-width: 767px) {
+  .competition-reg-opened {
+    width: 100%;
+    padding: 0 0.5rem 0.3rem;
+  }
+
+  .competition-reg-opened h3 {
+    margin-bottom: 0px;
+    font-size: 1.2rem;
+  }
+
+  .competition-reg-opened div {
+    font-size: 0.7rem;
+    padding: 3px 0;
+  }
+}

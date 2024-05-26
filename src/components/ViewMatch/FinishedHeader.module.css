@@ -1,0 +1,43 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+  width: 100%;
+  margin: 0 auto;
+  padding: 10px 20px;
+}
+
+.header h3 {
+  color: var(--orange);
+  font-size: 1.6rem;
+}
+
+.header span {
+  color: var(--photo);
+  font-weight: bold;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 991px) {
+  .header h3 {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .header {
+    padding: 5px 10px;
+  }
+
+  .header h3 {
+    font-size: 0.9rem;
+  }
+
+  .header span {
+    font-size: 0.8rem;
+  }
+}

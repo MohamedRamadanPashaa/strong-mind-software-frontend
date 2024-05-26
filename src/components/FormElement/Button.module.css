@@ -1,0 +1,56 @@
+.btn {
+  border: none;
+  padding: 0.4rem 1rem;
+  cursor: pointer;
+  text-decoration: none;
+  transition: 0.3s;
+  font-weight: bold;
+  border-radius: 0.2rem;
+  font-size: 1rem;
+}
+
+.btn {
+  background-color: var(--gray);
+  color: white;
+}
+
+.btn:hover {
+  background-color: var(--black);
+}
+
+.btnOutline {
+  background-color: transparent;
+  color: var(--video);
+  border: 2px solid var(--video);
+}
+
+.btnOutline:hover {
+  background-color: var(--video);
+  color: #fff;
+}
+
+.danger {
+  background-color: var(--location);
+  color: #fff;
+  border-color: var(--location);
+}
+
+.danger:hover {
+  color: #fff;
+  background-color: #fb284fc5;
+}
+
+.btn:disabled,
+.btn:hover:disabled,
+.btn:active:disabled,
+.btnOutline:disabled,
+.btnOutline:hover:disabled,
+.btnOutline:active:disabled,
+.danger:disabled,
+.danger:hover:disabled,
+.danger:active:disabled {
+  background: #ccc;
+  border-color: #ccc;
+  color: #979797;
+  cursor: not-allowed;
+}

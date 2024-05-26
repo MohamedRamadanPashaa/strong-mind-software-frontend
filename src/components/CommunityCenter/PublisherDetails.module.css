@@ -1,0 +1,29 @@
+.post-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.post-header svg {
+  cursor: pointer;
+  font-size: 1.7rem;
+  color: #777;
+}
+
+@media (max-width: 767px) {
+  .post-header {
+    padding: 10px 10px 0;
+  }
+
+  .post-header.comment {
+    padding: 7px 5px 0;
+  }
+
+  .post-header svg {
+    font-size: 1.1rem;
+  }
+}
+
+.three-dots {
+  position: relative;
+}

@@ -1,0 +1,55 @@
+.memo-sheet {
+  margin: 15px auto;
+  width: 95%;
+  direction: rtl;
+}
+
+.not-arabic {
+  direction: ltr;
+}
+
+.date {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #eee;
+}
+
+.date:not(:last-child) {
+  border-bottom: none;
+}
+
+.date div {
+  padding: 5px 10px;
+  font-size: 22px;
+}
+
+.date div:last-child {
+  width: 600px;
+  border-right: 1px solid #eee;
+}
+
+.not-arabic .date div:last-child {
+  border-left: 1px solid #eee;
+  border-right: none;
+}
+
+.focus {
+  background-color: var(--orange);
+}
+
+.focus div:last-child {
+  border-color: var(--orange);
+}
+
+@media (max-width: 767px) {
+  .memo-sheet {
+    margin: 10px auto;
+    height: 400px;
+  }
+
+  .date div {
+    font-size: 14px;
+    padding: 4px 6px;
+  }
+}

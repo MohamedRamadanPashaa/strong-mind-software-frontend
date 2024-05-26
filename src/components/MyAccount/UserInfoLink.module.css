@@ -1,0 +1,39 @@
+.link {
+  display: inline-block;
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  transition: 0.3s;
+}
+
+.link:hover {
+  padding-left: 2rem;
+}
+
+/* .userInfo ul li a:hover, */
+.link.active {
+  background-color: #777;
+  color: #fff;
+  padding-left: 2rem;
+}
+
+@media (max-width: 767px) {
+  .link {
+    padding: 0.7rem 1rem;
+    font-size: 0.75rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .link.active {
+    padding: 0.7rem 1rem;
+  }
+
+  .link:hover {
+    padding-left: 1rem;
+    background-color: #ccc;
+  }
+}

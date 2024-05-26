@@ -1,0 +1,96 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  box-shadow: var(--box-shadow-light-inset);
+  margin: 0 auto 5px;
+  padding: 10px 20px;
+}
+
+.header h3 {
+  color: var(--orange);
+  font-size: 1.4rem;
+}
+
+.header button {
+  padding: 0.4rem 0.8rem;
+}
+
+.time {
+  display: flex;
+  align-items: center;
+  text-align: end;
+  font-size: 1.2rem;
+  gap: 0.4rem;
+}
+
+.timer {
+  min-width: 60px;
+  max-width: fit-content;
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+
+.timer span {
+  display: inline-block;
+  width: 30px;
+  text-align: center;
+}
+
+@media (max-width: 992px) {
+  .header {
+    padding: 5px 10px;
+  }
+
+  .header h3 {
+    font-size: 1.3rem;
+  }
+
+  .header button {
+    padding: 5px 10px;
+    font-size: 1.1rem;
+  }
+
+  .time {
+    font-size: 1.2rem;
+  }
+
+  .timer {
+    display: flex;
+    align-items: center;
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .header h3 {
+    font-size: 0.9rem;
+  }
+
+  .header h3.view {
+    display: block;
+  }
+
+  .header button {
+    padding: 3px 10px;
+    font-size: 0.7rem;
+    display: flex;
+  }
+
+  .ends-in {
+    display: none;
+  }
+
+  .time {
+    font-size: 0.7rem;
+  }
+
+  .timer {
+    font-size: 0.9rem;
+  }
+
+  .timer span {
+    width: 22px;
+  }
+}

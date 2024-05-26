@@ -1,0 +1,23 @@
+.chat {
+  display: grid;
+  grid-template-columns: 30% 1fr;
+  gap: 10px;
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+@media (max-width: 991px) {
+  .chat {
+    grid-template-columns: 100%;
+    grid-template-rows: auto 1fr;
+    gap: 10px;
+    width: 100%;
+    position: relative;
+    margin: 0 auto;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}

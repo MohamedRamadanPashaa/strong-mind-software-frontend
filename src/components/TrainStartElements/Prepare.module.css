@@ -1,0 +1,58 @@
+.trainStart {
+  width: 90%;
+  margin: 30px auto;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.trainStart h2 {
+  width: fit-content;
+  box-shadow: var(--box-shadow-light-inset);
+  margin: auto;
+  padding: 0.4rem 1rem;
+  border-radius: 15%;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  position: relative;
+  border-top: 4px solid var(--black);
+  border-bottom: 4px solid var(--black);
+  color: var(--black);
+}
+
+.trainStart p {
+  font-size: 1.5rem;
+  text-transform: capitalize;
+  margin: 20px auto;
+  font-weight: 500;
+  box-shadow: var(--box-shadow-light-inset);
+  padding: 1rem;
+}
+
+.button {
+  font-size: 2rem;
+  padding: 0.5rem 1.5rem;
+  width: fit-content;
+}
+
+@media (max-width: 767px) {
+  .trainStart {
+    width: 95%;
+  }
+
+  .trainStart h2 {
+    font-size: 1.3rem;
+    padding: 0.3rem 0.7rem;
+    border-width: 3px;
+  }
+
+  .trainStart p {
+    font-size: 0.8rem;
+    margin: 20px auto;
+    padding: 0.5rem;
+    font-weight: normal;
+  }
+
+  .button {
+    font-size: 1.3rem;
+  }
+}

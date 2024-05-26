@@ -1,0 +1,19 @@
+.summit-result {
+  width: 100%;
+  background-color: #fff;
+  height: calc(100vh - var(--nav-height-computer));
+  text-align: center;
+  padding-top: 100px;
+}
+
+.message {
+  color: #777;
+  margin-top: 10px;
+  text-transform: capitalize;
+}
+
+@media (max-width: 767px) {
+  .summit-result {
+    height: calc(100vh - var(--nav-height-phone));
+  }
+}

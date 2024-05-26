@@ -1,0 +1,10 @@
+.preview {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  font-weight: 500;
+  color: #000;
+  border-radius: 0;
+  min-width: 50px;
+}

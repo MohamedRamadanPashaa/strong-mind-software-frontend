@@ -1,0 +1,143 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  margin: 10px auto;
+  background-color: #fff;
+  padding: 10px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow-light-inset);
+}
+
+.user {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-img {
+  position: relative;
+  width: fit-content;
+  height: fit-content;
+  margin: 0 auto;
+}
+
+.user-img img {
+  border-color: var(--orange);
+  padding: 5px;
+}
+
+.user-img::after {
+  content: "";
+  width: 20px;
+  height: 20px;
+  background-color: #ccc;
+  border: 1px solid #aeaeae;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 12px;
+  right: 0px;
+}
+
+.user-img.online::after {
+  background-color: var(--photo);
+  border-color: var(--photo);
+}
+
+@media (min-width: 768px) {
+  .user-img::after {
+    right: 15px;
+  }
+}
+
+.user-img img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+
+.user-info h3 {
+  margin: 0;
+  color: var(--orange);
+  font-size: 2rem;
+  padding: 0;
+}
+
+.user-info h5 {
+  margin: 0 auto;
+  padding-bottom: 5px;
+  width: fit-content;
+  color: #777;
+  font-size: 0.9rem;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 5px;
+}
+
+@media (max-width: 768px) {
+  .header {
+    margin: 10px auto;
+    padding: 10px;
+    width: 100%;
+    border-radius: 0;
+  }
+
+  .user-info h3 {
+    font-size: 1.2rem;
+  }
+
+  .user-info h5 {
+    font-size: 0.7rem;
+  }
+
+  .header a,
+  .header button {
+    font-size: 1rem;
+    padding: 5px 8px;
+  }
+
+  .user-img img {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+.back {
+  position: absolute;
+  top: 7px;
+  left: 7px;
+  color: #585858;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .back {
+    font-size: 2rem;
+    top: 15px;
+    left: 15px;
+  }
+}
+
+.friend-buttons {
+  position: relative;
+}
+
+.friend-buttons div {
+  position: absolute;
+  z-index: 100;
+  left: 50%;
+  top: 110%;
+  transform: translateX(-50%);
+}
+
+.friend-buttons div button {
+  width: 180px;
+  background-color: #aeaeae;
+}

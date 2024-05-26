@@ -1,0 +1,18 @@
+.blur {
+  position: absolute;
+  width: 22rem;
+  height: 14rem;
+  border-radius: 50%;
+  background-color: #a6ddf0;
+  filter: blur(72px);
+}
+
+.blur-left {
+  top: -18%;
+  right: 0;
+}
+
+.blur-right {
+  top: 36%;
+  left: -8rem;
+}

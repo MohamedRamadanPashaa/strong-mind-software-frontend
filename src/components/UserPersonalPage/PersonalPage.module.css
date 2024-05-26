@@ -1,0 +1,40 @@
+.bg {
+  background: linear-gradient(to right, #ddd, #eee);
+  height: calc(100vh - var(--nav-height-phone));
+  overflow: auto;
+}
+
+.personal-page {
+  overflow: auto;
+  color: var(--black);
+  margin: 0px auto;
+  width: 100%;
+}
+
+.write-post {
+  margin: 10px auto;
+}
+
+.posts {
+  margin: 10px auto;
+  position: relative;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .bg {
+    height: calc(100vh - var(--nav-height-computer));
+  }
+
+  .personal-page {
+    width: 800px;
+  }
+
+  .write-post {
+    margin: 5px auto;
+  }
+
+  .posts {
+    margin: 10px auto;
+  }
+}

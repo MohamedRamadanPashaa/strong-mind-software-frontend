@@ -1,0 +1,83 @@
+.comment {
+  display: flex;
+  flex-direction: column;
+  background-color: #eee;
+  margin-top: 2px;
+  padding: 7px;
+  border-radius: 0;
+}
+
+.comment > div:nth-child(2) {
+  margin-left: 52px;
+  /* padding: 5px; */
+  width: 90%;
+  height: fit-content;
+}
+
+.comment > div:nth-child(2) p {
+  color: #000;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0 0 0 0.3rem;
+  margin: 0;
+}
+
+.photo img {
+  width: 50%;
+  margin-left: 52px;
+  margin-top: 5px;
+}
+
+.activity {
+  margin-left: 52px;
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  margin-top: 5px;
+  gap: 12px;
+}
+
+.action {
+  color: #777;
+  width: 5px;
+}
+
+.activity svg {
+  color: rgb(151, 149, 149);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+svg.like,
+svg.dislike {
+  color: black;
+}
+
+@media (max-width: 767px) {
+  .comment > div:nth-child(2) {
+    margin-left: 40px;
+    width: 80%;
+  }
+
+  .comment {
+    padding: 0;
+    padding-bottom: 7px;
+  }
+
+  .comment > div:nth-child(2) p {
+    font-size: 0.7rem;
+  }
+
+  .photo img {
+    margin-left: 42px;
+  }
+
+  .activity {
+    font-size: 0.8rem;
+    margin-top: 2px;
+    margin-left: 42px;
+  }
+  .activity svg {
+    font-size: 0.8rem;
+  }
+}

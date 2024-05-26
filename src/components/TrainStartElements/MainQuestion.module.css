@@ -1,0 +1,14 @@
+.mainQ {
+  width: 90%;
+  margin: 2rem auto;
+}
+
+@media (max-width: 767px) {
+  .mainQ {
+    width: 100%;
+    border: none;
+    background-color: #fff;
+    margin: 1rem auto;
+    padding: 0;
+  }
+}

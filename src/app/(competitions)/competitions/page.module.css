@@ -1,0 +1,28 @@
+.competitions {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.no-competitions {
+  box-shadow: var(--box-shadow-light-inset);
+  padding: 20px 40px;
+  width: fit-content;
+  margin: auto;
+  font-size: 32px;
+  color: #f45;
+  font-weight: bold;
+  text-align: center;
+}
+
+@media (max-width: 767px) {
+  .competitions {
+    width: 95%;
+  }
+
+  .no-competitions {
+    font-size: 22px;
+    padding: 20px;
+  }
+}

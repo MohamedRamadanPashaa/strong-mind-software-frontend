@@ -1,0 +1,91 @@
+.recall-sheet {
+  width: 95%;
+  margin: 10px auto;
+  direction: rtl;
+}
+
+.not-arabic {
+  direction: ltr;
+}
+
+.date {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  padding: 5px;
+  font-weight: 600;
+  border: 1px solid #eee;
+  cursor: pointer;
+}
+
+.date:not(:last-child) {
+  border-bottom: none;
+}
+
+.date:hover {
+  background-color: #f6f6f6;
+}
+
+.focus {
+  background-color: #eee;
+}
+
+.date div:last-child {
+  width: 300px;
+  font-size: 14px;
+}
+
+.date input {
+  outline: none;
+  border: none;
+  border: 1px solid #ccc;
+  text-align: center;
+  caret-color: transparent;
+}
+
+.active input {
+  box-shadow: 0 0px 4px 2px #77777735 inset;
+  opacity: 0.7;
+  border-color: #77777735;
+}
+
+.focus input {
+  border-color: #f6ca1cc2;
+  box-shadow: 0 0 8px 2px #f6ca1cc2;
+}
+
+.focus input {
+  background-color: #f6ca1c71;
+  box-shadow: 0 0 8px 2px #f6ca1cc2 inset;
+}
+
+@media (min-width: 992px) {
+  .recall-sheet {
+    margin: 30px auto;
+  }
+
+  .date {
+    padding: 10px;
+    gap: 15px;
+  }
+
+  .date div {
+    font-size: 24px;
+  }
+
+  .date div:last-child {
+    width: 600px;
+    padding: 0 50px;
+  }
+
+  .date input {
+    font-size: 24px;
+    width: 130px;
+  }
+}
+
+@media (max-width: 767px) {
+  .recall-sheet {
+    height: 400px;
+  }
+}

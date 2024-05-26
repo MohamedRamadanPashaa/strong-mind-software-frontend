@@ -1,0 +1,55 @@
+.matches {
+  position: relative;
+  margin-top: 1.5rem;
+  background-color: #1f202173;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border: 1px solid rgba(238, 238, 238, 0.265);
+  margin: 1rem auto 0;
+}
+
+.matches h3 {
+  color: var(--orange);
+  border-bottom: 1px solid var(--orange);
+  width: fit-content;
+  margin: 0 auto;
+  padding: 5px;
+  font-size: 1.5rem;
+}
+
+.current-matches div {
+  padding-bottom: 5px;
+  padding-top: 5px;
+  font-size: 1.3rem;
+  margin-bottom: 5px;
+  overflow: auto;
+  text-transform: capitalize;
+  margin-top: 5px;
+}
+
+.current-matches > div:hover {
+  background-color: #cccccc4e;
+  cursor: pointer;
+}
+
+.current-matches {
+  max-height: 250px;
+  overflow-y: scroll;
+}
+
+@media (max-width: 767px) {
+  .matches {
+    padding: 0 0.5rem 0.3rem;
+    width: 100%;
+  }
+
+  .matches h3 {
+    margin-bottom: 0px;
+    font-size: 1.1rem;
+    padding-bottom: 3px;
+  }
+
+  .current-matches div {
+    font-size: 0.8rem;
+  }
+}

@@ -1,0 +1,70 @@
+.memo-recall {
+  width: 100%;
+  height: calc(100vh - var(--nav-height-computer));
+}
+
+.memo-recall-page {
+  background-color: #fff;
+  margin: 0 auto;
+  height: 100%;
+  padding-top: 30px;
+  padding-bottom: 15px;
+  text-align: center;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  background-color: #eee;
+  padding: 1rem 1.5rem;
+  width: 95%;
+  margin: 0 auto 50px;
+  border: 1px solid #ccc;
+}
+
+.header h2,
+.header h3 {
+  font-size: 1.8rem;
+}
+
+.header h2 {
+  color: var(--orange);
+}
+
+.header h3 {
+  color: #222;
+}
+
+.memo-recall-page svg {
+  font-size: 20rem;
+  width: 100%;
+  color: #222;
+}
+
+.finish {
+  margin-top: 30px;
+}
+
+@media (max-width: 991px) {
+  .memo-recall {
+    height: calc(100vh - var(--nav-height-phone));
+  }
+
+  .memo-recall-page {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .header {
+    padding: 0.5rem;
+  }
+
+  .header h3,
+  .header h2 {
+    font-size: 1.1rem;
+  }
+
+  .memo-recall-page svg {
+    font-size: 13rem;
+  }
+}

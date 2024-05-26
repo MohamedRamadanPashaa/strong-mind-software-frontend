@@ -1,0 +1,24 @@
+.memo-recall {
+  width: 100%;
+  height: calc(100vh - var(--nav-height-computer));
+  overflow: hidden;
+}
+
+.memo-recall-page {
+  background-color: #fff;
+  margin: 0 auto;
+  height: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+@media (max-width: 991px) {
+  .memo-recall {
+    height: calc(100vh - var(--nav-height-phone));
+  }
+
+  .memo-recall-page {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+}

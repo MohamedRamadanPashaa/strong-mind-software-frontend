@@ -1,0 +1,27 @@
+.follow {
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.9);
+  width: 100%;
+  border-radius: var(--border-radius);
+  padding: 10px 0;
+}
+
+.no-users {
+  text-align: center;
+  text-transform: capitalize;
+  margin: 0;
+  padding: 0 10px;
+  color: #777;
+  font-weight: 500;
+}
+
+@media (max-width: 991px) {
+  .follow {
+    border-radius: 0;
+    padding: 10px 0 0;
+  }
+
+  .no-users {
+    font-size: 0.8rem;
+  }
+}

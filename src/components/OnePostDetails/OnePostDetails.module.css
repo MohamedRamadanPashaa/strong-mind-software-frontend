@@ -1,0 +1,19 @@
+.bg {
+  background: linear-gradient(to right, #ddd, #eee);
+  height: calc(100vh - var(--nav-height-phone));
+  overflow: auto;
+}
+
+.one-post-details {
+  width: 60%;
+  margin: 20px auto;
+  background-color: #fff;
+  position: relative;
+}
+
+@media (max-width: 991px) {
+  .one-post-details {
+    margin: 0 auto;
+    width: 100%;
+  }
+}
