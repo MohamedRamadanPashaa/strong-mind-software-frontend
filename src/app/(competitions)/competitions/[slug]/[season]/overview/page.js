@@ -1,9 +1,12 @@
 import CompetitionPage from "@/components/Competitions/CompetitionPage";
+import { checkEnvironment } from "@/helpers/checkEnvironment";
 
 const getCompetition = async ({ slug, season }) => {
+  "use server";
+
   try {
     const res = await fetch(
-      `${process.env.MY_WEBSITE}/api/v1/competitions/${slug}/${season}`,
+      `${checkEnvironment()}/api/v1/competitions/${slug}/${season}`,
       {
         cache: "no-store",
       }
