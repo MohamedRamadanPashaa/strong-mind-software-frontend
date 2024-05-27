@@ -61,7 +61,7 @@ export const options = {
                 token: crypto.randomBytes(32).toString("hex"),
               }).save();
 
-              const url = `${checkEnvironment()}/verify-email/user-${user._id}-${token.token}`;
+              const url = `${process.env.FRONTEND_WEBSITE}/verify-email/user-${user._id}-${token.token}`;
 
               sendEmail(
                 user,

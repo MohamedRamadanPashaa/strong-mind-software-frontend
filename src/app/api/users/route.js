@@ -20,7 +20,7 @@ export const POST = async (req) => {
       token: crypto.randomBytes(32).toString("hex"),
     }).save();
 
-    const url = `${checkEnvironment()}/verify-email/user-${newUser._id}-${
+    const url = `${process.env.FRONTEND_WEBSITE}/verify-email/user-${newUser._id}-${
       token.token
     }`;
 
