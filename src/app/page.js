@@ -9,6 +9,7 @@ import { options } from "./api/auth/[...nextauth]/options";
 import classes from "./page.module.css";
 
 const getRegOpenComp = async () => {
+  "use server";
   try {
     const res = await fetch(
       `${checkEnvironment()}/api/v1/competitions/registration-opened-competitions`,
@@ -16,7 +17,7 @@ const getRegOpenComp = async () => {
     );
 
     if (res.ok) {
-      const data = await res.json();
+      const { data } = await res.json();
       return data.competitions;
     }
   } catch (error) {

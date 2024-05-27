@@ -8,11 +8,10 @@ import { options } from "@/app/api/auth/[...nextauth]/options";
 import classes from "./page.module.css";
 
 const getCompetitions = async () => {
+  "use server";
   const res = await fetch(`${checkEnvironment()}/api/v1/competitions`, {
     cache: "no-store",
   });
-
-  console.log(checkEnvironment());
 
   const { data } = await res.json();
 
