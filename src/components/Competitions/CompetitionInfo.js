@@ -8,12 +8,14 @@ import Button from "../FormElement/Button";
 import ContentEnter from "../UIElements/ContentEnter";
 import { useSession } from "next-auth/react";
 import Loading from "../UIElements/Loading";
+import { useRef } from "react";
 
 import classes from "./CompetitionInfo.module.css";
 
 const CompetitionInfo = ({ competition, setCompetition }) => {
   const { data, status } = useSession();
   const user = data?.user;
+  const nodeRef = useRef(null);
 
   const { isLoading, error, sendRequest, clearError } = useHttp();
 
@@ -52,8 +54,9 @@ const CompetitionInfo = ({ competition, setCompetition }) => {
 
         <ContentEnter
           show={new Date(competition.regStarts).getTime() > Date.now()}
+          nodeRef={nodeRef}
         >
-          <div className={classes["wait-timer"]}>
+          <div className={classes["wait-timer"]} ref={nodeRef}>
             <p>Registration will open After</p>
             <CountDown endTime={competition.regStarts} />
           </div>
@@ -66,8 +69,9 @@ const CompetitionInfo = ({ competition, setCompetition }) => {
             user !== null &&
             !competition.participants.find((p) => p._id === user?.id)
           }
+          nodeRef={nodeRef}
         >
-          <div className={classes["wait-timer"]}>
+          <div className={classes["wait-timer"]} ref={nodeRef}>
             <p>Registration will close After</p>
             <CountDown endTime={competition.regEnds} />
 
@@ -80,6 +84,7 @@ const CompetitionInfo = ({ competition, setCompetition }) => {
         </ContentEnter>
 
         <ContentEnter
+          nodeRef={nodeRef}
           show={
             new Date(competition.starts).getTime() > Date.now() &&
             new Date(competition.regStarts).getTime() < Date.now() &&
@@ -87,13 +92,14 @@ const CompetitionInfo = ({ competition, setCompetition }) => {
             competition.participants.find((p) => p._id === user.id) !== null
           }
         >
-          <div className={classes["wait-timer"]}>
+          <div className={classes["wait-timer"]} ref={nodeRef}>
             <p>Competition will start After</p>
             <CountDown endTime={competition.starts} />
           </div>
         </ContentEnter>
 
         <ContentEnter
+          nodeRef={nodeRef}
           show={
             new Date(competition.starts).getTime() < Date.now() &&
             new Date(competition.ends).getTime() > Date.now() &&
@@ -101,7 +107,7 @@ const CompetitionInfo = ({ competition, setCompetition }) => {
             competition.participants.find((p) => p._id === user?.id) !== null
           }
         >
-          <div className={classes["wait-timer"]}>
+          <div className={classes["wait-timer"]} ref={nodeRef}>
             <p>Competition will end After</p>
             <CountDown endTime={competition.ends} />
           </div>

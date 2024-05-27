@@ -1,6 +1,5 @@
 import { CSSTransition } from "react-transition-group";
 import "./ContentEnter.css";
-import { useRef } from "react";
 
 const ContentEnter = ({ show, children, nodeRef }) => {
   return (
