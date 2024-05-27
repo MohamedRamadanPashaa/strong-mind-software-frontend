@@ -1,29 +1,21 @@
-import { withAuth } from "next-auth/middleware";
+export { default } from "next-auth/middleware";
+import { getToken } from "next-auth/jwt";
 import { NextResponse } from "next/server";
 
-export default withAuth(
-  async function middleware(req) {
-    console.log(req.nextUrl.pathname);
-    console.log(req.nextauth.token.role);
-
-    if (
-      req.nextUrl.pathname.includes("/create-competition") &&
-      req.nextauth.token.role !== "admin"
-    ) {
-      return NextResponse.redirect(new URL("/", req.url));
-    }
-
-    // return NextResponse.next();
-  },
-  {
-    callbacks: {
-      authorized: ({ token }) => !!token,
-    },
-    pages: {
-      signIn: "/login",
-    },
+export async function middleware(req) {
+  const token = await getToken({ req });
+  if (!token) {
+    return NextResponse.redirect(new URL("/login", req.url));
   }
-);
+
+  if (
+    token.role !== "admin" &&
+    (req.nextUrl.pathname.includes("/create-competition") ||
+      req.nextUrl.pathname.includes("/update-competition"))
+  ) {
+    return NextResponse.redirect(new URL("/", req.url));
+  }
+}
 
 export const config = {
   matcher: [
@@ -32,5 +24,6 @@ export const config = {
     "/my-account",
     "/my-performance",
     "/competitions/create-competition",
+    "/competitions/update-competition/:path*",
   ],
 };
