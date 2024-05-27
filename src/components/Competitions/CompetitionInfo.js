@@ -6,7 +6,6 @@ import CountDown from "../CountDown/CountDown";
 import ErrorModal from "../ErrorModal/ErrorModal";
 import Button from "../FormElement/Button";
 import ContentEnter from "../UIElements/ContentEnter";
-import { useState } from "react";
 import { useSession } from "next-auth/react";
 import Loading from "../UIElements/Loading";
 
@@ -65,7 +64,7 @@ const CompetitionInfo = ({ competition, setCompetition }) => {
             new Date(competition.regStarts).getTime() < Date.now() &&
             new Date(competition.regEnds).getTime() > Date.now() &&
             user !== null &&
-            !competition.participants.find((p) => p._id === user.id)
+            !competition.participants.find((p) => p._id === user?.id)
           }
         >
           <div className={classes["wait-timer"]}>
@@ -99,7 +98,7 @@ const CompetitionInfo = ({ competition, setCompetition }) => {
             new Date(competition.starts).getTime() < Date.now() &&
             new Date(competition.ends).getTime() > Date.now() &&
             user !== null &&
-            competition.participants.find((p) => p._id === user.id) !== null
+            competition.participants.find((p) => p._id === user?.id) !== null
           }
         >
           <div className={classes["wait-timer"]}>

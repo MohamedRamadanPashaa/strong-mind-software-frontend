@@ -33,7 +33,6 @@ const ViewMatch = ({ disciplineId }) => {
         );
 
         setMatch(data.discipline);
-        console.log(data);
       } catch (error) {
         console.log(error);
       }
