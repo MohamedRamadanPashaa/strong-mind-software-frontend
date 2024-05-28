@@ -12,12 +12,18 @@ const nextConfig = {
   },
 
   images: {
-    domains: ["localhost", "strong-mind-software-backend.onrender.com"],
+    // domains: ["localhost", "strong-mind-software-backend.onrender.com"],
     remotePatterns: [
+      {
+        protocol: "http",
+        hostname: "localhost",
+        port: "5000",
+        pathname: "/**",
+      },
       {
         protocol: "https",
         hostname: "strong-mind-software-backend.onrender.com",
-        pathname: "**",
+        pathname: "/**",
       },
     ],
   },
