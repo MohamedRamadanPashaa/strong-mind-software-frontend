@@ -1,7 +1,6 @@
 import classes from "./CurrentSet.module.css";
 
 const CurrentSet = ({ currentGroup }) => {
-  console.log(currentGroup);
   return (
     <div
       className={`${classes["current-set"]} ${

@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Posts from "../CommunityCenter/Posts";
 import WritePost from "../CommunityCenter/WritePost";
@@ -23,6 +23,7 @@ const PersonalPage = ({ userId }) => {
   const [currentUserLoading, setCurrentUserLoading] = useState(true);
 
   const { error, sendRequest, clearError } = useHttp();
+  const nodeRef = useRef(null);
 
   const getPosts = useCallback(async () => {
     dispatch(setUserPostsLoading(true));
@@ -64,8 +65,9 @@ const PersonalPage = ({ userId }) => {
 
       <ContentEnter
         show={!currentUserLoading && !userPostsLoading && currentUser !== null}
+        nodeRef={nodeRef}
       >
-        <div className={classes.bg}>
+        <div className={classes.bg} ref={nodeRef}>
           <div className={classes["personal-page"]}>
             <Header currentUser={currentUser} />
 

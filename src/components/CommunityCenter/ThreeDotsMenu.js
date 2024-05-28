@@ -5,12 +5,12 @@ import { useSession } from "next-auth/react";
 
 import classes from "./ThreeDotsMenu.module.css";
 
-const ThreeDotsMenu = ({ creator, postId, deletePost }) => {
+const ThreeDotsMenu = ({ creator, postId, deletePost, nodeRef }) => {
   const { data } = useSession();
   const user = data?.user;
 
   return (
-    <div className={classes.menu}>
+    <div className={classes.menu} ref={nodeRef}>
       <ul>
         <li>
           <FaSave /> Save post!
@@ -22,7 +22,7 @@ const ThreeDotsMenu = ({ creator, postId, deletePost }) => {
         )}
         {(creator._id === user.id || user.role === "admin") && (
           <li>
-            <Link href={`/community/update/${postId}`}>
+            <Link href={`/community/posts/update/${postId}`}>
               <FaEdit /> Edit Post!
             </Link>
           </li>

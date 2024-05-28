@@ -29,6 +29,17 @@
   margin-bottom: 20px;
 }
 
+.auto-resizing-textarea {
+  width: 100%;
+  min-height: 50px;
+  resize: none;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: 8px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
 .post-text {
   display: flex;
   justify-content: center;

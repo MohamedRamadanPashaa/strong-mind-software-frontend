@@ -1,9 +1,10 @@
 .chat-box {
-  box-shadow: var(--box-shadow-light);
+  /* box-shadow: var(--box-shadow-light); */
   border-radius: var(--border-radius);
   display: grid;
   grid-template-rows: auto 1fr auto;
   overflow: hidden;
+  background-color: #fff;
 }
 
 @media (min-width: 991px) {

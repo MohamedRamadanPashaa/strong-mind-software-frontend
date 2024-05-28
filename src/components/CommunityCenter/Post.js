@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 import useHttp from "../../hooks/http-hook";
 import { setAllPosts } from "../../store/postSlice";
@@ -11,6 +11,8 @@ import Expire from "../UIElements/Expire";
 import CommentSection from "./CommentSection";
 import SeeMore from "./SeeMore";
 import { useRouter } from "next/navigation";
+import { getImageLink } from "@/helpers/GetImageLink";
+import Image from "next/image";
 
 import classes from "./Post.module.css";
 
@@ -30,6 +32,7 @@ const Post = ({
   const dispatch = useDispatch();
   const { isLoading, error, sendRequest, clearError } = useHttp();
   const router = useRouter();
+  const nodeRef = useRef(null);
 
   const deletePost = async (postId) => {
     try {
@@ -81,11 +84,13 @@ const Post = ({
           createdAt={createdAt}
           userId={creator._id}
           postId={_id}
+          nodeRef={nodeRef}
         >
           <ThreeDotsMenu
             creator={creator}
             postId={_id}
             deletePost={deletePost}
+            nodeRef={nodeRef}
           />
         </PublisherDetails>
 
@@ -95,7 +100,15 @@ const Post = ({
 
         {photo && (
           <div className={classes.photo}>
-            <img src={`/img/postsImages/${photo}`} alt={subject} />
+            <Image
+              width={0}
+              height={0}
+              sizes="100vw"
+              priority
+              src={`${getImageLink()}/postsImages/${photo}`}
+              alt={subject}
+              style={{ width: "100%", height: "auto" }}
+            />
           </div>
         )}
 

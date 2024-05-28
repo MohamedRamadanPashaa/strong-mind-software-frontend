@@ -42,6 +42,7 @@ const ChatBox = ({ markMessageAsRead }) => {
   const [createMessageLoading, setCreateMessageLoading] = useState(false);
   const dispatchRedux = useDispatch();
   const chatContainerRef = useRef(null);
+  const nodeRef = useRef(null);
 
   useEffect(() => {
     if (activeFriend) {
@@ -80,10 +81,11 @@ const ChatBox = ({ markMessageAsRead }) => {
         ...chatMessages,
         {
           text: messageText,
-          photo: messageImage,
+          // photo: messageImage,
           createdAt,
           chat: activeChat._id,
           _id: messageId,
+          // messageToBeCreating: messageId,
           sender: user.id,
           receiver: activeFriend._id,
         },
@@ -281,8 +283,8 @@ const ChatBox = ({ markMessageAsRead }) => {
           </div>
         )}
 
-        <ContentEnter show={activeChat !== null}>
-          <div className={classes.form}>
+        <ContentEnter show={activeChat !== null} nodeRef={nodeRef}>
+          <div className={classes.form} ref={nodeRef}>
             <MessageForm
               message={true}
               createDocHandler={createMessageHandler}

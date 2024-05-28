@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import ViewMore from "../FormElement/ViewMore";
 import ContentEnter from "../UIElements/ContentEnter";
 import Comment from "./Comment";
@@ -12,6 +13,8 @@ const Comments = ({
   isLoading,
   posts,
 }) => {
+  const nodeRef = useRef(null);
+
   return (
     <div className={classes.comments}>
       {comments.map((comment) => (
@@ -25,8 +28,8 @@ const Comments = ({
         />
       ))}
 
-      <ContentEnter show={comments.length < noOfComments}>
-        <ViewMore onClick={setNoOfCommentsToShowHandler}>
+      <ContentEnter show={comments.length < noOfComments} nodeRef={nodeRef}>
+        <ViewMore onClick={setNoOfCommentsToShowHandler} nodeRef={nodeRef}>
           {isLoading ? "Loading..." : "More Comments..."}
         </ViewMore>
       </ContentEnter>

@@ -1,3 +1,5 @@
+"use server";
+
 import { FaHouseCircleCheck } from "react-icons/fa6";
 import { MdCancel } from "react-icons/md";
 import Button from "@/components/FormElement/Button";
@@ -15,9 +17,9 @@ const EmailVerified = async ({ params }) => {
 
   try {
     const res = await fetch(
-      `${checkEnvironment()}/api/users/${userId}/${token}`,
+      `${process.env.FRONTEND_WEBSITE}/api/users/${userId}/${token}`,
       {
-        cache: "no-cache",
+        cache: "no-store",
       }
     );
 

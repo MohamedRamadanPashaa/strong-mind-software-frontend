@@ -5,7 +5,6 @@ import crypto from "crypto";
 import sendEmail from "@/utils/sendEmail";
 import connectDB from "@/utils/connectDB";
 import errorHandler from "@/utils/errorController";
-import { checkEnvironment } from "@/helpers/checkEnvironment";
 
 export const POST = async (req) => {
   try {
@@ -20,9 +19,7 @@ export const POST = async (req) => {
       token: crypto.randomBytes(32).toString("hex"),
     }).save();
 
-    const url = `${process.env.FRONTEND_WEBSITE}/verify-email/user-${newUser._id}-${
-      token.token
-    }`;
+    const url = `${process.env.FRONTEND_WEBSITE}/verify-email/user-${newUser._id}-${token.token}`;
 
     sendEmail(
       newUser,

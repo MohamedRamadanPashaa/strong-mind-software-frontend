@@ -17,12 +17,14 @@ import Button from "../FormElement/Button";
 import Menu from "../UIElements/Menu";
 import { socket } from "../../helpers/socket";
 import { useSession } from "next-auth/react";
-
-import classes from "./Header.module.css";
 import { FaSquareCaretDown } from "react-icons/fa6";
 import { FaArrowAltCircleLeft } from "react-icons/fa";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { getImageLink } from "@/helpers/GetImageLink";
+import Image from "next/image";
+
+import classes from "./Header.module.css";
 
 const Header = ({ currentUser }) => {
   const { data } = useSession();
@@ -144,8 +146,11 @@ const Header = ({ currentUser }) => {
               onlineStatus ? classes.online : undefined
             }`}
           >
-            <img
-              src={`/img/usersImages/${follower.photo}`}
+            <Image
+              width={400}
+              height={400}
+              priority
+              src={`${getImageLink()}/usersImages/${follower.photo}`}
               alt={follower.name}
             />
           </div>

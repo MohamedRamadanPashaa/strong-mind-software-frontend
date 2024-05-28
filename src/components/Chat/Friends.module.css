@@ -1,11 +1,12 @@
 .friends {
-  box-shadow: var(--box-shadow-light-inset);
+  /* box-shadow: var(--box-shadow-light-inset); */
   border-radius: var(--border-radius);
   padding-top: 15px;
   padding-bottom: 15px;
   height: calc(100vh - var(--nav-height-computer) - 20px);
   max-height: calc(100vh - var(--nav-height-computer) - 20px);
   overflow-y: auto;
+  background-color: #fff;
 }
 
 @media (max-width: 991px) {

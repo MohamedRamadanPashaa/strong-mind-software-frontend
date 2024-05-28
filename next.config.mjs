@@ -10,6 +10,10 @@ const nextConfig = {
       },
     ];
   },
+
+  images: {
+    domains: ["localhost", "strong-mind-software-backend.onrender.com"],
+  },
 };
 
 export default nextConfig;

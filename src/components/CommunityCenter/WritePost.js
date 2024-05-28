@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useRef, useState } from "react";
 import EmojiPicker from "@emoji-mart/react";
 
@@ -15,25 +17,31 @@ import { FaFaceSmile, FaRectangleXmark } from "react-icons/fa6";
 import { FaImage } from "react-icons/fa";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
+import { getImageLink } from "@/helpers/GetImageLink";
 
 import classes from "./WritePost.module.css";
+import Loading from "../UIElements/Loading";
 
 const initialStyle = {
-  height: "0px",
+  height: "auto",
   resize: "none",
 };
 
 const WritePost = ({ style = initialStyle, post, postId }) => {
   const textareaRef = useRef(null);
+  const nodeRef = useRef(null);
   const imageRef = useRef();
-  const [text, setText] = useState(post ? post.subject : "");
+  const [text, setText] = useState(post?.subject || "");
   const [postImage, setPostImage] = useState(null);
   const [showEmoji, setShowEmoji] = useState(false);
   const [createMode, setCreateMode] = useState(true);
   const [currentEmoji, setCurrentEmoji] = useState(null);
-  const { data } = useSession();
+  const { data, status } = useSession();
   const user = data?.user;
   const pathname = usePathname();
+  const [imgSrc, setImgSrc] = useState(
+    post?.photo ? `${getImageLink()}/postsImages/${post?.photo}` : ""
+  );
 
   const dispatch = useDispatch();
   const router = useRouter();
@@ -48,28 +56,17 @@ const WritePost = ({ style = initialStyle, post, postId }) => {
     }
   }, [post, postId, createMode]);
 
-  // get the image and convert it to file
-  useEffect(() => {
-    if (postId && post && post.photo && !createMode) {
-      const url = `/img/postsImages/${post.photo}`;
-      const fileName = post.photo;
-
-      fetch(url).then(async (response) => {
-        const contentType = response.headers.get("content-type");
-        const blob = await response.blob();
-        const file = new File([blob], fileName, { contentType });
-        // access file here
-        setPostImage(file);
-      });
-    }
-  }, [post, postId, createMode]);
-
   const onImageChange = (e) => {
-    if (e.target.files || e.target.files[0]) setPostImage(e.target.files[0]);
+    if (e.target.files || e.target.files[0]) {
+      setPostImage(e.target.files[0]);
+      setImgSrc(URL.createObjectURL(e.target.files[0]));
+    }
   };
 
   // auto height when there are a lot of text
   useEffect(() => {
+    if (!textareaRef.current) return;
+
     textareaRef.current.style.height = "0px";
     const scrollHeight = textareaRef.current.scrollHeight;
     textareaRef.current.style.height = scrollHeight + "px";
@@ -121,7 +118,10 @@ const WritePost = ({ style = initialStyle, post, postId }) => {
       setCreatePostLoading(true);
       const formData = new FormData();
       formData.append("subject", text);
-      formData.append("photo", postImage);
+      formData.append(
+        "photo",
+        postImage ? postImage : imgSrc ? post.photo : ""
+      );
 
       const { data } = await sendRequest(api, method, formData);
 
@@ -134,12 +134,15 @@ const WritePost = ({ style = initialStyle, post, postId }) => {
 
       setPostImage(null);
       setText("");
+      setImgSrc("");
       if (!createMode) router.push(`/community/posts/${postId}`);
     } catch (error) {
       console.log(error);
     }
     setCreatePostLoading(false);
   };
+
+  if (status === "loading") return <Loading center />;
 
   return (
     <>
@@ -151,7 +154,7 @@ const WritePost = ({ style = initialStyle, post, postId }) => {
         <div className={classes["post-text"]}>
           <div>
             <Image
-              src={`/img/usersImages/${user.photo}`}
+              src={`${getImageLink()}/usersImages/${user.photo}`}
               alt={user.name}
               width={250}
               height={250}
@@ -172,8 +175,8 @@ const WritePost = ({ style = initialStyle, post, postId }) => {
         <div className={classes.emoji}>
           <FaFaceSmile onClick={() => setShowEmoji((prev) => !prev)} />
 
-          <ContentEnter show={showEmoji}>
-            <div className={classes["emoji-picker"]}>
+          <ContentEnter show={showEmoji} nodeRef={nodeRef}>
+            <div className={classes["emoji-picker"]} ref={nodeRef}>
               <EmojiPicker
                 data={data}
                 previewPosition="none"
@@ -183,17 +186,24 @@ const WritePost = ({ style = initialStyle, post, postId }) => {
           </ContentEnter>
         </div>
 
-        {postImage && (
+        {imgSrc && (
           <div className={classes["img-preview"]}>
-            <span title="delete photo" onClick={() => setPostImage(null)}>
+            <span
+              title="delete photo"
+              onClick={() => {
+                setPostImage(null);
+                setImgSrc("");
+              }}
+            >
               <FaRectangleXmark />
             </span>
             <Image
               width={100}
               height={100}
               style={{ objectFit: "cover" }}
-              src={URL.createObjectURL(postImage)}
-              alt="post"
+              src={imgSrc}
+              alt="post image"
+              priority
             />
           </div>
         )}

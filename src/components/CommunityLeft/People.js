@@ -20,6 +20,7 @@ import Link from "next/link";
 
 import classes from "./People.module.css";
 import Image from "next/image";
+import { getImageLink } from "@/helpers/GetImageLink";
 
 const People = ({ friend, chat, onlineStatus, unreadCount }) => {
   const dispatch = useDispatch();
@@ -113,7 +114,7 @@ const People = ({ friend, chat, onlineStatus, unreadCount }) => {
             } ${onlineStatus && chat ? classes.online : undefined}`}
           >
             <Image
-              src={`/img/usersImages/${friend.photo}`}
+              src={`${getImageLink()}/usersImages/${friend.photo}`}
               alt={friend.name}
               width={150}
               height={150}

@@ -5,6 +5,7 @@ import { useSession } from "next-auth/react";
 
 import classes from "./Friend.module.css";
 import Image from "next/image";
+import { getImageLink } from "@/helpers/GetImageLink";
 
 const Friend = ({ chat, onlineStatus, getChatMessages, markMessageAsRead }) => {
   const { data } = useSession();
@@ -43,7 +44,7 @@ const Friend = ({ chat, onlineStatus, getChatMessages, markMessageAsRead }) => {
             width={250}
             height={250}
             style={{ objectFit: "cover" }}
-            src={`/img/usersImages/${friend.photo}`}
+            src={`${getImageLink()}/usersImages/${friend.photo}`}
             alt={friend.name}
           />
         </div>

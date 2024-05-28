@@ -3,13 +3,16 @@ import { FaArrowUpFromBracket } from "react-icons/fa6";
 import Image from "next/image";
 
 import classes from "./ImageUpload.module.css";
+import { getImageLink } from "@/helpers/GetImageLink";
 
 const ImageUpload = ({ id, errorText, onInput, photo }) => {
   const filePickerRef = useRef();
   const [file, setFile] = useState();
   const [isValid, setIsValid] = useState(false);
   const [isUpdatePhotoHover, setIsUpdatePhotoHover] = useState(false);
-  const [previewUrl, setPreviewUrl] = useState(`/img/usersImages/${photo}`);
+  const [previewUrl, setPreviewUrl] = useState(
+    `${getImageLink()}/usersImages/${photo}`
+  );
 
   useEffect(() => {
     if (!file) {

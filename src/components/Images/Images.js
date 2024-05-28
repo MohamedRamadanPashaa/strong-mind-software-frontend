@@ -49,7 +49,6 @@ const Images = ({
   const generateRandomImages = async () => {
     const pngAmount = Math.floor((pngImg / (pngImg + jpgImg)) * amount);
     const jpgAmount = Math.ceil((jpgImg / (pngImg + jpgImg)) * amount);
-    console.log(pngAmount, jpgAmount, pngAmount + jpgAmount);
 
     const pngArr = generateRandomArr(pngAmount, "png", pngImg);
     const jpgArr = generateRandomArr(jpgAmount, "jpg", jpgImg);

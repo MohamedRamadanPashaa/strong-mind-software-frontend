@@ -5,6 +5,7 @@ import PublisherDetailsNamePhoto from "./PublisherDetailsNamePhoto";
 
 import classes from "./PublisherDetails.module.css";
 import { FaEllipsis } from "react-icons/fa6";
+import { getImageLink } from "@/helpers/GetImageLink";
 
 const PublisherDetails = ({
   img,
@@ -13,6 +14,7 @@ const PublisherDetails = ({
   comment,
   userId,
   postId,
+  nodeRef,
   children,
 }) => {
   const [showThreeDotsMenu, setShowThreeDotsMenu] = useState(false);
@@ -48,17 +50,19 @@ const PublisherDetails = ({
       }`}
     >
       <PublisherDetailsNamePhoto
-        img={`/img/usersImages/${img}`}
+        img={`${getImageLink()}/usersImages/${img}`}
         name={name}
         createdAt={createdAt}
         comment={comment}
         userId={userId}
         postId={postId}
       />
-      <div className={classes["three-dots"]} ref={menuRef}>
+      <div className={classes["three-dots"]}>
         <FaEllipsis onClick={toggleThreeDotsMenuHandler} />
 
-        <Menu show={showThreeDotsMenu}>{children}</Menu>
+        <Menu nodeRef={nodeRef} show={showThreeDotsMenu}>
+          {children}
+        </Menu>
       </div>
     </div>
   );

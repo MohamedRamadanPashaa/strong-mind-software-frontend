@@ -10,6 +10,7 @@ import Loading from "../UIElements/Loading";
 import { FaArrowUpRightFromSquare } from "react-icons/fa6";
 
 import classes from "./Ranking.module.css";
+import { getImageLink } from "@/helpers/GetImageLink";
 
 const rowInPage = 5;
 
@@ -255,7 +256,7 @@ const RankingTable = ({ disciplines, title, competition }) => {
                   <td className={classes.name}>
                     <div className={classes.img}>
                       <Image
-                        src={`/img/usersImages/${photo}`}
+                        src={`${getImageLink()}/usersImages/${photo}`}
                         alt={name}
                         width={100}
                         height={100}

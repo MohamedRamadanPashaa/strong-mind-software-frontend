@@ -1,4 +1,5 @@
 import Image from "next/image";
+
 import classes from "./ResultSheet.module.css";
 
 const ResultSheet = ({
@@ -54,8 +55,9 @@ const ResultSheet = ({
                       <Image
                         src={`/img/IAM_Images_Database/${img.src}`}
                         alt={`${img.src}`}
-                        width={300}
-                        height={300}
+                        width={200}
+                        height={200}
+                        priority
                       />
                     </div>
                   </div>

@@ -20,14 +20,10 @@
   text-align: center;
   margin-top: 0.3rem;
   margin-bottom: 0.5rem;
-  height: fit-content;
-  /* max-height: 500px; */
-  width: 100%;
   overflow: hidden;
 }
 
 .photo img {
-  width: 100%;
   padding: 0;
   border: none;
   object-fit: contain;
@@ -43,10 +39,6 @@
   .post {
     padding: 0;
   }
-
-  /* .photo {
-    max-height: 300px;
-  } */
 
   .photo img {
     border-radius: 0;

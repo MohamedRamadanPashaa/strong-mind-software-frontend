@@ -7,7 +7,7 @@ import { useSession } from "next-auth/react";
 
 import classes from "./ThreeDotsMenu.module.css";
 
-const ThreeDotsMenu = ({ comment, comments, setComments }) => {
+const ThreeDotsMenu = ({ comment, comments, setComments, nodeRef }) => {
   const { data: auth } = useSession();
 
   const { posts } = useSelector((state) => state.post);
@@ -36,7 +36,11 @@ const ThreeDotsMenu = ({ comment, comments, setComments }) => {
     <>
       <ErrorModal error={error} onCancel={clearError} />
 
-      <div className={classes.menu} style={{ backgroundColor: "#fff" }}>
+      <div
+        className={classes.menu}
+        style={{ backgroundColor: "#fff" }}
+        ref={nodeRef}
+      >
         {!isLoading ? (
           <ul>
             {(auth.user.id === user._id || auth.user.role === "admin") && (

@@ -9,6 +9,8 @@ import { setChatMessages, setDeletedMsgToSocket } from "../../store/chatSlice";
 import { useSession } from "next-auth/react";
 import { FaCheck, FaCheckDouble, FaClock } from "react-icons/fa";
 import { FaTrashCan } from "react-icons/fa6";
+import { getImageLink } from "@/helpers/GetImageLink";
+import Image from "next/image";
 
 import classes from "./Message.module.css";
 
@@ -30,6 +32,7 @@ const Message = ({
   const { isLoading, error, sendRequest, clearError } = useHttp();
   const dispatchRedux = useDispatch();
   const btnRef = useRef(null);
+  const nodeRef = useRef(null);
 
   useEffect(() => {
     const handleDocumentClick = (event) => {
@@ -149,8 +152,12 @@ const Message = ({
 
             {!message.deletedMessage && message.photo && (
               <span className={classes.photo}>
-                <img
-                  src={`/img/messagesImages/${message.photo}`}
+                <Image
+                  width={0}
+                  height={0}
+                  style={{ width: "100%", height: "auto" }}
+                  sizes="100vh"
+                  src={`${getImageLink()}/messagesImages/${message.photo}`}
                   alt={message.text}
                 />
               </span>
@@ -190,8 +197,8 @@ const Message = ({
                 </span>
               )}
 
-              <ContentEnter show={showDeleteBtn}>
-                <div className={classes["delete-action"]}>
+              <ContentEnter show={showDeleteBtn} nodeRef={nodeRef}>
+                <div className={classes["delete-action"]} ref={nodeRef}>
                   <Button
                     disabled={isLoading}
                     onClick={deleteMessageHandler}

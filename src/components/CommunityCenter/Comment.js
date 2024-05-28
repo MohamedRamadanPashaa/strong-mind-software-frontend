@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 
 import PublisherDetails from "./PublisherDetails";
@@ -8,8 +8,10 @@ import useHttp from "../../hooks/http-hook";
 import ErrorModal from "../ErrorModal/ErrorModal";
 import { replacePost } from "../../store/postSlice";
 import { useSession } from "next-auth/react";
+import { getImageLink } from "@/helpers/GetImageLink";
 
 import classes from "./Comment.module.css";
+import Image from "next/image";
 
 const Comment = ({ comment, setComments, comments, posts }) => {
   const { data: auth } = useSession();
@@ -24,6 +26,7 @@ const Comment = ({ comment, setComments, comments, posts }) => {
   const [likesCount, setLikesCount] = useState(likes.length);
   const [dislikesCount, setDislikesCount] = useState(dislikes.length);
   const { error, sendRequest, clearError } = useHttp();
+  const nodeRef = useRef();
 
   useEffect(() => {
     setLikesCount(likes.length);
@@ -112,11 +115,13 @@ const Comment = ({ comment, setComments, comments, posts }) => {
           name={user.name}
           createdAt={createdAt}
           comment
+          nodeRef={nodeRef}
         >
           <ThreeDotsMenuComment
             comment={comment}
             comments={comments}
             setComments={setComments}
+            nodeRef={nodeRef}
           />
         </PublisherDetails>
 
@@ -126,7 +131,13 @@ const Comment = ({ comment, setComments, comments, posts }) => {
 
         {photo && (
           <div className={classes.photo}>
-            <img src={`/img/commentsImages/${photo}`} alt={text} />
+            <Image
+              width={200}
+              height={200}
+              src={`${getImageLink()}/commentsImages/${photo}`}
+              alt={text}
+              priority
+            />
           </div>
         )}
 

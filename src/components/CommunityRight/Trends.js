@@ -1,3 +1,4 @@
+import { getImageLink } from "@/helpers/GetImageLink";
 import PostActivityDetails from "../CommunityCenter/PostActivityDetails";
 import PublisherDetailsNamePhoto from "../CommunityCenter/PublisherDetailsNamePhoto";
 import ViewMore from "../FormElement/ViewMore";
@@ -8,7 +9,7 @@ const Trends = ({ post }) => {
   return (
     <div className={classes.trends}>
       <PublisherDetailsNamePhoto
-        img={`/img/usersImages/${post.creator.photo}`}
+        img={`${getImageLink()}/usersImages/${post.creator.photo}`}
         name={post.creator.name}
         createdAt={post.createdAt}
         userId={post.creator._id}

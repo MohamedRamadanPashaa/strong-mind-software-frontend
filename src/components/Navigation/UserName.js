@@ -6,6 +6,7 @@ import { FaCaretSquareDown } from "react-icons/fa";
 import Dropdown from "./Dropdown";
 
 import classes from "./UserName.module.css";
+import { getImageLink } from "@/helpers/GetImageLink";
 
 export default function UserName({ showNavSmall, onCloseNavSmall, user }) {
   const [showDropdown, setShowDropdown] = useState(false);
@@ -40,7 +41,7 @@ export default function UserName({ showNavSmall, onCloseNavSmall, user }) {
       >
         <div className={classes.photo}>
           <Image
-            src={`/img/usersImages/${user.photo}`}
+            src={`${getImageLink()}/usersImages/${user.photo}`}
             alt={user.name}
             width={100}
             height={100}

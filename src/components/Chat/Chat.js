@@ -174,14 +174,16 @@ const Chat = () => {
   if (status === "loading") return <Loading center />;
 
   return (
-    <div className={classes.chat}>
-      <ErrorModal error={error} onCancel={clearError} />
-      <Friends
-        getChatMessages={getChatMessages}
-        markMessageAsRead={markMessageAsRead}
-      />
+    <div className="bg">
+      <div className={classes.chat}>
+        <ErrorModal error={error} onCancel={clearError} />
+        <Friends
+          getChatMessages={getChatMessages}
+          markMessageAsRead={markMessageAsRead}
+        />
 
-      <ChatBox markMessageAsRead={markMessageAsRead} />
+        <ChatBox markMessageAsRead={markMessageAsRead} />
+      </div>
     </div>
   );
 };

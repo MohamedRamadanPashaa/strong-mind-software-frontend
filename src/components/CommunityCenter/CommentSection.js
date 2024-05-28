@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 import Comments from "./Comments";
 import PostActivity from "./PostActivity";
@@ -25,6 +25,7 @@ const CommentSection = ({
   const [showComments, setShowComments] = useState(false);
   const [createCommentLoading, setCreateCommentLoading] = useState(false);
   const dispatch = useDispatch();
+  const nodeRef = useRef();
 
   useEffect(() => {
     setNoOfComments(numberOfComments);
@@ -110,13 +111,15 @@ const CommentSection = ({
         posts={posts}
       />
 
-      <ContentEnter show={showComments}>
-        <CommentForm
-          postId={postId}
-          isLoading={isLoading && createCommentLoading}
-          createDocHandler={createCommentHandler}
-          placeholder="Comment..."
-        />
+      <ContentEnter show={showComments} nodeRef={nodeRef}>
+        <div ref={nodeRef}>
+          <CommentForm
+            postId={postId}
+            isLoading={isLoading && createCommentLoading}
+            createDocHandler={createCommentHandler}
+            placeholder="Comment..."
+          />
+        </div>
       </ContentEnter>
 
       {showComments &&
@@ -128,19 +131,27 @@ const CommentSection = ({
           </div>
         )}
 
-      <ContentEnter show={comments.length > 0 && showComments}>
-        <Comments
-          comments={comments}
-          setComments={setComments}
-          noOfComments={numberOfComments}
-          setNoOfCommentsToShowHandler={setNoOfCommentsToShowHandler}
-          isLoading={isLoading && !createCommentLoading}
-          posts={posts}
-        />
+      <ContentEnter
+        nodeRef={nodeRef}
+        show={comments.length > 0 && showComments}
+      >
+        <div ref={nodeRef}>
+          <Comments
+            comments={comments}
+            setComments={setComments}
+            noOfComments={numberOfComments}
+            setNoOfCommentsToShowHandler={setNoOfCommentsToShowHandler}
+            isLoading={isLoading && !createCommentLoading}
+            posts={posts}
+          />
+        </div>
       </ContentEnter>
 
-      <ContentEnter show={numberOfComments === 0 && showComments && !isLoading}>
-        <div>
+      <ContentEnter
+        show={numberOfComments === 0 && showComments && !isLoading}
+        nodeRef={nodeRef}
+      >
+        <div ref={nodeRef}>
           <p className="no-comment">No Comments On This Post.</p>
         </div>
       </ContentEnter>

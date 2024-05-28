@@ -205,3 +205,15 @@ input[type="number"] {
     margin: 5px auto;
   }
 }
+
+.bg {
+  background: linear-gradient(to right, #ddd, #eee);
+  width: 100vw;
+  height: calc(100vh - var(--nav-height-computer));
+}
+
+@media (max-width: 991px) {
+  .bg {
+    height: calc(100vh - var(--nav-height-phone));
+  }
+}

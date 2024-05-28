@@ -2,7 +2,7 @@ import { CSSTransition } from "react-transition-group";
 
 import "./Menu.css";
 
-const Menu = ({ show, children }) => {
+const Menu = ({ show, children, nodeRef }) => {
   return (
     <CSSTransition
       in={show}
@@ -10,8 +10,9 @@ const Menu = ({ show, children }) => {
       unmountOnExit
       timeout={200}
       classNames="dropdown-menu"
+      nodeRef={nodeRef}
     >
-      {children}
+      <div>{children}</div>
     </CSSTransition>
   );
 };

@@ -6,9 +6,9 @@ import { setChats } from "../../store/chatSlice";
 import ErrorModal from "../ErrorModal/ErrorModal";
 import Friend from "./Friend";
 import SectionHeader from "../CommunityLeft/SectionHeader";
+import { useSession } from "next-auth/react";
 
 import classes from "./Friends.module.css";
-import { useSession } from "next-auth/react";
 
 const Friends = ({ getChatMessages, markMessageAsRead }) => {
   const { chats, onlineUsers } = useSelector((state) => state.chat);

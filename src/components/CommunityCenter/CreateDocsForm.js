@@ -2,6 +2,7 @@ import { memo, useRef, useState } from "react";
 import InputEmoji from "react-input-emoji";
 import { FaImage, FaPaperPlane, FaSpinner } from "react-icons/fa";
 import { FaRectangleXmark } from "react-icons/fa6";
+import Image from "next/image";
 
 import classes from "./CreateDocsForm.module.css";
 
@@ -79,7 +80,15 @@ const CreateDocForm = ({
           <span title="delete photo" onClick={() => setCommentImage(null)}>
             <FaRectangleXmark />
           </span>
-          <img src={URL.createObjectURL(commentImage)} alt="post" />
+          <Image
+            width={0}
+            height={0}
+            sizes="100vw"
+            style={{ width: "auto", height: "100%" }}
+            priority
+            src={URL.createObjectURL(commentImage)}
+            alt="post"
+          />
         </div>
       )}
     </>
