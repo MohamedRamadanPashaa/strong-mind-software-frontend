@@ -8,7 +8,6 @@ import useHttp from "../../hooks/http-hook";
 import ErrorModal from "../ErrorModal/ErrorModal";
 import { replacePost } from "../../store/postSlice";
 import { useSession } from "next-auth/react";
-import { getImageLink } from "@/helpers/GetImageLink";
 
 import classes from "./Comment.module.css";
 import Image from "next/image";
@@ -129,12 +128,12 @@ const Comment = ({ comment, setComments, comments, posts }) => {
           <p>{text}</p>
         </div>
 
-        {photo && (
+        {photo?.secure_url && (
           <div className={classes.photo}>
             <Image
               width={200}
               height={200}
-              src={`${getImageLink()}/commentsImages/${photo}`}
+              src={photo.secure_url}
               alt={text}
               priority
             />

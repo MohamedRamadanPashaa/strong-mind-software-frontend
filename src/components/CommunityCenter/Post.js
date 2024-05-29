@@ -11,7 +11,6 @@ import Expire from "../UIElements/Expire";
 import CommentSection from "./CommentSection";
 import SeeMore from "./SeeMore";
 import { useRouter } from "next/navigation";
-import { getImageLink } from "@/helpers/GetImageLink";
 import Image from "next/image";
 
 import classes from "./Post.module.css";
@@ -98,14 +97,14 @@ const Post = ({
           <SeeMore content={subject} maxLength={onePost ? 10000 : 80} />
         )}
 
-        {photo && (
+        {photo?.secure_url && (
           <div className={classes.photo}>
             <Image
               width={0}
               height={0}
               sizes="100vw"
               priority
-              src={`${getImageLink()}/postsImages/${photo}`}
+              src={photo.secure_url}
               alt={subject}
               style={{ width: "100%", height: "auto" }}
             />

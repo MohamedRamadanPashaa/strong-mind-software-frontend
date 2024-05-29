@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState } from "react";
 import EmojiPicker from "@emoji-mart/react";
-
 import Button from "../FormElement/Button";
 import { useDispatch } from "react-redux";
 import useHttp from "../../hooks/http-hook";
@@ -17,10 +16,9 @@ import { FaFaceSmile, FaRectangleXmark } from "react-icons/fa6";
 import { FaImage } from "react-icons/fa";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
-import { getImageLink } from "@/helpers/GetImageLink";
+import Loading from "../UIElements/Loading";
 
 import classes from "./WritePost.module.css";
-import Loading from "../UIElements/Loading";
 
 const initialStyle = {
   height: "auto",
@@ -39,9 +37,7 @@ const WritePost = ({ style = initialStyle, post, postId }) => {
   const { data, status } = useSession();
   const user = data?.user;
   const pathname = usePathname();
-  const [imgSrc, setImgSrc] = useState(
-    post?.photo ? `${getImageLink()}/postsImages/${post?.photo}` : ""
-  );
+  const [imgSrc, setImgSrc] = useState(post?.photo?.secure_url || "");
 
   const dispatch = useDispatch();
   const router = useRouter();
@@ -120,7 +116,7 @@ const WritePost = ({ style = initialStyle, post, postId }) => {
       formData.append("subject", text);
       formData.append(
         "photo",
-        postImage ? postImage : imgSrc ? post.photo : ""
+        postImage ? postImage : imgSrc ? post.photo.secure_url : ""
       );
 
       const { data } = await sendRequest(api, method, formData);
@@ -154,7 +150,11 @@ const WritePost = ({ style = initialStyle, post, postId }) => {
         <div className={classes["post-text"]}>
           <div>
             <Image
-              src={`${getImageLink()}/usersImages/${user.photo}`}
+              src={
+                user?.photo?.secure_url
+                  ? user.photo.secure_url
+                  : `/img/usersImages/default.jpg`
+              }
               alt={user.name}
               width={250}
               height={250}

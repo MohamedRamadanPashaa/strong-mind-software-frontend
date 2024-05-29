@@ -1,7 +1,6 @@
 import Image from "next/image";
 
 import classes from "./Participants.module.css";
-import { getImageLink } from "@/helpers/GetImageLink";
 
 const Participants = ({ participants }) => {
   return (
@@ -12,7 +11,11 @@ const Participants = ({ participants }) => {
         {participants.map((participant) => (
           <div key={participant._id} title={participant.name}>
             <Image
-              src={`${getImageLink()}/usersImages/${participant.photo}`}
+              src={
+                participant?.photo?.secure_url
+                  ? participant.photo.secure_url
+                  : `/img/usersImages/default.jpg`
+              }
               alt={participant.name}
               width={150}
               height={150}

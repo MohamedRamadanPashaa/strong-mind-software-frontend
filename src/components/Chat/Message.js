@@ -9,7 +9,6 @@ import { setChatMessages, setDeletedMsgToSocket } from "../../store/chatSlice";
 import { useSession } from "next-auth/react";
 import { FaCheck, FaCheckDouble, FaClock } from "react-icons/fa";
 import { FaTrashCan } from "react-icons/fa6";
-import { getImageLink } from "@/helpers/GetImageLink";
 import Image from "next/image";
 
 import classes from "./Message.module.css";
@@ -150,14 +149,14 @@ const Message = ({
                 : message.text}
             </span>
 
-            {!message.deletedMessage && message.photo && (
+            {!message.deletedMessage && message?.photo?.secure_url && (
               <span className={classes.photo}>
                 <Image
                   width={0}
                   height={0}
                   style={{ width: "100%", height: "auto" }}
                   sizes="100vh"
-                  src={`${getImageLink()}/messagesImages/${message.photo}`}
+                  src={message.photo.secure_url}
                   alt={message.text}
                 />
               </span>

@@ -22,7 +22,7 @@ const nextConfig = {
       },
       {
         protocol: "https",
-        hostname: "strong-mind-software-backend.onrender.com",
+        hostname: "res.cloudinary.com",
         pathname: "/**",
       },
     ],

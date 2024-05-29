@@ -143,7 +143,7 @@ export default function MyAccount() {
           id="photo"
           onInput={inputHandler}
           errorText="Please provide an Image"
-          photo={user?.photo}
+          photo={user?.photo?.secure_url}
         />
 
         <Button disabled={!formState.isValid || isLoading} danger={true}>

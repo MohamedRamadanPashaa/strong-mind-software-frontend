@@ -21,7 +21,6 @@ import { FaSquareCaretDown } from "react-icons/fa6";
 import { FaArrowAltCircleLeft } from "react-icons/fa";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { getImageLink } from "@/helpers/GetImageLink";
 import Image from "next/image";
 
 import classes from "./Header.module.css";
@@ -150,7 +149,11 @@ const Header = ({ currentUser }) => {
               width={400}
               height={400}
               priority
-              src={`${getImageLink()}/usersImages/${follower.photo}`}
+              src={
+                follower?.photo?.secure_url
+                  ? follower.photo.secure_url
+                  : `/img/usersImages/default.jpg`
+              }
               alt={follower.name}
             />
           </div>

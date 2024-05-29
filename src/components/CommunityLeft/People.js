@@ -17,10 +17,9 @@ import FollowButton from "./FollowButton";
 import { socket } from "../../helpers/socket";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 
 import classes from "./People.module.css";
-import Image from "next/image";
-import { getImageLink } from "@/helpers/GetImageLink";
 
 const People = ({ friend, chat, onlineStatus, unreadCount }) => {
   const dispatch = useDispatch();
@@ -114,7 +113,11 @@ const People = ({ friend, chat, onlineStatus, unreadCount }) => {
             } ${onlineStatus && chat ? classes.online : undefined}`}
           >
             <Image
-              src={`${getImageLink()}/usersImages/${friend.photo}`}
+              src={
+                friend?.photo?.secure_url
+                  ? friend.photo.secure_url
+                  : `/img/usersImages/default.jpg`
+              }
               alt={friend.name}
               width={150}
               height={150}

@@ -2,7 +2,6 @@ import { memo } from "react";
 import Image from "next/image";
 
 import classes from "./TopThreeIndividuals.module.css";
-import { getImageLink } from "@/helpers/GetImageLink";
 
 const TopThreeIndividuals = ({ topThree, title }) => {
   return (
@@ -21,7 +20,11 @@ const TopThreeIndividuals = ({ topThree, title }) => {
                     width={250}
                     height={250}
                     style={{ objectFit: "contain" }}
-                    src={`${getImageLink()}/usersImages/${photo}`}
+                    src={
+                      photo?.secure_url
+                        ? photo.secure_url
+                        : `/img/usersImages/default.jpg`
+                    }
                     alt={`${name}`}
                   />
                 </div>

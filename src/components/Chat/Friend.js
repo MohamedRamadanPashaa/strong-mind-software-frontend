@@ -2,10 +2,9 @@ import { memo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setActiveChat } from "../../store/chatSlice";
 import { useSession } from "next-auth/react";
+import Image from "next/image";
 
 import classes from "./Friend.module.css";
-import Image from "next/image";
-import { getImageLink } from "@/helpers/GetImageLink";
 
 const Friend = ({ chat, onlineStatus, getChatMessages, markMessageAsRead }) => {
   const { data } = useSession();
@@ -44,7 +43,11 @@ const Friend = ({ chat, onlineStatus, getChatMessages, markMessageAsRead }) => {
             width={250}
             height={250}
             style={{ objectFit: "cover" }}
-            src={`${getImageLink()}/usersImages/${friend.photo}`}
+            src={
+              friend?.photo?.secure_url
+                ? friend.photo.secure_url
+                : `/img/usersImages/default.jpg`
+            }
             alt={friend.name}
           />
         </div>

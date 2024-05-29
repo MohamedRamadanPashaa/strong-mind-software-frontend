@@ -5,7 +5,6 @@ import PublisherDetailsNamePhoto from "./PublisherDetailsNamePhoto";
 
 import classes from "./PublisherDetails.module.css";
 import { FaEllipsis } from "react-icons/fa6";
-import { getImageLink } from "@/helpers/GetImageLink";
 
 const PublisherDetails = ({
   img,
@@ -50,7 +49,7 @@ const PublisherDetails = ({
       }`}
     >
       <PublisherDetailsNamePhoto
-        img={`${getImageLink()}/usersImages/${img}`}
+        img={img?.secure_url ? img.secure_url : `/img/usersImages/default.jpg`}
         name={name}
         createdAt={createdAt}
         comment={comment}

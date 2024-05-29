@@ -1,6 +1,5 @@
 import Image from "next/image";
 import classes from "./ViewResultCardStats.module.css";
-import { getImageLink } from "@/helpers/GetImageLink";
 
 const ViewResultCardStats = ({
   match,
@@ -15,7 +14,11 @@ const ViewResultCardStats = ({
     <div className={classes["view-cards"]}>
       <div className={classes.img}>
         <Image
-          src={`${getImageLink()}/usersImages/${match.competitor.photo}`}
+          src={
+            match?.competitor?.photo?.secure_url
+              ? match.competitor.photo.secure_url
+              : `/img/usersImages/default.jpg`
+          }
           alt={match.competitor.name}
           width={100}
           height={100}

@@ -7,7 +7,6 @@ import Link from "next/link";
 import Image from "next/image";
 
 import classes from "./ChatBoxHead.module.css";
-import { getImageLink } from "@/helpers/GetImageLink";
 
 const ChatBoxHead = () => {
   const { onlineUsers, activeChat, activeFriend } = useSelector(
@@ -26,7 +25,11 @@ const ChatBoxHead = () => {
         }`}
       >
         <Image
-          src={`${getImageLink()}/usersImages/${activeFriend?.photo}`}
+          src={
+            activeFriend?.photo?.secure_url
+              ? activeFriend.photo.secure_url
+              : `/img/usersImages/default.jpg`
+          }
           alt={activeFriend?.name}
           width={200}
           height={200}
