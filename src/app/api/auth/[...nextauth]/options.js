@@ -11,11 +11,14 @@ import sendEmail from "@/utils/sendEmail";
 
 export const options = {
   secret: process.env.NEXT_AUTH_SECRET,
-
+  pages: {
+    signIn: "/login",
+  },
   session: {
     jwt: true,
     maxAge: 90 * 24 * 60 * 60,
   },
+
   providers: [
     CredentialsProviders({
       name: "Credentials",

@@ -83,7 +83,6 @@ const Login = () => {
       try {
         const result = await signIn("credentials", {
           redirect: false,
-          callbackUrl: "/",
           email: formState.inputs.email.value,
           password: formState.inputs.password.value,
         });

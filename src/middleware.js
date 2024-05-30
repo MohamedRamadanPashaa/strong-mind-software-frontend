@@ -1,21 +1,36 @@
-export { default } from "next-auth/middleware";
+import { withAuth } from "next-auth/middleware";
 import { getToken } from "next-auth/jwt";
 import { NextResponse } from "next/server";
 
-export async function middleware(req) {
-  const token = await getToken({ req });
-  if (!token) {
-    return NextResponse.redirect(new URL("/login", req.url));
-  }
+export default withAuth(
+  async function middleware(req) {
+    console.log(req.nextUrl.pathname);
+    console.log(req.nextauth.token.role);
 
-  if (
-    token.role !== "admin" &&
-    (req.nextUrl.pathname.includes("/create-competition") ||
-      req.nextUrl.pathname.includes("/update-competition"))
-  ) {
-    return NextResponse.redirect(new URL("/", req.url));
+    const token = req.nextauth.token;
+
+    if (!token) {
+      return NextResponse.redirect(new URL("/login", req.url));
+    }
+
+    if (
+      token.role !== "admin" &&
+      (req.nextUrl.pathname.includes("/create-competition") ||
+        req.nextUrl.pathname.includes("/update-competition"))
+    ) {
+      return NextResponse.redirect(new URL("/", req.url));
+    }
+  },
+  {
+    callbacks: {
+      authorized: ({ token }) => !!token,
+    },
+
+    // pages: {
+    //   signIn: "/login",
+    // },
   }
-}
+);
 
 export const config = {
   matcher: [
