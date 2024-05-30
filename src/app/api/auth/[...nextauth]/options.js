@@ -8,13 +8,13 @@ import crypto from "crypto";
 import { StatusCodes } from "http-status-codes";
 import Token from "@/models/token";
 import sendEmail from "@/utils/sendEmail";
-import { checkEnvironment } from "@/helpers/checkEnvironment";
 
 export const options = {
-  // secret: process.env.NEXT_AUTH_SECRET,
+  secret: process.env.NEXT_AUTH_SECRET,
 
   session: {
     jwt: true,
+    maxAge: 90 * 24 * 60 * 60,
   },
   providers: [
     CredentialsProviders({
