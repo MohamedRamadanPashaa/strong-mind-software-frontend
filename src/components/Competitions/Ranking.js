@@ -2,11 +2,11 @@
 
 import { useEffect, useState } from "react";
 import useHttp from "../../hooks/http-hook";
-import RankingTable from "./RankingTable";
 import DisciplinePagination from "../PaginationDiscipline/DisciplinePagination";
 import { NationalPagination } from "../../PaginationData/DisciplinePagination";
 
 import classes from "./Ranking.module.css";
+import RankingCompetitionTable from "./RankingCompetitionTable";
 
 let disciplines = [];
 const Ranking = ({ params }) => {
@@ -39,7 +39,7 @@ const Ranking = ({ params }) => {
       />
 
       {disciplines.length > 0 && (
-        <RankingTable
+        <RankingCompetitionTable
           title={title}
           disciplines={disciplines}
           competition={true}

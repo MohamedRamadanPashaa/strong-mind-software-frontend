@@ -1,5 +1,5 @@
-import InternationalTable from "@/components/LeaderBoard/InternationalTable";
+import RankingTable from "@/components/Competitions/RankingTable";
 
 export default function InternationalPage() {
-  return <InternationalTable />;
+  return <RankingTable title="Overall" standard="International" />;
 }

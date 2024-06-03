@@ -1,19 +1,19 @@
 const RankingPaginationData = [
   {
     title: "National",
-    to: "national",
+    to: "/ranking/national",
   },
   {
     title: "International",
-    to: "international",
+    to: "/ranking/international",
   },
   {
     title: "World",
-    to: "world",
+    to: "/ranking/world",
   },
   {
     title: "Review Table",
-    to: "review-table",
+    to: "/ranking/review-table",
   },
 ];
 

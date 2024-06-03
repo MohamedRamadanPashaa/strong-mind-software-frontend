@@ -5,31 +5,31 @@ const useHttp = () => {
   const [error, setError] = useState();
 
   // معموله علشان لما ادخل على الفورم واملى البيانات وبدون ما اعمل لوج ان او ساين اب وارجع وادخل تاني هيطلع ايرور وهنا انا عاوز احل المشكلة دي
-  // const activeHttpRequest = useRef([]); // Abort #1
+  const activeHttpRequest = useRef([]); // Abort #1
 
   const sendRequest = useCallback(
     async (url, method = "GET", body = null, headers = {}) => {
       setIsLoading(true);
 
       // Abort #2
-      // const httpAbortCtrl = new AbortController();
-      // activeHttpRequest.current.push(httpAbortCtrl);
+      const httpAbortCtrl = new AbortController();
+      activeHttpRequest.current.push(httpAbortCtrl);
 
       try {
         const response = await fetch(url, {
           method,
           body,
           headers,
-          // signal: httpAbortCtrl.signal, // Abort #3
+          signal: httpAbortCtrl.signal, // Abort #3
         });
 
         const responseData = await response.json();
 
         // Abort #4
         // clear reqHttp after getting response
-        // activeHttpRequest.current = activeHttpRequest.current.filter(
-        //   (reqCtrl) => reqCtrl !== httpAbortCtrl
-        // );
+        activeHttpRequest.current = activeHttpRequest.current.filter(
+          (reqCtrl) => reqCtrl !== httpAbortCtrl
+        );
 
         if (!response.ok) {
           throw new Error(responseData.message);
@@ -52,7 +52,7 @@ const useHttp = () => {
   useEffect(() => {
     // Clean up function
     return () => {
-      // activeHttpRequest.current.forEach((abortCtrl) => abortCtrl.abort());
+      activeHttpRequest.current.forEach((abortCtrl) => abortCtrl.abort());
     };
   }, []);
 

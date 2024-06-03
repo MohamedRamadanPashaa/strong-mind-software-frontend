@@ -2,7 +2,8 @@
   display: flex;
   list-style: none;
   width: 90%;
-  margin: 0 auto;
+  margin: 0 auto 10px;
+  flex-wrap: wrap;
 }
 
 .pagination-menu-ul li a {
@@ -34,7 +35,7 @@
 
   .pagination-menu-ul li a {
     font-size: 0.65rem;
-    padding: 0.3rem 0.4rem;
+    padding: 0.3rem;
     border-width: 2px;
   }
 }

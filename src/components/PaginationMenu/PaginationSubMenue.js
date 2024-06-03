@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 
 import classes from "./PaginationMenu.module.css";
 
-const PaginationMenu = ({ paginationData }) => {
+const PaginationSubMenu = ({ paginationData }) => {
   const pathname = usePathname();
 
   return (
@@ -16,13 +16,9 @@ const PaginationMenu = ({ paginationData }) => {
             <li key={el.title}>
               <Link
                 href={el.to}
-                className={
-                  pathname.startsWith(el.to) || pathname.endsWith(el.to)
-                    ? classes.active
-                    : undefined
-                }
+                className={pathname === el.to ? classes.active : undefined}
               >
-                {el.title}
+                {el.shortTitle}
               </Link>
             </li>
           );
@@ -32,4 +28,4 @@ const PaginationMenu = ({ paginationData }) => {
   );
 };
 
-export default PaginationMenu;
+export default PaginationSubMenu;

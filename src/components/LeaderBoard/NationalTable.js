@@ -31,11 +31,11 @@ const NationalTable = () => {
 
   return (
     <div className={classes["review-table"]}>
-      <SelectDiscipline
+      {/* <SelectDiscipline
         setTitle={setTitle}
         title={title}
         selectData={NationalPagination}
-      />
+      /> */}
 
       {disciplines.length > 0 && (
         <RankingTable title={title} disciplines={disciplines} />

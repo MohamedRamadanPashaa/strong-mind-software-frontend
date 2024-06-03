@@ -2,6 +2,7 @@ import { DOTS, usePagination } from "../../hooks/pagination-hook";
 import { FaAngleDoubleLeft, FaAngleDoubleRight } from "react-icons/fa";
 
 import classes from "./Pagination.module.css";
+import { memo } from "react";
 
 const Pagination = ({
   numberOfPage,
@@ -64,4 +65,4 @@ const Pagination = ({
   );
 };
 
-export default Pagination;
+export default memo(Pagination);

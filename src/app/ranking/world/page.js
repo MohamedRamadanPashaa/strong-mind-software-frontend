@@ -1,5 +1,5 @@
-import WorldTable from "@/components/LeaderBoard/WorldTable";
+import RankingTable from "@/components/Competitions/RankingTable";
 
 export default function WorldPage() {
-  return <WorldTable />;
+  return <RankingTable title="Overall" standard="World" />;
 }

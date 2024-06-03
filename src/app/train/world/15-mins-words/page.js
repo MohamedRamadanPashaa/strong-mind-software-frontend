@@ -1,7 +1,7 @@
 "use client";
 
 import Words from "@/components/Words/Words";
-import { calculatePoints5Words } from "@/helpers/calculatePoints";
+import { calculatePoints15Words } from "@/helpers/calculatePoints";
 
 export default function WordsPage() {
   return (
@@ -12,7 +12,7 @@ export default function WordsPage() {
       amount={400}
       numberBerRow={20}
       rowInPage={3}
-      calculatePoints={calculatePoints5Words}
+      calculatePoints={calculatePoints15Words}
       standard={"World"}
       type={"words"}
       defaultGrouping={"1"}

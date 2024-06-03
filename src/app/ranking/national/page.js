@@ -1,5 +1,5 @@
-import NationalTable from "@/components/LeaderBoard/NationalTable";
+import RankingTable from "@/components/Competitions/RankingTable";
 
-export default function NationalPage() {
-  return <NationalTable />;
+export default function page() {
+  return <RankingTable title="Overall" standard="National" />;
 }
