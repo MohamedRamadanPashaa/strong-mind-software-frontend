@@ -1,7 +1,10 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import EmojiPicker from "@emoji-mart/react";
+import dynamic from "next/dynamic";
+
+const EmojiPicker = dynamic(() => import("emoji-picker-react"), { ssr: false });
+
 import Button from "../FormElement/Button";
 import { useDispatch } from "react-redux";
 import useHttp from "../../hooks/http-hook";
@@ -17,6 +20,7 @@ import { FaImage } from "react-icons/fa";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
 import Loading from "../UIElements/Loading";
+import data from "@emoji-mart/data";
 
 import classes from "./WritePost.module.css";
 
@@ -34,8 +38,8 @@ const WritePost = ({ style = initialStyle, post, postId }) => {
   const [showEmoji, setShowEmoji] = useState(false);
   const [createMode, setCreateMode] = useState(true);
   const [currentEmoji, setCurrentEmoji] = useState(null);
-  const { data, status } = useSession();
-  const user = data?.user;
+  const { data: session, status } = useSession();
+  const user = session?.user;
   const pathname = usePathname();
   const [imgSrc, setImgSrc] = useState(post?.photo?.secure_url || "");
 
@@ -70,7 +74,7 @@ const WritePost = ({ style = initialStyle, post, postId }) => {
 
   // set selected emoji
   const onEmojiSelect = (e) => {
-    setCurrentEmoji(e.native);
+    setCurrentEmoji(e.emoji);
     setShowEmoji(false);
   };
 
@@ -178,9 +182,11 @@ const WritePost = ({ style = initialStyle, post, postId }) => {
           <ContentEnter show={showEmoji} nodeRef={nodeRef}>
             <div className={classes["emoji-picker"]} ref={nodeRef}>
               <EmojiPicker
+                // open={showEmoji}
+                emojiStyle="google"
                 data={data}
                 previewPosition="none"
-                onEmojiSelect={onEmojiSelect}
+                onEmojiClick={onEmojiSelect}
               />
             </div>
           </ContentEnter>

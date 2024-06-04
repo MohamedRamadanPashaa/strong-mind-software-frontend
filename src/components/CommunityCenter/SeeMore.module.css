@@ -3,6 +3,7 @@
   padding: 5px 10px;
   transition: all 0.3s;
   font-size: 1.1rem;
+  white-space: pre-wrap;
 }
 
 .see-more button {

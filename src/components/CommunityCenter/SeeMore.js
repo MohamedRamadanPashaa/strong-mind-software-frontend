@@ -10,8 +10,6 @@ const SeeMore = ({ content, maxLength }) => {
 
   const displayContent = expanded ? content : content.slice(0, maxLength);
 
-  // console.log(content.split("/\r/"));
-
   return (
     <>
       <div

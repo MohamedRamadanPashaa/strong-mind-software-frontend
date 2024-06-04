@@ -17,8 +17,9 @@ const TopThreeIndividuals = ({ topThree, title }) => {
               <div className={classes.competitor}>
                 <div className={classes.img}>
                   <Image
-                    width={250}
-                    height={250}
+                    width={200}
+                    height={200}
+                    priority
                     style={{ objectFit: "contain" }}
                     src={
                       photo?.secure_url

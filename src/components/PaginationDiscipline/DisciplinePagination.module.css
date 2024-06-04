@@ -1,6 +1,6 @@
 .discipline-pagination {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(100px, auto));
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
   text-align: center;
   margin: 0;
   list-style: none;

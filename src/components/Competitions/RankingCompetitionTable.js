@@ -1,4 +1,3 @@
-import { useSelector } from "react-redux";
 import Link from "next/link";
 import Pagination from "../ShareDiscipline/Pagination";
 import { memo, useEffect, useState } from "react";
@@ -8,13 +7,20 @@ import TopThree from "./TopThree";
 import Image from "next/image";
 import { FaExclamationCircle } from "react-icons/fa";
 import { FaArrowUpRightFromSquare } from "react-icons/fa6";
+import { useSession } from "next-auth/react";
 
 import classes from "./Ranking.module.css";
 
 const rowInPage = 10;
 
-const RankingCompetitionTable = ({ disciplines, title, competition }) => {
-  const { user } = useSelector((state) => state.auth);
+const RankingCompetitionTable = ({
+  disciplines,
+  title,
+  competition,
+  session,
+}) => {
+  const { data = session } = useSession();
+  const user = data?.user;
   const [page, setPage] = useState(1);
 
   const findScore = (arr, discipline = title) => {
@@ -243,9 +249,7 @@ const RankingCompetitionTable = ({ disciplines, title, competition }) => {
               return (
                 <tr
                   key={i}
-                  className={
-                    user && _id && user._id === _id ? classes.me : undefined
-                  }
+                  className={user?.id === _id ? classes.me : undefined}
                 >
                   <td>{title === "Overall" ? rankOverall : rankDiscipline}</td>
 

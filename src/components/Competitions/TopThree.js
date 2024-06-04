@@ -1,4 +1,4 @@
-import { memo, useCallback, useEffect, useState } from "react";
+import { memo, useCallback, useLayoutEffect, useState } from "react";
 import classes from "./TopThree.module.css";
 import TopThreeIndividuals from "./TopThreeIndividuals";
 
@@ -29,23 +29,23 @@ const TopThree = ({ disciplinesSorted, title }) => {
     [title, disciplinesSorted]
   );
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     setTopKids(getCategoryArray("Kids"));
   }, [getCategoryArray]);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     setTopJuniors(getCategoryArray("Juniors"));
   }, [getCategoryArray]);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     setTopAdults(getCategoryArray("Adults"));
   }, [getCategoryArray]);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     setTopSeniors(getCategoryArray("Seniors"));
   }, [getCategoryArray]);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     setTopOverall(disciplinesSorted.slice(0, 3));
   }, [disciplinesSorted]);
 
