@@ -1,11 +1,11 @@
 import { useCallback, useEffect, useState } from "react";
 import Header from "./Header";
 import Question from "./Question";
-import classes from "./MainQuestion.module.css";
-
 import ACTION from "../../assets/tables/Action.json";
 import OBJECT_ONE from "../../assets/tables/Object-1.json";
 import OBJECT_TWO from "../../assets/tables/Object-2.json";
+
+import classes from "./MainQuestion.module.css";
 
 const arrayNumber = () => {
   let numArray = [];

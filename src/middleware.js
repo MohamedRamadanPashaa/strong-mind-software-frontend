@@ -1,11 +1,10 @@
 import { withAuth } from "next-auth/middleware";
-import { getToken } from "next-auth/jwt";
 import { NextResponse } from "next/server";
 
 export default withAuth(
   async function middleware(req) {
-    console.log(req.nextUrl.pathname);
-    console.log(req.nextauth.token.role);
+    // console.log(req.nextUrl.pathname);
+    // console.log(req.nextauth.token.role);
 
     const token = req.nextauth.token;
 

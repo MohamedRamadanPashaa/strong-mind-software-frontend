@@ -34,7 +34,7 @@
 
 .timer span {
   display: inline-block;
-  width: 30px;
+  font-variant-numeric: tabular-nums;
   text-align: center;
 }
 
@@ -66,6 +66,7 @@
 @media (max-width: 767px) {
   .header h3 {
     font-size: 0.9rem;
+    display: none;
   }
 
   .header h3.view {
@@ -87,10 +88,6 @@
   }
 
   .timer {
-    font-size: 0.9rem;
-  }
-
-  .timer span {
-    width: 22px;
+    font-size: 1rem;
   }
 }

@@ -39,7 +39,7 @@ const Numbers = ({
         custom ? localStorage.getItem("spokenInterval") || 1000 : 1000
       );
     }
-  }, []);
+  }, [custom]);
 
   const {
     prepare,

@@ -9,9 +9,11 @@ import { AllDiscipline } from "../../PaginationData/AllDiscipline";
 import TableTop5 from "./TableTop5";
 
 import classes from "./MyPerformance.module.css";
+import Loading from "../UIElements/Loading";
 
 const MyPerformance = () => {
   const { sendRequest } = useHttp();
+  const [dataLoading, setDataLoading] = useState(true);
   const [numberOfGames, setNumberOfGames] = useState(0);
   const [personalBest, setPersonalBest] = useState([]);
   const [monthlyGames, setMonthlyGames] = useState([]);
@@ -20,6 +22,8 @@ const MyPerformance = () => {
 
   useEffect(() => {
     const request = async () => {
+      setDataLoading(true);
+
       try {
         const { data } = await sendRequest(
           `/api/v1/disciplines/performance-stats?discipline=${title}`
@@ -32,6 +36,7 @@ const MyPerformance = () => {
       } catch (error) {
         console.log(error);
       }
+      setDataLoading(false);
     };
 
     request();
@@ -46,64 +51,68 @@ const MyPerformance = () => {
         className={"custom-select"}
       />
 
-      <>
-        {numberOfGames > 0 && (
-          <div className={classes.cards}>
-            <div>
-              <span>Total Games</span>
-              <span>{numberOfGames}</span>
-            </div>
-            <div>
-              <span>Best Score</span>
-              <span>{personalBest[0].score}</span>
-            </div>
+      {dataLoading && <Loading className="loading-center" />}
 
-            {monthlyGames.length >= 5 && (
+      {!dataLoading && (
+        <>
+          {numberOfGames > 0 && (
+            <div className={classes.cards}>
               <div>
-                <span>Attempt Increment</span>
-                <span>
-                  {Math.round(
-                    (Math.max(...scoresArr) - scoresArr[0]) /
-                      monthlyGames.length
-                  )}
-                </span>
+                <span>Total Games</span>
+                <span>{numberOfGames}</span>
               </div>
-            )}
-          </div>
-        )}
+              <div>
+                <span>Best Score</span>
+                <span>{personalBest[0].score}</span>
+              </div>
 
-        {monthlyGames.length > 0 && (
-          <div className={classes.chart}>
-            <h4>
-              Results of last {monthlyGames.length} attempt
-              {monthlyGames.length > 1 && "s"} during last 3 months
-            </h4>
-            <LineChartComponent data={monthlyGames} />
-          </div>
-        )}
+              {monthlyGames.length >= 5 && (
+                <div>
+                  <span>Attempt Increment</span>
+                  <span>
+                    {Math.round(
+                      (Math.max(...scoresArr) - scoresArr[0]) /
+                        monthlyGames.length
+                    )}
+                  </span>
+                </div>
+              )}
+            </div>
+          )}
 
-        {monthlyGames.length === 0 && personalBest.length !== 0 && (
-          <p className={classes["no-results"]}>
-            No Results Found in last 3 months for <br />
-            <b style={{ color: "var(--orange)" }}>{title}</b> Discipline.
-            <br />
-            Please play to view your chart.
-          </p>
-        )}
+          {monthlyGames.length > 0 && (
+            <div className={classes.chart}>
+              <h4>
+                Results of last {monthlyGames.length} attempt
+                {monthlyGames.length > 1 && "s"} during last 3 months
+              </h4>
+              <LineChartComponent data={monthlyGames} />
+            </div>
+          )}
 
-        {personalBest.length > 0 && (
-          <TableTop5 results={personalBest} title={title} />
-        )}
+          {monthlyGames.length === 0 && personalBest.length !== 0 && (
+            <p className={classes["no-results"]}>
+              No Results Found in last 3 months for <br />
+              <b style={{ color: "var(--orange)" }}>{title}</b> Discipline.
+              <br />
+              Please play to view your chart.
+            </p>
+          )}
 
-        {monthlyGames.length === 0 && personalBest.length === 0 && (
-          <p className={classes["no-results"]}>
-            No Results Found for <br />
-            <b style={{ color: "var(--orange)" }}>{title}</b>
-            <br />
-            Discipline.
-          </p>
-        )}
-      </>
+          {personalBest.length > 0 && (
+            <TableTop5 results={personalBest} title={title} />
+          )}
+
+          {monthlyGames.length === 0 && personalBest.length === 0 && (
+            <p className={classes["no-results"]}>
+              No Results Found for <br />
+              <b style={{ color: "var(--orange)" }}>{title}</b>
+              <br />
+              Discipline.
+            </p>
+          )}
+        </>
+      )}
     </div>
   );
 };

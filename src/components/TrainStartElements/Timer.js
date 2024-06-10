@@ -7,7 +7,7 @@ import classes from "./Timer.module.css";
 
 const Timer = ({ numOfQ, dispatch, rightAnswers, mistakes }) => {
   const [time, setTime] = useState(Date.now());
-  const [startTime, setStartTime] = useState(Date.now());
+  const [startTime] = useState(Date.now());
   const [active, setActive] = useState(true);
   const [paused, setPaused] = useState(false);
 
@@ -44,6 +44,7 @@ const Timer = ({ numOfQ, dispatch, rightAnswers, mistakes }) => {
     time,
     totalNumOfQuestion,
     mistakes,
+    startTime,
   ]);
 
   const stopTimerHandler = () => {
@@ -54,8 +55,9 @@ const Timer = ({ numOfQ, dispatch, rightAnswers, mistakes }) => {
   return (
     <div className={classes.timer}>
       <span className="digits">
-        {("0" + Math.floor((time / 60000) % 60)).slice(-2)}:
+        {("0" + Math.floor((time / 60000) % 60)).slice(-2)}
       </span>
+      :
       <span className="digits">
         {("0" + Math.floor((time / 1000) % 60)).slice(-2)}
       </span>

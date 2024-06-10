@@ -1,5 +1,5 @@
 import { NationalPagination } from "@/PaginationData/DisciplinePagination";
-import PaginationSubMenu from "@/components/PaginationMenu/PaginationSubMenue";
+import PaginationSubMenu from "@/components/PaginationMenu/PaginationSubMenu";
 
 export default function NationalRankingLayout({ children }) {
   return (
