@@ -6,7 +6,6 @@ import useHttp from "../../hooks/http-hook";
 import ViewRunningMatch from "./ViewRunningMatch";
 import ErrorModal from "../ErrorModal/ErrorModal";
 import ViewResult from "./ViewResult";
-
 import DisciplineCard from "../ShareDiscipline/DisciplineCard";
 import Loading from "../UIElements/Loading";
 
