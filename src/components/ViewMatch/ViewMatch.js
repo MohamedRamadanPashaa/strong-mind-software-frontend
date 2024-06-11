@@ -14,6 +14,7 @@ const ViewMatch = ({ disciplineId, currentMatch, matchRunning }) => {
       socket.emit("load-match", { disciplineId, socketId: socket.id });
 
       socket.on("send-match", (data) => {
+        console.log(data);
         disciplineId === data?.disciplineId && setMatch(data);
       });
     }
