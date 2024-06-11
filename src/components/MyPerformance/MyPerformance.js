@@ -7,9 +7,9 @@ import LineChartComponent from "./LineChartComponent";
 import SelectDiscipline from "../SelectDiscipline/SelectDiscipline";
 import { AllDiscipline } from "../../PaginationData/AllDiscipline";
 import TableTop5 from "./TableTop5";
+import Loading from "../UIElements/Loading";
 
 import classes from "./MyPerformance.module.css";
-import Loading from "../UIElements/Loading";
 
 const MyPerformance = () => {
   const { sendRequest } = useHttp();

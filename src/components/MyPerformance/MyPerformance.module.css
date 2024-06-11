@@ -1,6 +1,6 @@
 .stats {
   width: 75%;
-  margin: 0 auto;
+  margin: auto;
   padding-top: 20px;
   padding-bottom: 20px;
 }
@@ -54,20 +54,23 @@
 .cards div {
   display: flex;
   flex-direction: column;
-  padding: 0.5rem 0;
-  border: #eee 1px solid;
-  width: 170px;
+  width: 200px;
+  box-shadow: var(--box-shadow-light-inset);
 }
 
 .cards div span:first-child {
-  border-bottom: 1px solid #eee;
-  padding-bottom: 5px;
+  background-color: var(--black);
+  color: white;
+  display: inline-block;
+  padding: 10px 0;
+  font-weight: bold;
 }
 
 .cards div span:last-child {
   color: var(--orange);
   font-weight: bold;
   font-size: 1.5rem;
+  padding: 5px;
 }
 
 .no-results {
@@ -115,14 +118,12 @@
   }
 
   .cards div {
-    padding: 0.3rem 0;
-    width: 125px;
+    width: fit-content;
   }
 
   .cards div span:first-child {
-    font-size: 0.8rem;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 5px;
+    font-size: 0.7rem;
+    padding: 10px;
   }
 
   .cards div span:last-child {

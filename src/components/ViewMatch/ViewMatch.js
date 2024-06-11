@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import { socket } from "../../helpers/socket";
 import useHttp from "../../hooks/http-hook";
 import ViewRunningMatch from "./ViewRunningMatch";
@@ -8,13 +8,14 @@ import ErrorModal from "../ErrorModal/ErrorModal";
 import ViewResult from "./ViewResult";
 
 import DisciplineCard from "../ShareDiscipline/DisciplineCard";
+import Loading from "../UIElements/Loading";
 
 const ViewMatch = ({ disciplineId }) => {
   const [match, setMatch] = useState({});
   const [matchRunning, setMatchRunning] = useState(true);
-  const { sendRequest, error, clearError } = useHttp();
+  const { sendRequest, isLoading, error, clearError } = useHttp();
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     socket.emit("load-match", { disciplineId, socketId: socket.id });
 
     socket.on("send-match", (data) => {
@@ -25,7 +26,7 @@ const ViewMatch = ({ disciplineId }) => {
   }, [disciplineId]);
 
   // get match from DB
-  useEffect(() => {
+  useLayoutEffect(() => {
     const getDiscipline = async () => {
       try {
         const { data } = await sendRequest(
@@ -46,7 +47,9 @@ const ViewMatch = ({ disciplineId }) => {
       <ErrorModal error={error} onCancel={clearError} />
 
       <DisciplineCard>
-        {match && match.competitor && (
+        {isLoading && <Loading center />}
+
+        {match?.competitor && (
           <>
             {matchRunning && (
               <ViewRunningMatch
