@@ -27,7 +27,7 @@
 
 @media (max-width: 767px) {
   .userInfo {
-    width: fit-content;
+    width: 100%;
     min-height: fit-content;
     padding-top: 0;
     padding-bottom: 0;
@@ -35,19 +35,27 @@
 
   .userInfo ul {
     display: flex;
+    flex-wrap: wrap;
   }
 
   .userInfo ul li {
-    width: fit-content;
+    width: 20%;
+    flex-grow: 1;
+    text-align: center;
+    overflow: hidden;
   }
 
   .userInfo li:first-child {
     border-top: none;
   }
 
+  .userInfo svg {
+    font-size: 1rem;
+  }
+
   .userInfo ul li a {
-    padding: 0.7rem 1rem;
-    font-size: 0.75rem;
+    padding: 0.7rem;
+    font-size: 0.55rem;
     flex-wrap: wrap;
     justify-content: center;
   }

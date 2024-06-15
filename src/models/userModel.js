@@ -34,10 +34,6 @@ const userSchema = new mongoose.Schema(
       minlength: [8, "Password should be at least 8 characters."],
       select: false,
     },
-    photo: {
-      type: String,
-      default: "default.jpg",
-    },
     passwordConfirm: {
       type: String,
       required: [true, "Please confirm your password"],
@@ -50,7 +46,7 @@ const userSchema = new mongoose.Schema(
     },
     role: {
       type: String,
-      enum: ["user", "assistant", "admin"],
+      enum: ["user", "assistant", "admin", "coach"],
       default: "user",
     },
     active: {

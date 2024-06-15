@@ -1,0 +1,33 @@
+.create-course-inputs {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  width: 100%;
+  margin: 0 auto;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+}
+
+.create-course input {
+  width: 100%;
+}
+
+.btn {
+  width: 100%;
+  margin: 20px auto;
+  text-align: center;
+}
+
+.btn button {
+  font-size: 3rem;
+  padding: 1rem 2rem;
+  width: 300px;
+}
+
+@media (max-width: 767px) {
+  .btn button {
+    font-size: 2rem;
+    width: 250px;
+    padding: 0.5rem 1rem;
+  }
+}

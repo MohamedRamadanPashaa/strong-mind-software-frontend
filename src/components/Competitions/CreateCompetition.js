@@ -181,7 +181,7 @@ const CreateCompetition = ({ slug, season }) => {
               errorText="Please provide a competition name."
               onInput={inputHandler}
               initialValue={competition ? competition.competitionName : ""}
-              initialValid={competition ? true : false}
+              initialValid={slug && season ? true : false}
             />
 
             <Input
@@ -194,7 +194,7 @@ const CreateCompetition = ({ slug, season }) => {
               initialValue={
                 competition.starts ? handleDateTime(competition.starts) : ""
               }
-              initialValid={competition ? true : false}
+              initialValid={slug && season ? true : false}
             />
 
             <Input
@@ -207,7 +207,7 @@ const CreateCompetition = ({ slug, season }) => {
               initialValue={
                 competition.ends ? handleDateTime(competition.ends) : ""
               }
-              initialValid={competition ? true : false}
+              initialValid={slug && season ? true : false}
             />
 
             <Input
@@ -222,7 +222,7 @@ const CreateCompetition = ({ slug, season }) => {
                   ? handleDateTime(competition.regStarts)
                   : ""
               }
-              initialValid={competition ? true : false}
+              initialValid={slug && season ? true : false}
             />
 
             <Input
@@ -235,7 +235,7 @@ const CreateCompetition = ({ slug, season }) => {
               initialValue={
                 competition.regEnds ? handleDateTime(competition.regEnds) : ""
               }
-              initialValid={competition ? true : false}
+              initialValid={slug && season ? true : false}
             />
 
             <Input
@@ -245,7 +245,7 @@ const CreateCompetition = ({ slug, season }) => {
               validators={[]}
               onInput={inputHandler}
               initialValue={competition ? competition.maxParticipants : ""}
-              initialValid={competition ? true : false}
+              initialValid={slug && season ? true : false}
             />
 
             <Input
@@ -256,7 +256,7 @@ const CreateCompetition = ({ slug, season }) => {
               errorText="Please provide a competition standard."
               onInput={inputHandler}
               initialValue={competition ? competition.standard : ""}
-              initialValid={competition ? true : false}
+              initialValid={slug && season ? true : false}
             />
 
             <Input
@@ -267,7 +267,7 @@ const CreateCompetition = ({ slug, season }) => {
               errorText="Please provide the season of competition."
               onInput={inputHandler}
               initialValue={competition ? competition.season : ""}
-              initialValid={competition ? true : false}
+              initialValid={slug && season ? true : false}
             />
 
             <Input
@@ -278,7 +278,7 @@ const CreateCompetition = ({ slug, season }) => {
               errorText="Please provide a competition description."
               onInput={inputHandler}
               initialValue={competition ? competition.description : ""}
-              initialValid={competition ? true : false}
+              initialValid={slug && season ? true : false}
             />
           </div>
 

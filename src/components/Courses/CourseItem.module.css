@@ -1,0 +1,32 @@
+.action {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.action span {
+  font-weight: bold;
+  cursor: pointer;
+  background-color: #fff;
+  padding: 0.1rem 0.8rem;
+  color: var(--orange);
+}
+
+span.delete {
+  color: #f45;
+}
+
+span.update {
+  color: var(--photo);
+}
+
+@media (max-width: 767px) {
+  .action {
+    gap: 5px;
+  }
+
+  .action span {
+    padding: 0.1rem 0.4rem;
+  }
+}

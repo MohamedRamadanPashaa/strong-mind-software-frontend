@@ -1,0 +1,43 @@
+.my-courses {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+@media (min-width: 768px) {
+  .my-courses {
+    width: 70%;
+    position: relative;
+    left: 13.5%;
+  }
+}
+
+.my-courses hr {
+  border: 1px solid #f6cb1c;
+  width: 50%;
+  margin: 20px auto;
+}
+
+.my-courses h3 {
+  font-size: 2rem;
+  margin: 0 auto 1rem;
+  text-align: center;
+  background-color: rgba(204, 204, 204, 0.34);
+  padding: 0.5rem 1rem;
+}
+
+.my-courses p {
+  text-align: center;
+  box-shadow: var(--box-shadow-light-inset);
+  padding: 20px 10px;
+}
+
+@media (max-width: 767px) {
+  .my-courses {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .my-courses h3 {
+    font-size: 1.3rem;
+    margin: 0.5rem auto;
+  }
+}

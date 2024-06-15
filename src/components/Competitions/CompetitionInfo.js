@@ -12,7 +12,7 @@ import { useRef } from "react";
 
 import classes from "./CompetitionInfo.module.css";
 
-const CompetitionInfo = ({ competition, setCompetition }) => {
+const CompetitionInfo = ({ competition, setParticipants, participants }) => {
   const { data, status } = useSession();
   const user = data?.user;
   const nodeRef = useRef(null);
@@ -26,7 +26,7 @@ const CompetitionInfo = ({ competition, setCompetition }) => {
         "PATCH"
       );
 
-      setCompetition(data.competition);
+      setParticipants(data.competition.participants);
     } catch (error) {
       console.log(error);
     }
@@ -67,7 +67,7 @@ const CompetitionInfo = ({ competition, setCompetition }) => {
             new Date(competition.regStarts).getTime() < Date.now() &&
             new Date(competition.regEnds).getTime() > Date.now() &&
             user !== null &&
-            !competition.participants.find((p) => p._id === user?.id)
+            !participants.find((p) => p._id === user?.id)
           }
           nodeRef={nodeRef}
         >
@@ -89,7 +89,7 @@ const CompetitionInfo = ({ competition, setCompetition }) => {
             new Date(competition.starts).getTime() > Date.now() &&
             new Date(competition.regStarts).getTime() < Date.now() &&
             user !== null &&
-            competition.participants.find((p) => p._id === user.id) !== null
+            participants.find((p) => p._id === user.id) !== null
           }
         >
           <div className={classes["wait-timer"]} ref={nodeRef}>
@@ -104,7 +104,7 @@ const CompetitionInfo = ({ competition, setCompetition }) => {
             new Date(competition.starts).getTime() < Date.now() &&
             new Date(competition.ends).getTime() > Date.now() &&
             user !== null &&
-            competition.participants.find((p) => p._id === user?.id) !== null
+            participants.find((p) => p._id === user?.id) !== null
           }
         >
           <div className={classes["wait-timer"]} ref={nodeRef}>

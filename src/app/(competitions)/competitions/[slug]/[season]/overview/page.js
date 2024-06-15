@@ -3,8 +3,6 @@ import { checkEnvironment } from "@/helpers/checkEnvironment";
 import { notFound } from "next/navigation";
 
 const getCompetition = async ({ slug, season }) => {
-  "use server";
-
   const res = await fetch(
     `${checkEnvironment()}/api/v1/competitions/${slug}/${season}`,
     {

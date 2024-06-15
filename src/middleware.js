@@ -15,7 +15,16 @@ export default withAuth(
     if (
       token.role !== "admin" &&
       (req.nextUrl.pathname.includes("/create-competition") ||
-        req.nextUrl.pathname.includes("/update-competition"))
+        req.nextUrl.pathname.includes("/update-competition") ||
+        req.nextUrl.pathname.includes("/users"))
+    ) {
+      return NextResponse.redirect(new URL("/", req.url));
+    }
+
+    if (
+      (token.role !== "admin" || token.role !== "coach") &&
+      (req.nextUrl.pathname.includes("/create-course") ||
+        req.nextUrl.pathname.includes("/update-course"))
     ) {
       return NextResponse.redirect(new URL("/", req.url));
     }
@@ -39,5 +48,9 @@ export const config = {
     "/my-performance",
     "/competitions/create-competition",
     "/competitions/update-competition/:path*",
+    "/users/:path*",
+    "/courses/:path*",
+    "/create-course/:path*",
+    "/update-course/:path*",
   ],
 };

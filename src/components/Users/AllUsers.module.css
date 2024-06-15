@@ -1,0 +1,46 @@
+.all-users {
+  width: 95%;
+  margin: auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+@media (min-width: 768px) {
+  .all-users {
+    width: 70%;
+    position: relative;
+    left: 13.5%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+}
+
+.name {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.img {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.img img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.view {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  background-color: #fff;
+  color: var(--orange);
+  padding: 5px;
+}

@@ -1,6 +1,6 @@
-const CheckboxInput = ({ onChangeHandler, checked, label, id }) => {
+const CheckboxInput = ({ onChangeHandler, checked, label, id, className }) => {
   return (
-    <div>
+    <div className={className}>
       <label htmlFor={id}>{label}</label>
       <input
         type="checkbox"

@@ -41,8 +41,6 @@ const ImageUpload = ({ id, errorText, onInput, photo }) => {
       fileIsValid = false;
     }
 
-    console.log(pickedFile);
-
     onInput(id, pickedFile, fileIsValid);
   };
 

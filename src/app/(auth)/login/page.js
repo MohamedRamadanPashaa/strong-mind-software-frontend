@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { redirect, useRouter } from "next/navigation";
+import { redirect } from "next/navigation";
 import Link from "next/link";
 import useHttp from "@/hooks/http-hook";
 import useForm from "@/hooks/form-hook";
@@ -219,6 +219,7 @@ const Login = () => {
             </div>
           </>
         )}
+
         {loginMode && (
           <p className={classes.forgot}>
             Forgot Your Password?{" "}

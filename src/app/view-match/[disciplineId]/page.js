@@ -16,6 +16,7 @@ const getMatch = async (disciplineId) => {
 
   return data.discipline;
 };
+
 export default async function ViewMatchPage({ params }) {
   const { disciplineId } = params;
 

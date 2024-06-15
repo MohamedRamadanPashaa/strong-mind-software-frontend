@@ -1,0 +1,54 @@
+.user-details {
+  width: 95%;
+  margin: auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.role div {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 10px;
+}
+
+.role label {
+  color: var(--yellow);
+  font-weight: bold;
+}
+
+.role select {
+  border: #ccc 1px solid;
+  padding: 5px 10px;
+  border-radius: 5px;
+  outline: none;
+}
+
+.checkbox {
+  display: flex;
+  gap: 10px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+.checkbox label {
+  color: var(--yellow);
+  font-weight: bold;
+}
+
+@media (min-width: 768px) {
+  .user-details {
+    width: 70%;
+    position: relative;
+    left: 13.5%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+}
+
+.user-details h3 {
+  background-color: #eee;
+  padding: 10px 15px;
+  text-align: center;
+  color: var(--gray);
+}
