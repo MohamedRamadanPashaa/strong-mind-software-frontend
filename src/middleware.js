@@ -22,7 +22,8 @@ export default withAuth(
     }
 
     if (
-      (token.role !== "admin" || token.role !== "coach") &&
+      token.role !== "admin" &&
+      token.role !== "coach" &&
       (req.nextUrl.pathname.includes("/create-course") ||
         req.nextUrl.pathname.includes("/update-course"))
     ) {
