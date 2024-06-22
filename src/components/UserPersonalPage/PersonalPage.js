@@ -45,9 +45,10 @@ const PersonalPage = ({ userId }) => {
     const getCurrentUser = async () => {
       setCurrentUserLoading(true);
       try {
-        const user = await sendRequest(`/api/v1/users/${userId}`);
+        const { data } = await sendRequest(`/api/v1/users/${userId}`);
 
-        setCurrentUser(user.data);
+        console.log(data);
+        setCurrentUser(data.user);
       } catch (error) {
         console.log(error);
       }
