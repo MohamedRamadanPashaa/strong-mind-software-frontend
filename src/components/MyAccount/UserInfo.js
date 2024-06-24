@@ -14,20 +14,30 @@ const UserInfo = async () => {
       <ul>
         <li>
           <UserInfoLink href="/my-account">
-            <FaUser /> My Account
+            <FaUser />
+            <span className={classes["link-text"]}>
+              <span>My</span>
+              <span> Account</span>
+            </span>
           </UserInfoLink>
         </li>
         <li>
           <UserInfoLink href="/my-performance">
             <FaChartLine />
-            My Performance
+            <span className={classes["link-text"]}>
+              <span>My</span>
+              <span> Performance</span>
+            </span>
           </UserInfoLink>
         </li>
         {session?.user?.role === "admin" && (
           <li>
             <UserInfoLink href="/users">
               <FaUsers />
-              All Users
+              <span className={classes["link-text"]}>
+                <span>All</span>
+                <span> Users</span>
+              </span>
             </UserInfoLink>
           </li>
         )}
@@ -37,7 +47,10 @@ const UserInfo = async () => {
           <li>
             <UserInfoLink href="/create-course">
               <FaSchool />
-              Create Course
+              <span className={classes["link-text"]}>
+                <span>Create</span>
+                <span> Course</span>
+              </span>
             </UserInfoLink>
           </li>
         )}
@@ -47,7 +60,10 @@ const UserInfo = async () => {
           <li>
             <UserInfoLink href="/my-courses">
               <FaSchoolFlag />
-              my Course
+              <span className={classes["link-text"]}>
+                <span>My</span>
+                <span> Courses</span>
+              </span>
             </UserInfoLink>
           </li>
         )}

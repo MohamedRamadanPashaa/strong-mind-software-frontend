@@ -22,18 +22,19 @@
 
 @media (max-width: 767px) {
   .link {
-    padding: 0.7rem 1rem;
-    font-size: 0.75rem;
+    padding: 0.5rem;
+    font-size: 0.55rem;
     flex-wrap: wrap;
     justify-content: center;
+    flex-direction: column;
+    gap: 5px;
   }
 
   .link.active {
-    padding: 0.7rem 1rem;
+    padding: 0.5rem;
   }
 
   .link:hover {
-    padding-left: 1rem;
-    background-color: #ccc;
+    padding-left: 0.5rem;
   }
 }

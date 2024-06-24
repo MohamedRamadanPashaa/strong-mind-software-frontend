@@ -47,7 +47,6 @@ const PersonalPage = ({ userId }) => {
       try {
         const { data } = await sendRequest(`/api/v1/users/${userId}`);
 
-        console.log(data);
         setCurrentUser(data.user);
       } catch (error) {
         console.log(error);

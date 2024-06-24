@@ -41,16 +41,15 @@ export default function AllUsers() {
       <ErrorModal error={error} onCancel={clearError} />
 
       <div className={classes["all-users"]}>
-        {!userLoading && (
-          <UsersList
-            users={users}
-            countAll={countAll}
-            numberOfPage={numberOfPage}
-            page={page}
-            setPage={setPage}
-            usersInPage={usersInPage}
-          />
-        )}
+        <UsersList
+          users={users}
+          countAll={countAll}
+          numberOfPage={numberOfPage}
+          page={page}
+          setPage={setPage}
+          usersInPage={usersInPage}
+          userLoading={userLoading}
+        />
       </div>
     </>
   );

@@ -1,7 +1,7 @@
 .userInfo {
   width: 25%;
   min-height: calc(100vh - var(--nav-height-computer));
-  background-color: #f6ca1c58;
+  background-color: #f6ca1c42;
   padding-top: 20px;
   padding-bottom: 20px;
 }
@@ -42,7 +42,6 @@
     width: 20%;
     flex-grow: 1;
     text-align: center;
-    overflow: hidden;
   }
 
   .userInfo li:first-child {
@@ -51,16 +50,15 @@
 
   .userInfo svg {
     font-size: 1rem;
+    color: var(--orange);
   }
 
-  .userInfo ul li a {
-    padding: 0.7rem;
-    font-size: 0.55rem;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .userInfo ul li:not(:last-child) a {
+  .userInfo ul li:not(:last-child) {
     border-right: 2px solid #fff;
+  }
+
+  .link-text {
+    display: flex;
+    flex-direction: column;
   }
 }

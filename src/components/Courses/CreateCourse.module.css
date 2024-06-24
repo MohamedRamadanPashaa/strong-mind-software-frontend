@@ -25,8 +25,18 @@
 }
 
 @media (max-width: 767px) {
+  .create-course-inputs {
+    gap: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .btn {
+    margin: 10px auto;
+  }
+
   .btn button {
-    font-size: 2rem;
+    font-size: 1.5rem;
     width: 250px;
     padding: 0.5rem 1rem;
   }

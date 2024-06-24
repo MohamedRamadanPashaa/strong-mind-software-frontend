@@ -12,6 +12,7 @@ export default function UsersList({
   countAll,
   numberOfPage,
   usersInPage,
+  userLoading,
 }) {
   const pressPageNavigationHandler = (p) => {
     setPage(p);
@@ -47,34 +48,36 @@ export default function UsersList({
             <th>View</th>
           </tr>
         </thead>
-        <tbody>
-          {users.map((user, i) => (
-            <tr key={user._id}>
-              <td>{(page - 1) * usersInPage + i + 1}</td>
-              <td className={classes.name}>
-                <div className={classes.img}>
-                  <Image
-                    src={
-                      user?.photo?.secure_url
-                        ? user.photo.secure_url
-                        : "/img/usersImages/default.jpg"
-                    }
-                    alt={user.name}
-                    width="100"
-                    height="100"
-                  />
-                </div>
-                <span>{user.name}</span>
-              </td>
+        {!userLoading && (
+          <tbody>
+            {users.map((user, i) => (
+              <tr key={user._id}>
+                <td>{(page - 1) * usersInPage + i + 1}</td>
+                <td className={classes.name}>
+                  <div className={classes.img}>
+                    <Image
+                      src={
+                        user?.photo?.secure_url
+                          ? user.photo.secure_url
+                          : "/img/usersImages/default.jpg"
+                      }
+                      alt={user.name}
+                      width="100"
+                      height="100"
+                    />
+                  </div>
+                  <span>{user.name}</span>
+                </td>
 
-              <td>
-                <Link href={`/users/${user._id}`} className={classes.view}>
-                  View <FaArrowUpRightFromSquare />
-                </Link>
-              </td>
-            </tr>
-          ))}
-        </tbody>
+                <td>
+                  <Link href={`/users/${user._id}`} className={classes.view}>
+                    View <FaArrowUpRightFromSquare />
+                  </Link>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        )}
       </table>
     </div>
   );

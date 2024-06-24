@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import classes from "./AddStudent.module.css";
 import useHttp from "@/hooks/http-hook";
+
+import classes from "./AddStudent.module.css";
 
 export default function AddStudent({ setUsers }) {
   const [query, setQuery] = useState("");

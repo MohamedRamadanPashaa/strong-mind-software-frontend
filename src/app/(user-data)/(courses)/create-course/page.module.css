@@ -11,12 +11,6 @@
   }
 }
 
-.create-course hr {
-  border: 1px solid #f6cb1c;
-  width: 50%;
-  margin: 20px auto;
-}
-
 .create-course h3 {
   font-size: 2rem;
   margin: 0 auto 1rem;
@@ -30,6 +24,7 @@
     padding-top: 10px;
     padding-bottom: 10px;
   }
+
   .create-course h3 {
     font-size: 1.3rem;
     margin: 0.5rem auto;

@@ -4,10 +4,10 @@ import { useState } from "react";
 import Participants from "../Competitions/Participants";
 import AddStudent from "./AddStudent";
 import AddStudentForm from "./AddStudentForm";
-
-import classes from "./CoursePage.module.css";
 import useHttp from "@/hooks/http-hook";
 import ErrorModal from "../ErrorModal/ErrorModal";
+
+import classes from "./CoursePage.module.css";
 
 export default function CoursePage({ course }) {
   const [users, setUsers] = useState([]);

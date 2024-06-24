@@ -11,12 +11,6 @@
   }
 }
 
-.overview hr {
-  border: 1px solid #f6cb1c;
-  width: 50%;
-  margin: 20px auto;
-}
-
 .overview > h3 {
   font-size: 2rem;
   margin: 0 auto 1rem;
@@ -33,8 +27,8 @@
 
 @media (max-width: 767px) {
   .overview {
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 0px;
+    padding-bottom: 0px;
   }
   .overview h3 {
     font-size: 1.3rem;

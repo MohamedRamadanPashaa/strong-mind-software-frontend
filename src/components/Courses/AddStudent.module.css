@@ -11,8 +11,19 @@
 }
 
 .add-competitor input {
-  border: 1px solid #ccc;
+  border: 1px solid #eee;
   outline: none;
   padding: 10px 15px;
   flex-grow: 1;
+}
+
+@media (max-width: 767px) {
+  .add-competitor {
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  .add-competitor input {
+    padding: 5px 10px;
+  }
 }
