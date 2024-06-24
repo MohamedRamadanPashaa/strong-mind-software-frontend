@@ -58,7 +58,7 @@ export default function CourseItem({
 
         <td className={classes.action}>
           <span>
-            <Link href={`/courses/${slug}/${batch}/overview`}>Details</Link>
+            <Link href={`/my-courses/${slug}/${batch}/overview`}>Details</Link>
           </span>
 
           {user?.role === "admin" && (

@@ -25,6 +25,11 @@
   border-top: 1px solid #fff;
 }
 
+.userInfo svg {
+  font-size: 1.5rem;
+  color: var(--orange);
+}
+
 @media (max-width: 767px) {
   .userInfo {
     width: 100%;
@@ -50,7 +55,6 @@
 
   .userInfo svg {
     font-size: 1rem;
-    color: var(--orange);
   }
 
   .userInfo ul li:not(:last-child) {
