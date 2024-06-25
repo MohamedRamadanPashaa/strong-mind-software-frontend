@@ -6,6 +6,7 @@ import AddStudent from "./AddStudent";
 import AddStudentForm from "./AddStudentForm";
 import useHttp from "@/hooks/http-hook";
 import ErrorModal from "../ErrorModal/ErrorModal";
+import Button from "../FormElement/Button";
 
 import classes from "./CoursePage.module.css";
 
@@ -57,6 +58,12 @@ export default function CoursePage({ course }) {
             isLoading={isLoading}
           />
         )}
+
+        <div className={classes.btn}>
+          <Button to={`/my-courses/${course.slug}/${course.batch}/results`}>
+            View Students Results
+          </Button>
+        </div>
       </div>
     </>
   );

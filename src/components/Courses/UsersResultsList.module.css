@@ -1,0 +1,11 @@
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+@media (max-width: 767px) {
+  .cards {
+    gap: 10px;
+  }
+}
