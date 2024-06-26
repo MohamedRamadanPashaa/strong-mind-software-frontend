@@ -29,9 +29,9 @@ export default function UserResultItem({ result, course }) {
         <thead>
           <tr>
             <th>Discipline</th>
-            <th>Played</th>
+            <th>Count</th>
             <th>Start (s/c)</th>
-            <th>End (s/c)</th>
+            <th>Max (s/c)</th>
           </tr>
         </thead>
         <tbody>

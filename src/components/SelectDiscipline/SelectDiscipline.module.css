@@ -52,6 +52,29 @@
   padding: 1rem 2rem;
 }
 
+.multi-select {
+  position: static;
+  top: 0;
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+.multi-select label {
+  display: block;
+  color: var(--yellow);
+  margin-bottom: 10px;
+  font-weight: bold;
+  padding-left: 15px;
+}
+
+.multi-select select {
+  box-shadow: none;
+  border: 1px solid #eee;
+  border-radius: 5px;
+  padding: 5px;
+  overflow-y: auto;
+}
+
 @media (max-width: 991px) {
   .select-discipline {
     top: 65px;
@@ -70,6 +93,10 @@
     margin-bottom: 10px;
     top: 55px;
     right: 3%;
+  }
+
+  .multi-select select {
+    padding: 0;
   }
 
   .select-discipline select:hover {

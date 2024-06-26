@@ -18,13 +18,14 @@ export default function CourseItem({
   starts,
   ends,
   slug,
+  level,
   session,
   _id,
 }) {
   const { data = session } = useSession();
   const user = data?.user;
   const [showWarningModel, setShowWarningModel] = useState(false);
-  const { isLoading, sendRequest, error, clearError } = useHttp();
+  const { isLoading, sendRequest } = useHttp();
   const router = useRouter();
 
   const deleteCourseHandler = async () => {
@@ -58,13 +59,15 @@ export default function CourseItem({
 
         <td className={classes.action}>
           <span>
-            <Link href={`/my-courses/${slug}/${batch}/overview`}>Details</Link>
+            <Link href={`/my-courses/${slug}/${batch}/${level}/overview`}>
+              Details
+            </Link>
           </span>
 
           {user?.role === "admin" && (
             <>
               <span className={classes.update}>
-                <Link href={`/update-course/${slug}/${batch}`}>
+                <Link href={`/update-course/${slug}/${batch}/${level}`}>
                   <FaPen />
                 </Link>
               </span>

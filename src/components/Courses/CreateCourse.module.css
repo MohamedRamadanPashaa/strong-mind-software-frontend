@@ -24,6 +24,11 @@
   width: 300px;
 }
 
+.selected-discipline span {
+  color: var(--orange);
+  font-weight: bold;
+}
+
 @media (max-width: 767px) {
   .create-course-inputs {
     gap: 5px;

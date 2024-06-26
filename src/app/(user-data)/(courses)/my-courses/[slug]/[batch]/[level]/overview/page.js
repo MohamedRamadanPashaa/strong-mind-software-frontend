@@ -2,9 +2,9 @@ import CoursePage from "@/components/Courses/CoursePage";
 import { checkEnvironment } from "@/helpers/checkEnvironment";
 import { notFound } from "next/navigation";
 
-const getCourse = async (slug, batch) => {
+const getCourse = async (slug, batch, level) => {
   const res = await fetch(
-    `${checkEnvironment()}/api/v1/courses/${slug}/${batch}`,
+    `${checkEnvironment()}/api/v1/courses/${slug}/${batch}/${level}`,
     {
       cache: "no-store",
     }
@@ -20,8 +20,8 @@ const getCourse = async (slug, batch) => {
 };
 
 export default async function OverviewPage({ params }) {
-  const { slug, batch } = params;
-  const course = await getCourse(slug, batch);
+  const { slug, batch, level } = params;
+  const course = await getCourse(slug, batch, level);
 
   if (!course) notFound();
 

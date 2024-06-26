@@ -60,7 +60,9 @@ export default function CoursePage({ course }) {
         )}
 
         <div className={classes.btn}>
-          <Button to={`/my-courses/${course.slug}/${course.batch}/results`}>
+          <Button
+            to={`/my-courses/${course.slug}/${course.batch}/${course.level}/results`}
+          >
             View Students Results
           </Button>
         </div>

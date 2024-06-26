@@ -8,6 +8,8 @@ import ErrorModal from "../ErrorModal/ErrorModal";
 import Input from "../FormElement/Input";
 import Button from "../FormElement/Button";
 import { VALIDATOR_MIN, VALIDATOR_REQUIRE } from "../utils/validators";
+import { AllDiscipline } from "@/PaginationData/AllDiscipline";
+import MultipleSelect from "../SelectDiscipline/MultipleSelect";
 
 import classes from "./CreateCourse.module.css";
 
@@ -28,12 +30,20 @@ const initialState = {
     value: "",
     isValid: false,
   },
+  level: {
+    value: "",
+    isValid: false,
+  },
+  disciplines: {
+    value: [],
+    isValid: false,
+  },
 };
 
-const CreateCourse = ({ slug, batch }) => {
+const CreateCourse = ({ slug, batch, level }) => {
   const [course, setCourse] = useState({});
   const [loadingCourse, setLoadingCourse] = useState(
-    slug && batch ? true : false
+    slug && batch && level ? true : false
   );
   const { isLoading, error, sendRequest, clearError } = useHttp();
   const [formState, inputHandler, setFormData] = useForm(initialState, false);
@@ -43,7 +53,9 @@ const CreateCourse = ({ slug, batch }) => {
   useEffect(() => {
     const getCourse = async () => {
       try {
-        const { data } = await sendRequest(`/api/v1/courses/${slug}/${batch}`);
+        const { data } = await sendRequest(
+          `/api/v1/courses/${slug}/${batch}/${level}`
+        );
 
         setCourse(data.course);
 
@@ -65,6 +77,14 @@ const CreateCourse = ({ slug, batch }) => {
               value: data.course.batch,
               isValid: true,
             },
+            level: {
+              value: data.course.level,
+              isValid: true,
+            },
+            disciplines: {
+              value: data.course.disciplines,
+              isValid: true,
+            },
           },
           true
         );
@@ -74,14 +94,14 @@ const CreateCourse = ({ slug, batch }) => {
       setLoadingCourse(false);
     };
 
-    if (slug && batch) getCourse();
-  }, [sendRequest, slug, batch, setFormData]);
+    if (slug && batch && level) getCourse();
+  }, [sendRequest, slug, batch, level, setFormData]);
 
   // update or create competition
   const courseHandler = async () => {
     let url = "";
     let method = "";
-    if (slug && batch) {
+    if (slug && batch && level) {
       url = `/api/v1/courses/update-course-info/${course._id}`;
       method = "PATCH";
     } else {
@@ -98,6 +118,8 @@ const CreateCourse = ({ slug, batch }) => {
           starts: formState.inputs.starts.value,
           ends: formState.inputs.ends.value,
           batch: formState.inputs.batch.value,
+          level: formState.inputs.level.value,
+          disciplines: formState.inputs.disciplines.value,
         }),
         {
           "Content-Type": "application/json",
@@ -161,6 +183,35 @@ const CreateCourse = ({ slug, batch }) => {
               initialValue={course ? course.batch : ""}
               initialValid={slug && batch ? true : false}
             />
+
+            <Input
+              type="number"
+              label="Level"
+              id="level"
+              validators={[VALIDATOR_MIN(1)]}
+              errorText="Please provide the level of the course."
+              onInput={inputHandler}
+              initialValue={course ? course.level : ""}
+              initialValid={slug && batch && level ? true : false}
+            />
+
+            <div>
+              <MultipleSelect
+                options={AllDiscipline}
+                onInput={inputHandler}
+                id="disciplines"
+                label="Choose Disciplines"
+                disciplines={formState.inputs.disciplines.value || []}
+                className={"custom-select"}
+              />
+
+              {formState?.inputs?.disciplines?.value?.length > 0 && (
+                <p className={classes["selected-discipline"]}>
+                  <span>Selected Discipline:</span>{" "}
+                  {formState.inputs.disciplines.value.join(", ")}.
+                </p>
+              )}
+            </div>
           </div>
 
           <div className={classes.btn}>

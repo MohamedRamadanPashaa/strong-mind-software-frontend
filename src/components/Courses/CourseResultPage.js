@@ -14,7 +14,9 @@ export default function CourseResult({ courseResults, course }) {
       )}
 
       <div className={classes.btn}>
-        <Button to={`/my-courses/${course.slug}/${course.batch}/overview`}>
+        <Button
+          to={`/my-courses/${course.slug}/${course.batch}/${course.level}/overview`}
+        >
           Back to Overview
         </Button>
       </div>
