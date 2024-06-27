@@ -30,27 +30,21 @@ const MemoSpoken = ({
   const [allPreloaded, setAllPreloaded] = useState(false);
 
   useEffect(() => {
-    // Preload audio files
+    // Preload audio files into browser cache
     const loadAudioFiles = async () => {
-      const loadPromises = audioArray.map((file, index) => {
-        return new Promise((resolve, reject) => {
-          const audio = new Audio(`/sounds/spoken/${file}.wav`);
-          audio.oncanplaythrough = () => {
-            resolve(audio);
-          };
-          audio.onerror = () => {
-            console.error(`Failed to load audio file: ${file}`);
-            reject();
-          };
-        });
+      const loadPromises = audioArray.map(async (file, index) => {
+        const response = await fetch(`/sounds/spoken/${file}.wav`);
+        if (!response.ok) {
+          throw new Error(`Failed to load audio file: ${file}`);
+        }
+        const blob = await response.blob();
+        const audio = new Audio(URL.createObjectURL(blob));
+        audioRefs.current[index] = audio;
+        console.log(audio);
       });
 
       try {
-        const audioFiles = await Promise.all(loadPromises);
-        audioFiles.forEach((audio, index) => {
-          audioRefs.current[index] = audio;
-        });
-
+        await Promise.all(loadPromises);
         setAllPreloaded(true);
       } catch (error) {
         console.error("Error preloading audio files", error);
