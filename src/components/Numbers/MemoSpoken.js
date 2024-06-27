@@ -36,8 +36,7 @@ const MemoSpoken = ({
         return new Promise((resolve, reject) => {
           const audio = new Audio(`/sounds/spoken/${file}.wav`);
           audio.oncanplaythrough = () => {
-            audioRefs.current[index] = audio;
-            resolve();
+            resolve(audio);
           };
           audio.onerror = () => {
             console.error(`Failed to load audio file: ${file}`);
@@ -47,7 +46,11 @@ const MemoSpoken = ({
       });
 
       try {
-        await Promise.all(loadPromises);
+        const audioFiles = await Promise.all(loadPromises);
+        audioFiles.forEach((audio, index) => {
+          audioRefs.current[index] = audio;
+        });
+
         setAllPreloaded(true);
       } catch (error) {
         console.error("Error preloading audio files", error);
@@ -59,14 +62,27 @@ const MemoSpoken = ({
 
   useEffect(() => {
     let timer;
-    if (allPreloaded && currentPosition < audioArray.length) {
+    if (allPreloaded) {
       timer = setInterval(() => {
-        audioRefs.current[currentPosition].play();
+        if (currentPosition < audioArray.length) {
+          const audio = audioRefs.current[currentPosition];
+          if (audio) {
+            audio.play().catch((error) => {
+              console.error(
+                `Error playing audio file: ${audioArray[currentPosition]}`,
+                error
+              );
+            });
+          } else {
+            console.error(
+              `Audio file not preloaded: ${audioArray[currentPosition]}`
+            );
+          }
 
-        setCurrentPosition((prev) => prev + 1);
+          setCurrentPosition((prev) => prev + 1);
+        }
       }, spokenInterval);
     }
-
     return () => clearInterval(timer);
   }, [audioArray, spokenInterval, currentPosition, allPreloaded]);
 
