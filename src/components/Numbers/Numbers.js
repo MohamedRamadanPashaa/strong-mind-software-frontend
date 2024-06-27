@@ -117,10 +117,19 @@ const Numbers = ({
     const audioFiles = ["a", "b", "c", "Silent", 0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
     await Promise.all(
-      audioFiles.map(async (number) => {
-        const audio = new Audio(`/sounds/spoken/${number}.wav`);
-        await audio.load();
-        console.log(audio);
+      audioFiles.map((number) => {
+        return new Promise((resolve) => {
+          const audio = new Audio(`/sounds/spoken/${number}.wav`);
+          audio.addEventListener(
+            "canplaythrough",
+            () => {
+              console.log(`Preloaded: ${audio.src}`);
+              resolve(audio);
+            },
+            { once: true }
+          );
+          audio.load();
+        });
       })
     );
   };

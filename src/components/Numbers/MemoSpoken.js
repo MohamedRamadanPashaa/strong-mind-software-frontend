@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { memo, useEffect, useRef, useState } from "react";
 import Button from "../FormElement/Button";
 import { useSelector } from "react-redux";
 import { FaMicrophoneLines } from "react-icons/fa6";
@@ -26,22 +26,49 @@ const MemoSpoken = ({
     ...randomNumbersArray,
   ]);
 
+  const audioRefs = useRef([]);
+  const [allPreloaded, setAllPreloaded] = useState(false);
+
+  useEffect(() => {
+    // Preload audio files
+    const loadAudioFiles = async () => {
+      const loadPromises = audioArray.map((file, index) => {
+        return new Promise((resolve, reject) => {
+          const audio = new Audio(`/sounds/spoken/${file}.wav`);
+          audio.oncanplaythrough = () => {
+            audioRefs.current[index] = audio;
+            resolve();
+          };
+          audio.onerror = () => {
+            console.error(`Failed to load audio file: ${file}`);
+            reject();
+          };
+        });
+      });
+
+      try {
+        await Promise.all(loadPromises);
+        setAllPreloaded(true);
+      } catch (error) {
+        console.error("Error preloading audio files", error);
+      }
+    };
+
+    loadAudioFiles();
+  }, [audioArray]);
+
   useEffect(() => {
     let timer;
-    if (currentPosition < audioArray.length) {
-      let audio = new Audio(
-        `/sounds/spoken/${audioArray[currentPosition]}.wav`
-      );
-
+    if (allPreloaded && currentPosition < audioArray.length) {
       timer = setInterval(() => {
-        audio.play();
+        audioRefs.current[currentPosition].play();
 
         setCurrentPosition((prev) => prev + 1);
       }, spokenInterval);
     }
 
     return () => clearInterval(timer);
-  }, [audioArray, spokenInterval, currentPosition]);
+  }, [audioArray, spokenInterval, currentPosition, allPreloaded]);
 
   useEffect(() => {
     if (currentPosition === audioArray.length) {
@@ -85,4 +112,4 @@ const MemoSpoken = ({
   );
 };
 
-export default MemoSpoken;
+export default memo(MemoSpoken);
