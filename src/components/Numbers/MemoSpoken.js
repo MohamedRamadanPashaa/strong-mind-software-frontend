@@ -7,86 +7,47 @@ import classes from "./MemoSpoken.module.css";
 
 const MemoSpoken = ({
   title,
-  randomNumbersArray,
+  audioRefs,
   startRecallHandler,
   custom,
   spokenInterval,
+  randomNumbersArray,
 }) => {
   const { competitionId } = useSelector((state) => state.result);
   const [currentPosition, setCurrentPosition] = useState(0);
-  const [audioArray] = useState([
-    3,
-    2,
-    1,
-    "a",
-    "b",
-    "c",
-    "Silent",
-    "Silent",
-    ...randomNumbersArray,
-  ]);
-
-  const audioRefs = useRef([]);
-  const [allPreloaded, setAllPreloaded] = useState(false);
-
-  useEffect(() => {
-    // Preload audio files into browser cache
-    const loadAudioFiles = async () => {
-      const loadPromises = audioArray.map(async (file, index) => {
-        const response = await fetch(`/sounds/spoken/${file}.wav`);
-        if (!response.ok) {
-          throw new Error(`Failed to load audio file: ${file}`);
-        }
-        const blob = await response.blob();
-        const audio = new Audio(URL.createObjectURL(blob));
-        audioRefs.current[index] = audio;
-        console.log(audio);
-      });
-
-      try {
-        await Promise.all(loadPromises);
-        setAllPreloaded(true);
-      } catch (error) {
-        console.error("Error preloading audio files", error);
-      }
-    };
-
-    loadAudioFiles();
-  }, [audioArray]);
 
   useEffect(() => {
     let timer;
-    if (allPreloaded) {
-      timer = setInterval(() => {
-        if (currentPosition < audioArray.length) {
-          const audio = audioRefs.current[currentPosition];
-          if (audio) {
-            audio.play().catch((error) => {
-              console.error(
-                `Error playing audio file: ${audioArray[currentPosition]}`,
-                error
-              );
-            });
-          } else {
+    timer = setInterval(() => {
+      if (currentPosition < audioRefs.current.length) {
+        const audio = audioRefs.current[currentPosition];
+        if (audio) {
+          audio.play().catch((error) => {
             console.error(
-              `Audio file not preloaded: ${audioArray[currentPosition]}`
+              `Error playing audio file: ${audioRefs[currentPosition]}`,
+              error
             );
-          }
-
-          setCurrentPosition((prev) => prev + 1);
+          });
+        } else {
+          console.error(
+            `Audio file not preloaded: ${audioRefs[currentPosition]}`
+          );
         }
-      }, spokenInterval);
-    }
+
+        setCurrentPosition((prev) => prev + 1);
+      }
+    }, spokenInterval);
+
     return () => clearInterval(timer);
-  }, [audioArray, spokenInterval, currentPosition, allPreloaded]);
+  }, [spokenInterval, currentPosition, audioRefs]);
 
   useEffect(() => {
-    if (currentPosition === audioArray.length) {
+    if (currentPosition === audioRefs.current.length) {
       setTimeout(() => {
         startRecallHandler();
       }, 3000);
     }
-  }, [startRecallHandler, audioArray.length, currentPosition]);
+  }, [startRecallHandler, audioRefs, currentPosition]);
 
   return (
     <div className={classes["memo-recall"]}>

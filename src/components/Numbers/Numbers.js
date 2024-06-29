@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import CountDown from "../TrainStartElements/CountDown";
 import PreparePage from "./PreparePage";
 import MemoNumbers from "./MemoNumbers";
@@ -113,31 +113,67 @@ const Numbers = ({
   };
 
   // Function to preload audio files
-  const preloadAudio = async () => {
-    const audioFiles = ["a", "b", "c", "Silent", 0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+  // const preloadAudio = async () => {
+  //   const audioFiles = ["a", "b", "c", "Silent", 0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-    await Promise.all(
-      audioFiles.map((number) => {
-        return new Promise((resolve) => {
-          const audio = new Audio(`/sounds/spoken/${number}.wav`);
-          audio.addEventListener(
-            "canplaythrough",
-            () => {
-              console.log(`Preloaded: ${audio.src}`);
-              resolve(audio);
-            },
-            { once: true }
-          );
-          audio.load();
-        });
-      })
-    );
+  //   await Promise.all(
+  //     audioFiles.map((number) => {
+  //       return new Promise((resolve) => {
+  //         const audio = new Audio(`/sounds/spoken/${number}.wav`);
+  //         audio.addEventListener(
+  //           "canplaythrough",
+  //           () => {
+  //             console.log(`Preloaded: ${audio.src}`);
+  //             resolve(audio);
+  //           },
+  //           { once: true }
+  //         );
+  //         audio.load();
+  //       });
+  //     })
+  //   );
+  // };
+
+  const audioRefs = useRef([]);
+  const [loadedAmount, setLoadedAmount] = useState(0);
+  const loadAudioFiles = async (randomNumbersArray) => {
+    const audioArray = [
+      3,
+      2,
+      1,
+      "a",
+      "b",
+      "c",
+      "Silent",
+      "Silent",
+      ...randomNumbersArray,
+    ];
+    const loadedArr = [];
+
+    const loadPromises = audioArray.map(async (file, index) => {
+      const response = await fetch(`/sounds/spoken/${file}.wav`);
+      if (!response.ok) {
+        throw new Error(`Failed to load audio file: ${file}`);
+      }
+      const blob = await response.blob();
+      const audio = new Audio(URL.createObjectURL(blob));
+      audioRefs.current[index] = audio;
+
+      loadedArr.push(index);
+      setLoadedAmount(loadedArr.length / amount);
+    });
+
+    try {
+      await Promise.all(loadPromises);
+    } catch (error) {
+      console.error("Error preloading audio files", error);
+    }
   };
 
   const preloadDataHandler = async () => {
-    generateRandomNumbersHandler();
+    const randomNumbersArray = generateRandomNumbersHandler();
     generateRecallElement();
-    type === "spoken" && (await preloadAudio());
+    type === "spoken" && (await loadAudioFiles(randomNumbersArray));
     setPreloadData(true);
   };
 
@@ -200,6 +236,7 @@ const Numbers = ({
             type={type}
             spokenInterval={spokenInterval}
             setSpokenInterval={setSpokenInterval}
+            loadedAmount={loadedAmount}
           />
         )}
 
@@ -220,6 +257,7 @@ const Numbers = ({
               startRecallHandler={startRecallCountdownHandler}
               custom={custom}
               spokenInterval={spokenInterval}
+              audioRefs={audioRefs}
             />
           ) : (
             <MemoNumbers

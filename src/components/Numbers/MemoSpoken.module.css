@@ -15,16 +15,16 @@
 .header {
   display: flex;
   justify-content: space-between;
-  background-color: #eee;
   padding: 1rem 1.5rem;
   width: 95%;
   margin: 0 auto 50px;
-  border: 1px solid #ccc;
+  box-shadow: var(--box-shadow-light-inset);
 }
 
 .header h2,
 .header h3 {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
+  font-variant-numeric: tabular-nums;
 }
 
 .header h2 {
@@ -32,7 +32,7 @@
 }
 
 .header h3 {
-  color: #222;
+  color: var(--black);
 }
 
 .memo-recall-page svg {
@@ -61,7 +61,7 @@
 
   .header h3,
   .header h2 {
-    font-size: 1.1rem;
+    font-size: 0.8rem;
   }
 
   .memo-recall-page svg {

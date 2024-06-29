@@ -33,13 +33,14 @@ const PreparePage = ({
   resetDataHandler,
   spokenInterval,
   setSpokenInterval,
+  loadedAmount,
 }) => {
   const [attempt, setAttempt] = useState(1);
   useEffect(() => {
     if (typeof window !== "undefined") {
       setAttempt(localStorage.getItem(`${type}Attempt`) || 1);
     }
-  }, []);
+  }, [setAttempt, type]);
 
   return (
     <PrepareCard
@@ -61,6 +62,7 @@ const PreparePage = ({
       setMemoTime={setMemoTime}
       setRecallTime={setRecallTime}
       resetDataHandler={resetDataHandler}
+      loadedAmount={loadedAmount}
       instructionsDiscipline={
         type === "spoken" ? (
           <SpokenInstructions />
