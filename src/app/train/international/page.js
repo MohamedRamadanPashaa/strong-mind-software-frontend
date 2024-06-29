@@ -1,5 +1,9 @@
 import Card from "@/components/UIElements/Card";
 
+export const metadata = {
+  title: "International",
+};
+
 const testDetails = [
   {
     title: "Speed Numbers",

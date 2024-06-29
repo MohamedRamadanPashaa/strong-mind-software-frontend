@@ -1,5 +1,11 @@
 import Card from "@/components/UIElements/Card";
 
+export const metadata = {
+  title: "Train",
+  description:
+    "Unlock your full memory potential with our advanced training tools. Train in all memory disciplines using national, international, and world standards, or create custom training sessions tailored to your needs. Elevate your cognitive abilities and track your progress with our comprehensive training platform. Start mastering your memory today!",
+};
+
 const testDetails = [
   {
     title: "National",

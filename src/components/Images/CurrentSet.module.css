@@ -11,6 +11,9 @@
   width: 290px;
   height: 290px;
   background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .img img {

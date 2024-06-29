@@ -42,7 +42,7 @@
   padding: 0;
   width: 100%;
   height: 100%;
-  border-color: #ddd;
+  border-color: #eee;
 }
 
 .active input,
@@ -76,11 +76,12 @@
 
 @media (max-width: 767px) {
   .recall-sheet {
-    height: 350px;
+    height: 250px;
   }
 
   .row {
     gap: 0px;
+    margin-bottom: 25px;
   }
 
   .row-num {
@@ -89,12 +90,25 @@
 
   .recall-element {
     gap: 0;
+    position: relative;
+    border: 1px solid #eee;
+  }
+
+  .recall-input {
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
   }
 
   .recall-input input {
-    width: 12px;
-    height: 12px;
-    font-size: 0.5rem;
+    width: 20px;
+    height: 20px;
+    font-size: 0.8rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .img {
@@ -102,7 +116,15 @@
     height: 60px;
   }
 
+  .img img {
+    border: none;
+  }
+
   .focus img {
     box-shadow: 0 0px 4px 2px #f6ca1cb7;
+  }
+
+  .focus input {
+    background-color: var(--orange);
   }
 }
