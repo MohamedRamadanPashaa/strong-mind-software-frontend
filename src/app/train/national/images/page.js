@@ -9,7 +9,7 @@ export default function LongNumbersPage() {
       memoTime={5}
       recallTime={20}
       title={"Images"}
-      amount={660}
+      amount={785}
       numberBerRow={5}
       rowInPage={3}
       calculatePoints={calculatePoints5Img}

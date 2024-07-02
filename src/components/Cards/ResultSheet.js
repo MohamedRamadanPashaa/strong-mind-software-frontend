@@ -1,4 +1,3 @@
-import Image from "next/image";
 import classes from "./ResultSheet.module.css";
 
 const ResultSheet = ({
@@ -40,12 +39,12 @@ const ResultSheet = ({
               </span>
               <div className={classes.img}>
                 {card !== "" && (
-                  <Image
-                    width={0}
-                    height={0}
-                    sizes="100vw"
+                  <img
+                    // width={0}
+                    // height={0}
+                    // sizes="100vw"
+                    // priority
                     style={{ width: "auto", height: "100%" }}
-                    priority
                     src={`/img/cards/${card}`}
                     alt={`${card}`}
                   />
@@ -69,12 +68,12 @@ const ResultSheet = ({
               key={card}
             >
               {!recCardsArrayInOnePage.includes(card) && (
-                <Image
-                  width={0}
-                  height={0}
-                  sizes="100vw"
+                <img
+                  // width={0}
+                  // height={0}
+                  // sizes="100vw"
+                  // priority
                   style={{ width: "auto", height: "100%" }}
-                  priority
                   src={`/img/cards/${card}`}
                   alt={`${card}`}
                 />

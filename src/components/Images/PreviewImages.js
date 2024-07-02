@@ -1,4 +1,3 @@
-import Image from "next/image";
 import classes from "./PreviewImages.module.css";
 
 const PreviewImages = ({ grouping }) => {
@@ -6,12 +5,12 @@ const PreviewImages = ({ grouping }) => {
     <div className={classes.preview}>
       {Array.from(Array(grouping * 1 || 1).keys()).map((group, index) => (
         <div key={index} className={classes["img-preview"]}>
-          <Image
+          <img
             src={`/img/IAM_Images_Database/1 (${index + 1}).png`}
             alt="train-img"
-            width={100}
-            height={100}
-            priority
+            // width={100}
+            // height={100}
+            // priority
           />
         </div>
       ))}

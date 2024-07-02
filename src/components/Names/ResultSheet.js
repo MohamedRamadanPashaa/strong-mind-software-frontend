@@ -1,4 +1,3 @@
-import Image from "next/image";
 import compareTwoWords from "../../helpers/compareTwoWords";
 import classes from "./ResultSheet.module.css";
 
@@ -39,10 +38,10 @@ const ResultSheet = ({
                 }`}
               >
                 <div className={classes.img}>
-                  <Image
-                    width={250}
-                    height={250}
-                    priority
+                  <img
+                    // width={250}
+                    // height={250}
+                    // priority
                     src={`/img/faces/${
                       name.face.startsWith("male") ? "m" : "f"
                     }/${name.face}`}

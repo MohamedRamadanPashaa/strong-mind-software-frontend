@@ -23,7 +23,7 @@
   cursor: pointer;
   transition: 0.3s;
   width: 250px;
-  box-shadow: var(--box-shadow-light);
+  box-shadow: var(--box-shadow-light-inset);
 }
 
 .select-discipline select:hover {

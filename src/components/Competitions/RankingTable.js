@@ -19,7 +19,7 @@ const rowInPage = 10;
 let numberOfPage = 0;
 let rank;
 
-const RankingTable = ({ title, competition, standard }) => {
+const RankingTable = ({ title, standard }) => {
   const { data, status } = useSession();
   const user = data?.user;
   const [page, setPage] = useState(1);

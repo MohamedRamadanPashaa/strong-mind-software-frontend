@@ -106,8 +106,7 @@ export const getScoreAndCorrectNumbers = (
 export const getScoreAndCorrectSpokenNumbers = (
   randomNumbersArray,
   numbersRecalledArray,
-  amount,
-  numberBerRow
+  amount
 ) => {
   let ranArray = [...randomNumbersArray];
   let recArray = [...numbersRecalledArray];
@@ -132,11 +131,6 @@ export const getScoreAndCorrectSpokenNumbers = (
       errors.push("empty");
     }
   }
-
-  // exclude the empty arrays
-  errors = errors.filter(
-    (arr) => arr.includes("correct") || arr.includes("error")
-  );
 
   const firstErrorIndex = errors.findIndex(
     (el) => el === "error" || el === "empty"

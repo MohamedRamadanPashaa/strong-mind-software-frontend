@@ -1,0 +1,19 @@
+.ranking-table {
+  width: 90%;
+  margin: 15px auto;
+}
+
+.ranking-table table {
+  width: 100%;
+}
+
+@media (max-width: 767px) {
+  .ranking-table {
+    width: 95%;
+    margin: 10px auto;
+  }
+
+  .ranking-table table {
+    margin-top: 10px;
+  }
+}

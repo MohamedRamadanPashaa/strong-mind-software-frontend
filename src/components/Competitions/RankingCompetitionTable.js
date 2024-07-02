@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Pagination from "../ShareDiscipline/Pagination";
-import { memo, useEffect, useState } from "react";
+import { memo, useEffect, useLayoutEffect, useState } from "react";
 
 import { calculatePointsObj } from "../../helpers/calculatePointsObj";
 import TopThree from "./TopThree";
@@ -11,7 +11,7 @@ import { useSession } from "next-auth/react";
 
 import classes from "./Ranking.module.css";
 
-const rowInPage = 10;
+const rowInPage = 5;
 
 const RankingCompetitionTable = ({
   disciplines,
@@ -46,7 +46,7 @@ const RankingCompetitionTable = ({
   // sort table based on its title
   const [disciplinesSorted, setDisciplineSorted] = useState(disciplines);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (title !== "Overall") {
       let arrNew = [];
       for (let i = 0; i < disciplines.length; i++) {
@@ -89,6 +89,21 @@ const RankingCompetitionTable = ({
             rank = i + 1;
             arrNew[i][0].rank = rank;
           }
+        }
+      }
+
+      // set the page of specific user
+      if (data?.user) {
+        const currentUserIndex = arrNew.findIndex(
+          (arr) => arr[0].competitor._id === data.user.id
+        );
+
+        let currentPage = 1;
+        if (currentUserIndex !== -1) {
+          currentPage = Math.ceil((currentUserIndex + 1) / rowInPage);
+
+          console.log(currentPage);
+          setPage(currentPage);
         }
       }
 
@@ -143,15 +158,9 @@ const RankingCompetitionTable = ({
 
       setDisciplineSorted(arrNew);
     }
+  }, [disciplines, title, competition, data]);
 
-    setPage(1);
-  }, [disciplines, title, competition]);
-
-  const [onePageCompetitor, setOnePageCompetitor] = useState(
-    disciplinesSorted.filter(
-      (res, indx) => indx >= (page - 1) * rowInPage && indx < page * rowInPage
-    )
-  );
+  const [onePageCompetitor, setOnePageCompetitor] = useState([]);
 
   useEffect(() => {
     setOnePageCompetitor(
@@ -159,7 +168,7 @@ const RankingCompetitionTable = ({
         (res, indx) => indx >= (page - 1) * rowInPage && indx < page * rowInPage
       )
     );
-  }, [page, disciplinesSorted]);
+  }, [page, disciplinesSorted, data]);
 
   const pressPageNavigationHandler = (p) => {
     setPage(p);

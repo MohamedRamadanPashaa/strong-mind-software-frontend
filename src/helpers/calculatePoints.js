@@ -20,7 +20,7 @@ export const calculatePoints30Bin = (score) =>
   Math.round((score / 6171) * 100000) / 100;
 
 export const calculatePoints5Img = (score) =>
-  Math.round((score / 567) * 100000) / 100;
+  Math.round((score / 679) * 100000) / 100;
 
 export const calculatePoints10Car = (score) =>
   Math.round((score / 589) * 100000) / 100;
